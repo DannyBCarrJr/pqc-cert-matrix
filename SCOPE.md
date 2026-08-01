@@ -9,8 +9,14 @@ All ten v1 client columns populated (80 cells, MATRIX.md).
 schannel isolation CLOSED 2026-08-01 (`isolation/FINDINGS.md`): the ML-DSA
 failure replicates against a second server implementation (bctls 1.82) and the
 decoded ClientHello shows no ML-DSA signature scheme offered, so the causal
-claim is publishable. Next: article 3, Phase 3 transport measurements, then
-Phase 4 publish.
+claim is publishable.
+**Article 3 PUBLISHED 2026-08-01**: "Hybrid certificates, weighed" at
+carrdigital.dev/writing/hybrid-certificates-weighed/ (carr-digital `790657d`),
+built on the corrected PRIOR-ART thesis and citing all three papers. It states
+publicly that this repo's scripts and evidence publish once the transport
+measurements are done, so Phase 3 is now a commitment, not an option. Add the
+repo link back into the article when Phase 4 lands.
+Next: Phase 3 transport measurements, then Phase 4 publish.
 Owner: Danny. Flagship candidate for the "operational evidence layer" strategy;
 feeds article 3 and the public lab repo.
 
