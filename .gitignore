@@ -7,3 +7,6 @@ composite/lib/
 *.class
 __pycache__/
 *.pyc
+
+# Phase 3 python venv (brotli/zstandard); recreate per phase3/FINDINGS.md
+phase3/.venv/
