@@ -80,6 +80,13 @@ the flag; the flag state IS the matrix cell.
   underneath). Both errors point operators at trust stores when the cause is
   algorithm support.
 
+> **Novelty check done 2026-07-31: see `../PRIOR-ART.md` before claiming any of
+> this publicly.** The same-weight size result and the "classical verifiers
+> ignore catalyst extensions" result are PREEMPTED by IACR ePrint 2026/1416.
+> The Windows split is WEAKENED: schannel's PQ scope is ML-KEM only per
+> Microsoft, so it is a measured demonstration, not a discovery. The SLH-root
+> wire cost is UNVERIFIED against arXiv 2604.06100.
+
 ## Phase 2 early findings (first four client columns, 2026-07-31)
 
 - **Parsing never fails.** Every client parses every chain, composite included.
