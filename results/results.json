@@ -19,6 +19,25 @@
     "chain": "ecdsa"
   },
   {
+    "client": "go",
+    "client_version": "go version go1.26.0 linux/amd64",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=ECDSA-SHA256 pubKeyAlg=ECDSA subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK version=304 cipher=1301"
+      }
+    },
+    "chain": "ecdsa"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -32,7 +51,7 @@
       },
       "handshake": {
         "status": "ok",
-        "detail": "---"
+        "detail": "DONE"
       }
     },
     "chain": "ecdsa"
@@ -70,7 +89,26 @@
       },
       "handshake": {
         "status": "fail",
-        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
+        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
+      }
+    },
+    "chain": "mldsa44"
+  },
+  {
+    "client": "go",
+    "client_version": "go version go1.26.0 linux/amd64",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=0 pubKeyAlg=0 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "verify: x509: certificate signed by unknown authority | exit status 1"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "handshake: remote error: tls: handshake failure | exit status 1"
       }
     },
     "chain": "mldsa44"
@@ -85,11 +123,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40B702D21B700000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40B702D21B700000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "4007AB0A1E730000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4007AB0A1E730000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "Verify return code: 0 (ok) | ---"
+        "detail": "--- | 4057916C0F700000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa44"
@@ -133,6 +171,25 @@
     "chain": "mldsa65"
   },
   {
+    "client": "go",
+    "client_version": "go version go1.26.0 linux/amd64",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=0 pubKeyAlg=0 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "verify: x509: certificate signed by unknown authority | exit status 1"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "handshake: remote error: tls: handshake failure | exit status 1"
+      }
+    },
+    "chain": "mldsa65"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -142,11 +199,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40E724DBAC750000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40E724DBAC750000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "4027189012750000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4027189012750000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "Verify return code: 0 (ok) | ---"
+        "detail": "--- | 40C76B5D8E700000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa65"
@@ -190,6 +247,25 @@
     "chain": "mldsa87"
   },
   {
+    "client": "go",
+    "client_version": "go version go1.26.0 linux/amd64",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=0 pubKeyAlg=0 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "verify: x509: certificate signed by unknown authority | exit status 1"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "handshake: remote error: tls: handshake failure | exit status 1"
+      }
+    },
+    "chain": "mldsa87"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -199,11 +275,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40570DD9DB700000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40570DD9DB700000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "4007C8E5E6760000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4007C8E5E6760000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "Verify return code: 0 (ok) | ---"
+        "detail": "--- | 4027CDDCB67E0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa87"
@@ -247,6 +323,25 @@
     "chain": "slhroot"
   },
   {
+    "client": "go",
+    "client_version": "go version go1.26.0 linux/amd64",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=0 pubKeyAlg=0 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "verify: x509: certificate signed by unknown authority | exit status 1"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "handshake: remote error: tls: handshake failure | exit status 1"
+      }
+    },
+    "chain": "slhroot"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -256,11 +351,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40A7191A27720000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40A7191A27720000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40779E5633740000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40779E5633740000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "Verify return code: 0 (ok) | ---"
+        "detail": "--- | 40C783F9CD7C0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "slhroot"
@@ -298,7 +393,26 @@
       },
       "handshake": {
         "status": "fail",
-        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
+        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
+      }
+    },
+    "chain": "mixed"
+  },
+  {
+    "client": "go",
+    "client_version": "go version go1.26.0 linux/amd64",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=0 pubKeyAlg=0 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "verify: x509: certificate signed by unknown authority | exit status 1"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "handshake: remote error: tls: handshake failure | exit status 1"
       }
     },
     "chain": "mixed"
@@ -313,11 +427,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40A711E4CF7F0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40A711E4CF7F0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40072683617E0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40072683617E0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40E70C48C0740000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "--- | 40A7886956740000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mixed"
@@ -356,6 +470,25 @@
       "handshake": {
         "status": "ok",
         "detail": "- Peer has closed the GnuTLS connection"
+      }
+    },
+    "chain": "catalyst"
+  },
+  {
+    "client": "go",
+    "client_version": "go version go1.26.0 linux/amd64",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=ECDSA-SHA256 pubKeyAlg=ECDSA subject=CN=matrix-hybrid.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK version=304 cipher=1301"
       }
     },
     "chain": "catalyst"
@@ -418,6 +551,25 @@
     "chain": "composite"
   },
   {
+    "client": "go",
+    "client_version": "go version go1.26.0 linux/amd64",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=0 pubKeyAlg=0 subject=CN=PQM Matrix Composite Self-Signed"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "no server for this chain"
+      }
+    },
+    "chain": "composite"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -427,7 +579,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40D77CD2C27D0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40D77CD2C27D0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40072C91BF770000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40072C91BF770000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "skip",
@@ -446,7 +598,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40874A63267A0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 40874A63267A0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
+        "detail": "40C7AB371B7F0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 40C7AB371B7F0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
       },
       "handshake": {
         "status": "skip",

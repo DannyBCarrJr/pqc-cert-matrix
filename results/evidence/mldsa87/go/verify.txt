@@ -1,0 +1,2 @@
+verify: x509: certificate signed by unknown authority
+exit status 1

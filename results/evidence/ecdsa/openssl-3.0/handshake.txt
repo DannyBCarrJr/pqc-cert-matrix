@@ -4,7 +4,6 @@ depth=1 CN = PQM Matrix ecdsa Intermediate
 verify return:1
 depth=0 CN = matrix.test
 verify return:1
-DONE
 CONNECTED(00000003)
 ---
 Certificate chain
@@ -38,7 +37,7 @@ Peer signing digest: SHA256
 Peer signature type: ECDSA
 Server Temp Key: X25519, 253 bits
 ---
-SSL handshake has read 1290 bytes and written 393 bytes
+SSL handshake has read 1291 bytes and written 393 bytes
 Verification: OK
 ---
 New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
@@ -50,3 +49,4 @@ No ALPN negotiated
 Early data was not sent
 Verify return code: 0 (ok)
 ---
+DONE

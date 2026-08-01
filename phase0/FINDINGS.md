@@ -80,6 +80,30 @@ the flag; the flag state IS the matrix cell.
   underneath). Both errors point operators at trust stores when the cause is
   algorithm support.
 
+## Phase 2 early findings (first four client columns, 2026-07-31)
+
+- **Parsing never fails.** Every client parses every chain, composite included.
+  PQ certificates break validation, not parsers.
+- **Catalyst full-passes everywhere measured** (GnuTLS, OpenSSL 3.0/3.5, Go):
+  offline verify AND completed TLS 1.3 handshake. The hybrid compatibility claim
+  is now measured, not asserted.
+- **Composite validates nowhere**, including OpenSSL 3.5. Mintable (Bouncy
+  Castle) but not consumable by any TLS stack tested so far.
+- **The false-ok:** OpenSSL 3.0 s_client prints `Verify return code: 0 (ok)` on
+  a handshake that died at alert 40 before any certificate was exchanged
+  (evidence: results/evidence/mldsa65/openssl-3.0/handshake.txt). Health checks
+  grepping the verify line pass on a dead connection.
+- **Trust-anchor semantics diverge.** Go verifies the self-signed composite cert
+  while reporting its algorithms as unknown: Go does not validate signatures on
+  certs already in the root pool (axiomatic trust). OpenSSL and GnuTLS attempt
+  to use the unknown key and fail. "Verify" does not mean the same thing across
+  stacks for self-signed PQ certs.
+- **Error text quality, ranked worst to least bad** for the same root cause (no
+  ML-DSA support): Go handshake `remote error: tls: handshake failure`; GnuTLS
+  `certificate is NOT trusted`; Go verify `certificate signed by unknown
+  authority`; OpenSSL `X509_PUBKEY_get0 decode error` (at least it points at the
+  key). None name the algorithm.
+
 ## Phase 1 notes
 
 - Add SLH-DSA root variant to the corpus generator (cheap now, matches the

@@ -1,0 +1,1 @@
+parsed: sigAlg=0 pubKeyAlg=0 subject=CN=PQM Matrix Composite Self-Signed

@@ -1,4 +1,3 @@
-4077F51558720000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40
 CONNECTED(00000003)
 ---
 no peer certificate available
@@ -16,3 +15,4 @@ No ALPN negotiated
 Early data was not sent
 Verify return code: 0 (ok)
 ---
+4057916C0F700000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40
