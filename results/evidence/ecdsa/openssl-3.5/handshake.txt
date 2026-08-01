@@ -1,20 +1,21 @@
-depth=2 CN = PQM Matrix ecdsa Root
+Connecting to 127.0.0.1
+Can't use SSL_get_servername
+depth=2 CN=PQM Matrix ecdsa Root
 verify return:1
-depth=1 CN = PQM Matrix ecdsa Intermediate
+depth=1 CN=PQM Matrix ecdsa Intermediate
 verify return:1
-depth=0 CN = matrix.test
+depth=0 CN=matrix.test
 verify return:1
-DONE
 CONNECTED(00000003)
 ---
 Certificate chain
- 0 s:CN = matrix.test
-   i:CN = PQM Matrix ecdsa Intermediate
-   a:PKEY: id-ecPublicKey, 256 (bit); sigalg: ecdsa-with-SHA256
+ 0 s:CN=matrix.test
+   i:CN=PQM Matrix ecdsa Intermediate
+   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA256
    v:NotBefore: Jul 31 23:59:14 2026 GMT; NotAfter: Aug 30 23:59:14 2026 GMT
- 1 s:CN = PQM Matrix ecdsa Intermediate
-   i:CN = PQM Matrix ecdsa Root
-   a:PKEY: id-ecPublicKey, 256 (bit); sigalg: ecdsa-with-SHA256
+ 1 s:CN=PQM Matrix ecdsa Intermediate
+   i:CN=PQM Matrix ecdsa Root
+   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA256
    v:NotBefore: Jul 31 23:59:14 2026 GMT; NotAfter: Sep 29 23:59:14 2026 GMT
 ---
 Server certificate
@@ -30,23 +31,25 @@ HeZ3bjP1QXcFMB8GA1UdIwQYMBaAFFc8hBfXRaPa7iSr1bHithKC9VY0MAoGCCqG
 SM49BAMCA0gAMEUCICSWsE7MD8h4jZOcQUy94gtDnPtey+Vzw+z0oU83sQcRAiEA
 xGe+GNiMJYMf8Xqz6E23r3kq9u82VebrTMifqzz2zMU=
 -----END CERTIFICATE-----
-subject=CN = matrix.test
-issuer=CN = PQM Matrix ecdsa Intermediate
+subject=CN=matrix.test
+issuer=CN=PQM Matrix ecdsa Intermediate
 ---
 No client certificate CA names sent
 Peer signing digest: SHA256
-Peer signature type: ECDSA
-Server Temp Key: X25519, 253 bits
+Peer signature type: ecdsa_secp256r1_sha256
+Negotiated TLS1.3 group: X25519MLKEM768
 ---
-SSL handshake has read 1290 bytes and written 393 bytes
+SSL handshake has read 2365 bytes and written 1569 bytes
 Verification: OK
 ---
 New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Protocol: TLSv1.3
 Server public key is 256 bit
-Secure Renegotiation IS NOT supported
+This TLS version forbids renegotiation.
 Compression: NONE
 Expansion: NONE
 No ALPN negotiated
 Early data was not sent
 Verify return code: 0 (ok)
 ---
+DONE

@@ -15,7 +15,7 @@ Connecting to '127.0.0.1:14433'...
  - subject `CN=PQM Matrix ecdsa Intermediate', issuer `CN=PQM Matrix ecdsa Root', serial 0x0f6bf40f77811d7b0cd83f42831c474639d809eb, EC/ECDSA key 256 bits, signed using ECDSA-SHA256, activated `2026-07-31 23:46:36 UTC', expires `2026-09-29 23:46:36 UTC', pin-sha256="+xMK2POGX7Z+H6AF+Kk55BgCAA/IM3FCpARCWH6GByY="
 - Status: The certificate is trusted. 
 - Description: (TLS1.3-X.509)-(ECDHE-SECP256R1)-(ECDSA-SECP256R1-SHA256)-(AES-256-GCM)
-- Session ID: 1B:EC:13:BA:FC:AA:3F:3A:67:4C:E7:00:A4:62:92:1E:78:3A:FF:63:C0:40:58:FB:65:62:6F:31:AA:BB:20:E4
+- Session ID: 5E:C7:DB:AD:C2:4F:F8:10:4B:04:D5:8E:92:D8:BB:00:10:B5:3E:CA:5B:6A:7B:90:97:C9:E3:08:38:F4:07:D8
 - Options:
 - Handshake was completed
 

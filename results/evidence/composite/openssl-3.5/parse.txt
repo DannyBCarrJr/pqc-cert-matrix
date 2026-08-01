@@ -3,16 +3,16 @@ Certificate:
         Version: 3 (0x2)
         Serial Number: 1347243314 (0x504d4d32)
         Signature Algorithm: 2.16.840.1.114027.80.9.1.8
-        Issuer: CN = PQM Matrix Composite Self-Signed
+        Issuer: CN=PQM Matrix Composite Self-Signed
         Validity
             Not Before: Aug  1 00:00:00 2026 GMT
             Not After : Aug 31 00:00:00 2026 GMT
-        Subject: CN = PQM Matrix Composite Self-Signed
+        Subject: CN=PQM Matrix Composite Self-Signed
         Subject Public Key Info:
             Public Key Algorithm: 2.16.840.1.114027.80.9.1.8
             Unable to load Public Key
-40973D1DE17C0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458:
-40973D1DE17C0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458:
+4007E59A657D0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466:
+4007E59A657D0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466:
     Signature Algorithm: 2.16.840.1.114027.80.9.1.8
     Signature Value:
         17:f0:e3:23:5f:2c:fe:24:c6:b5:2c:9e:61:da:8c:cc:83:23:

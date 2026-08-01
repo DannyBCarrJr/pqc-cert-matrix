@@ -3,17 +3,104 @@ Certificate:
         Version: 3 (0x2)
         Serial Number:
             59:de:1f:c4:a2:89:7b:75:03:a8:1d:55:e2:99:9d:1b:49:4e:c3:16
-        Signature Algorithm: 2.16.840.1.101.3.4.3.17
-        Issuer: CN = PQM Matrix mldsa44 Intermediate
+        Signature Algorithm: ML-DSA-44
+        Issuer: CN=PQM Matrix mldsa44 Intermediate
         Validity
             Not Before: Jul 31 23:59:14 2026 GMT
             Not After : Aug 30 23:59:14 2026 GMT
-        Subject: CN = matrix.test
+        Subject: CN=matrix.test
         Subject Public Key Info:
-            Public Key Algorithm: 2.16.840.1.101.3.4.3.17
-            Unable to load Public Key
-4017B6BB1F7F0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458:
-4017B6BB1F7F0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458:
+            Public Key Algorithm: ML-DSA-44
+                ML-DSA-44 Public-Key:
+                pub:
+                    64:7e:d4:77:9e:b4:0a:ef:c5:41:ac:1d:f4:8d:ab:
+                    4c:b1:28:a5:7d:71:28:24:81:b6:06:ff:ed:ae:d5:
+                    c8:bd:7e:b2:b3:8f:13:48:97:dc:52:aa:26:b9:f8:
+                    0b:b4:ec:68:ba:c1:69:b7:d3:dd:c6:03:3c:12:db:
+                    f8:50:dd:79:e6:d8:05:1d:8e:4b:65:9f:80:37:64:
+                    d1:71:13:29:74:f8:2d:43:7d:51:82:48:95:7b:92:
+                    da:15:18:71:35:4c:d9:56:31:51:9b:16:83:31:b8:
+                    b8:5e:f9:3f:53:1e:88:e4:34:32:cc:b5:bc:05:33:
+                    a9:72:1a:c2:a3:27:c1:18:cf:36:12:52:72:5f:60:
+                    e3:54:92:28:41:29:13:24:99:2f:96:46:80:93:f3:
+                    a1:af:78:18:ad:f9:8f:30:1f:cf:10:64:5a:36:ee:
+                    02:75:07:aa:87:c3:3b:22:4b:8a:5f:31:3d:57:b3:
+                    4b:0e:cb:a3:b7:31:d5:47:c4:ca:db:bb:37:ea:b8:
+                    78:bd:03:03:af:fa:bc:f4:eb:ab:45:14:9f:6a:3e:
+                    81:3d:4f:f1:d8:fa:0b:b6:b9:eb:ff:77:b8:91:40:
+                    5f:af:b2:14:a6:4e:02:ea:9d:6e:13:09:dc:fc:ad:
+                    2d:cb:f6:b5:8f:94:89:c9:a7:cd:93:8d:04:af:2b:
+                    a6:7a:58:f4:39:c2:78:71:3e:88:09:3c:86:15:13:
+                    19:9b:ee:bd:7a:97:4d:d9:b5:64:94:6a:fb:d6:56:
+                    6e:7c:7b:5b:f4:1c:e7:8c:5d:ef:b2:3d:15:eb:bf:
+                    64:e8:32:71:fd:04:6e:6c:01:b9:10:d8:00:8a:4a:
+                    07:26:43:73:46:bb:7c:a3:36:b6:bd:87:cb:06:27:
+                    50:c2:d6:8b:3c:74:8a:7a:d7:3f:a8:23:5a:d7:86:
+                    35:5f:76:85:1f:21:a2:2d:26:17:3f:4f:eb:b9:c9:
+                    3b:a0:4d:58:c7:aa:04:f0:1f:23:6a:8d:9c:d5:7f:
+                    3d:45:c0:47:49:85:5b:96:cb:bc:37:06:8c:c8:7f:
+                    13:dc:0d:81:63:b2:52:d8:6c:70:0c:ff:48:c1:af:
+                    79:9a:8d:b7:d9:de:bc:4d:3f:07:83:e4:b1:7b:e2:
+                    70:5c:86:47:2e:f8:c9:8b:30:9a:4a:87:20:ac:09:
+                    5d:14:34:da:1f:fd:c6:79:a9:6e:cc:2e:72:2f:2d:
+                    33:a5:d9:b6:ec:a5:8b:4e:80:1b:a7:f3:71:29:be:
+                    e6:dd:8f:28:88:65:90:c7:2f:86:15:cd:d5:2e:06:
+                    0d:95:d5:3a:85:24:aa:bc:9c:31:d0:f7:53:15:21:
+                    06:34:40:f4:f7:d3:5a:d4:2b:e3:f1:46:dc:27:17:
+                    a0:09:46:9b:12:e4:9e:00:22:76:0b:ec:a7:a8:6b:
+                    30:80:91:35:7c:57:cf:5c:32:de:11:7d:6a:d6:2e:
+                    e7:ba:0f:2c:e2:e4:76:af:fd:0a:62:b2:35:f0:14:
+                    19:6f:42:88:ba:aa:01:ff:3a:e0:df:16:42:0d:26:
+                    8a:2f:5f:57:b1:2d:e0:2a:9c:db:09:90:69:16:8d:
+                    05:85:0b:8f:da:5d:ed:a9:85:50:af:8f:7c:c5:0b:
+                    8f:7b:e3:04:a2:0b:d1:c1:c6:4a:9a:aa:d4:27:a5:
+                    9f:4f:17:e8:b1:13:1e:d9:cb:ab:bf:58:0c:31:b1:
+                    17:5b:eb:1f:a9:2d:cf:9c:e1:dc:ff:b6:af:35:46:
+                    2c:ed:55:ae:12:c0:59:2c:84:c4:ac:a1:87:c5:42:
+                    5e:0f:0a:b0:aa:e8:3c:cd:d3:4f:95:28:3c:a9:88:
+                    c9:b1:f1:06:47:6c:7a:8d:4b:69:71:e0:4b:f9:af:
+                    e9:86:89:50:c0:bb:87:f6:ad:ff:ea:a9:2f:8e:6e:
+                    be:a3:94:c2:28:83:28:4f:81:60:e1:0f:ef:9e:f9:
+                    ac:5e:e1:f1:b4:69:ba:34:b7:d4:e7:72:90:05:82:
+                    59:ce:5c:5b:02:2d:2e:33:12:99:82:f5:df:c2:03:
+                    0a:62:6b:32:ce:fe:65:d7:69:6d:4e:1a:94:7c:d0:
+                    f9:9f:18:64:0d:13:ee:19:9c:73:3d:87:f7:a5:5c:
+                    a6:e7:a5:c7:c3:48:22:54:30:84:5c:87:e5:2e:9d:
+                    01:25:5d:9d:e1:33:92:16:3e:76:88:7e:21:ea:02:
+                    45:35:a7:a3:6f:25:14:80:0e:ca:3f:33:b4:7a:f0:
+                    ef:66:4e:62:9a:79:50:85:db:bc:eb:d0:f5:03:e9:
+                    fe:f9:cf:1b:d1:da:16:c8:92:4a:88:13:9d:d8:9f:
+                    70:e9:ad:46:e8:6d:48:d3:85:ac:0e:9a:d9:cc:c2:
+                    06:b8:fb:68:0c:69:80:51:e9:a3:7e:d8:a1:94:98:
+                    4a:db:68:62:b2:de:23:17:ef:66:87:35:6f:6f:a5:
+                    3f:ab:52:29:44:ea:5a:2e:6f:f4:9c:1e:b3:1e:e2:
+                    b2:47:f6:51:5c:88:c5:e4:0f:53:87:c7:10:17:6e:
+                    02:4f:ba:9f:fb:e4:8a:c2:2a:a5:39:93:64:1d:f0:
+                    ab:63:5b:45:00:84:9e:10:c8:a4:e2:0b:dc:99:dd:
+                    94:c8:7d:f2:50:cf:94:ff:82:5d:5a:de:07:fd:a2:
+                    88:8e:e5:e7:dd:b9:fe:30:68:ee:3b:17:71:db:46:
+                    f5:15:39:e1:06:43:97:06:ec:be:fc:f6:db:fd:05:
+                    41:66:87:80:98:eb:b8:23:e7:58:16:df:cc:7e:5e:
+                    da:2f:54:67:52:70:1e:6b:2e:d4:7f:a0:3c:97:9a:
+                    08:55:35:56:98:17:ce:76:68:11:f3:22:d0:46:f6:
+                    a9:bd:ec:9d:f7:c4:5f:dc:76:e3:74:24:e4:f8:ee:
+                    87:56:46:62:84:17:ab:a0:23:93:5b:07:07:dc:1f:
+                    9b:aa:35:23:39:79:3b:1d:91:ea:fc:df:0c:2f:70:
+                    97:6d:88:49:8a:99:33:4d:97:14:99:50:42:03:bb:
+                    42:73:ff:34:bc:e2:44:d9:08:89:9c:8c:70:b9:f2:
+                    f6:a4:a6:ed:d1:ab:cf:a1:cd:bc:ab:25:69:1e:87:
+                    1e:4d:ef:45:8d:d3:4b:fb:99:b8:81:1c:29:27:b9:
+                    cf:81:cc:f9:98:55:65:3b:da:79:94:72:14:6a:25:
+                    8b:4b:3c:ff:f2:2d:ae:c5:f0:c5:1b:8d:9a:d6:43:
+                    ca:4a:61:a0:45:82:d8:9a:c1:da:d8:a5:34:51:3d:
+                    75:42:c9:33:6f:e2:0d:97:48:91:74:e0:00:83:ea:
+                    bb:0a:a0:e3:4f:ea:5d:c9:d2:17:14:25:ff:c4:3d:
+                    3e:3e:9f:4a:8c:33:dc:c4:f4:b4:ad:e6:80:67:5c:
+                    8b:29:6f:4b:4d:15:85:5b:f4:30:71:56:c1:e0:47:
+                    1e:92:39:a4:d5:d4:5f:5a:44:c7:c1:97:90:3e:e7:
+                    11:89:09:8e:04:19:e0:80:13:99:b3:18:b7:b8:01:
+                    10:80:42:c3:14:c7:14:37:0f:77:d7:07:e3:90:33:
+                    45:c7:10:23:5f:14:80
         X509v3 extensions:
             X509v3 Basic Constraints: 
                 CA:FALSE
@@ -27,7 +114,7 @@ Certificate:
                 8F:4B:2E:ED:32:9D:DD:A5:A5:38:B9:F6:A0:9B:CF:55:0B:21:8F:F4
             X509v3 Authority Key Identifier: 
                 65:CB:9A:20:E9:B3:45:A6:B0:F7:71:98:11:B1:5A:0C:72:47:53:32
-    Signature Algorithm: 2.16.840.1.101.3.4.3.17
+    Signature Algorithm: ML-DSA-44
     Signature Value:
         07:c2:2f:e2:13:5f:80:4c:85:62:98:db:c0:b9:43:24:5b:ae:
         be:15:ff:16:82:73:36:e3:a5:f7:e8:42:36:cc:fa:58:ce:99:

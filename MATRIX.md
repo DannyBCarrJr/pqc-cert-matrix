@@ -5,18 +5,19 @@ hand-edit. Cell format: parse / offline chain verify / TLS 1.3 handshake.
 &check; ok, &cross; fail, &ndash; skipped. Exact client error text lives in
 `results/results.json` and raw output in `results/evidence/`.
 
-| Chain | gnutls | openssl-3.0 |
-|---|---|---|
-| ecdsa | &check; / &check; / &check; | &check; / &check; / &check; |
-| mldsa44 | &check; / &cross; / &cross; | &check; / &cross; / &cross; |
-| mldsa65 | &check; / &cross; / &cross; | &check; / &cross; / &cross; |
-| mldsa87 | &check; / &cross; / &cross; | &check; / &cross; / &cross; |
-| slhroot | &check; / &cross; / &cross; | &check; / &cross; / &cross; |
-| mixed | &check; / &cross; / &cross; | &check; / &cross; / &cross; |
-| catalyst | &check; / &check; / &check; | &check; / &check; / &check; |
-| composite | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; |
+| Chain | gnutls | openssl-3.0 | openssl-3.5 |
+|---|---|---|---|
+| ecdsa | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; |
+| mldsa44 | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; |
+| mldsa65 | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; |
+| mldsa87 | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; |
+| slhroot | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; |
+| mixed | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; |
+| catalyst | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; |
+| composite | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; |
 
 Client versions:
 
 - gnutls: gnutls-cli 3.8.3
 - openssl-3.0: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+- openssl-3.5: OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026)
