@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+title: "PQC certificate compatibility matrix"
+message: >-
+  If you use this measurement corpus or cite its findings, please cite it as
+  below. Check PRIOR-ART.md first: it records, per finding, what published work
+  already covers, and several claims here are refinements of prior results
+  rather than new ones.
+type: software
+authors:
+  - given-names: "Danny B."
+    family-names: Carr
+    name-suffix: Jr.
+    affiliation: "Carr Digital LLC"
+repository-code: "https://github.com/DannyBCarrJr/pqc-cert-matrix"
+url: "https://carrdigital.dev/writing/hybrid-certificates-weighed/"
+abstract: >-
+  Measured client behaviour for post-quantum and hybrid X.509 certificate
+  chains. Eight chain shapes (ECDSA control, ML-DSA-44/65/87, an SLH-DSA root
+  variant, a mixed classical-over-post-quantum chain, a catalyst-style hybrid
+  carrying alternative-signature extensions, and a composite signature
+  certificate) tested against eleven client stacks: OpenSSL 3.0 and 3.5, GnuTLS,
+  Go, Java 21, .NET 8, Python 3.13, Node 22, rustls, Bouncy Castle, and Windows
+  schannel. Each of the 88 cells records certificate parsing, offline chain
+  validation, and a live TLS 1.3 handshake, backed by a script and captured
+  output. Also includes transport measurements from key-log-decrypted
+  handshakes: per-message byte attribution, TLS record structure, certificate
+  compression effectiveness, and a congestion window analysis.
+keywords:
+  - post-quantum cryptography
+  - X.509
+  - TLS
+  - public key infrastructure
+  - ML-DSA
+  - hybrid certificates
+  - interoperability
+license: MIT
+version: 1.0.0
+date-released: "2026-08-01"
