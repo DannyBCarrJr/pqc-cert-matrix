@@ -1,6 +1,6 @@
 # PQC certificate compatibility matrix
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21749600.svg)](https://doi.org/10.5281/zenodo.21749600)
+[![DOI](https://zenodo.org/badge/1319630181.svg)](https://doi.org/10.5281/zenodo.21749600)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Measured client behavior for post-quantum and hybrid X.509 certificate chains.
