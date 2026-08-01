@@ -16,7 +16,13 @@ built on the corrected PRIOR-ART thesis and citing all three papers. It states
 publicly that this repo's scripts and evidence publish once the transport
 measurements are done, so Phase 3 is now a commitment, not an option. Add the
 repo link back into the article when Phase 4 lands.
-Next: Phase 3 transport measurements, then Phase 4 publish.
+**Phase 3 COMPLETE 2026-08-01** (`phase3/FINDINGS.md`, `phase3/TRANSPORT.md`):
+compression measured offline and on the wire, key-log-decrypted captures
+attributing every handshake message, congestion window analysis. Headline: the
+extra round trip starts at ML-DSA-65. Two open items recorded rather than
+guessed: why certificate compression never engages on stock OpenSSL, and a
+prior-art check owed on the compression constant.
+Next: Phase 4 publish (flip repo public, add the repo link into article 3).
 Owner: Danny. Flagship candidate for the "operational evidence layer" strategy;
 feeds article 3 and the public lab repo.
 

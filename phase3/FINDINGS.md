@@ -180,3 +180,9 @@ python3 phase3/report.py
 ```
 
 Needs `results/bundles/` (created by `runners/harness.py`).
+
+The `keys.log` files under `evidence/` are committed on purpose so a reader can
+decrypt the captures and check the attribution rather than trust this table. They
+are per-session TLS traffic secrets from throwaway lab handshakes against test
+certificates, not private keys, and they decrypt nothing but the pcap sitting next
+to them.
