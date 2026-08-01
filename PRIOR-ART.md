@@ -214,6 +214,68 @@ roughly one signature, which is 2,424 to 4,631 bytes across our corpus, and can
 put a chain on the wrong side of a 14,600-byte window. That refinement is worth
 publishing. The bare threshold claim is not.
 
+### Re-verified 2026-08-01 against full texts, not summaries. Two more claims demoted.
+
+Every source below was downloaded and searched directly, because an earlier pass in this
+project relied on a summary and got a claim backwards. Method: fetch, strip markup, grep.
+
+**Kampanakis and Childs-Klein (AWS), NDSS MADWeb 2024, "The impact of data-heavy,
+post-quantum TLS 1.3 on the Time-To-Last-Byte" (eprint 2024/176).** Not previously in this
+file, and it preempts more than the 2026 papers do. Verified in their text: they name
+Certificate and CertificateVerify as "the largest messages", which "carry a certificate
+chain and a signature of the TLS transcript"; they state that if those "message sizes were
+to grow significantly, handshake speed would be impacted"; and they explicitly explore
+"tweaking the TCP initial congestion window initcwnd" to compensate.
+**Consequence: "CertificateVerify is large in post-quantum TLS" has been public since 2024
+and must never be presented as a discovery.** Neither must "post-quantum handshakes
+interact badly with the initial congestion window."
+
+**Delgado Jiménez, arXiv:2604.06100.** Verified by grep: mentions CertificateVerify once,
+descriptively, and reports **no byte figure for it**. A web summary attributed "3,309
+bytes of CertificateVerify" to this paper; that is **not in the paper** and the attribution
+was wrong. His measured transport variables are `bytes_read_mean`, `bytes_written_mean`,
+`chain_bytes_unique` and `served_chain_der_bytes`, so aggregate and chain-level, not
+per-message. He mentions congestion window **zero times**.
+
+**Chou and Cao, arXiv:2604.24869.** Verified by grep: **zero occurrences of
+"CertificateVerify"** in the full text. Their framing throughout is "certificate chain
+sizes exceed transport layer data flight limits", and they cite the IW cap at 14KB.
+
+### What survives Phase 3, stated conservatively
+
+1. **Per-message byte attribution across a corpus of chain shapes**, from key-log
+   decrypted captures. Delgado reports aggregate and chain bytes; Chou and Cao report chain
+   size against TTFB; Kampanakis varies chain size as an input. None publish a per-message
+   table across chain shapes.
+2. **The chain-size budget is not a constant, and that is the useful result.** The window
+   constrains the flight, and the flight exceeds the Certificate message by a measured
+   3,680 bytes (ML-DSA-44) to 5,887 bytes (ML-DSA-87). So the usable certificate budget
+   under a 14,600-byte IW10 moves from about 10,920 down to about 8,713 bytes purely as a
+   function of which parameter set signs the handshake. This **explains** Chou and Cao's
+   empirically observed spike "around 10KB" of chain rather than contradicting it, which is
+   how it must be written.
+3. **Catalyst's transport profile.** A 7,584-byte flight against pure ML-DSA-65's 15,739,
+   because its CertificateVerify is ECDSA at 76 bytes: the post-quantum material is carried
+   and never signed with. No prior art surfaced for this. It is also the same property
+   article 3 already documented, measured a third way.
+4. **Compression: the constant and the decomposition only.** The qualitative claim is
+   preempted verbatim by two IETF drafts (quoted below). The 240-byte figure is a floor for
+   minimal certificates and must always ship with the cert-abridge comparison.
+
+### Verbatim quotes, checked against the actual draft text
+
+- **draft-ietf-uta-pqc-app-03:** "While effective in many scenarios, its impact on PQ or
+  PQ/T hybrid certificates is limited due to the larger sizes of public keys and signatures
+  in PQC. These high-entropy fields, inherent to PQC algorithms, constrain the overall
+  compression effectiveness."
+- **draft-ietf-tls-cert-abridge-02:** post-quantum certificates "will be typically 10 to 40
+  times their current size and cannot be compressed with existing TLS Certificate
+  Compression schemes because most of the size of the certificate is in high entropy fields
+  such as cryptographic keys and signatures."
+- **cert-abridge size table** (p5 / p50 / p95, bytes): Original 2308 / 4032 / 5609; TLS
+  Cert Compression (ZStandard) 1619 / 3243 / 3821. So 789 bytes saved at the median on real
+  WebPKI chains, against our 240 on minimal lab chains.
+
 ### Still appears unpublished
 
 Per-message byte attribution across a post-quantum corpus (ClientHello,
