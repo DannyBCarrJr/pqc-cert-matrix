@@ -80,8 +80,13 @@ default, TLS 1.3 only) while ML-DSA landed in CNG and AD CS issuance (GA May
 2026). And 2026/1416 already tested Windows CryptoAPI at the certificate-path
 layer. What remains unpublished is narrow but real: the **TLS handshake**
 behaviour of schannel against an ML-DSA server certificate, with the failure mode
-(SSPI 0x80090326), and the asymmetry demonstrated on one machine. Publish as a
-measured demonstration of a documented boundary, never as a discovery.
+(SSPI 0x80090326 = SEC_E_ILLEGAL_MESSAGE), and the asymmetry demonstrated on one
+machine. Since 2026-08-01 the mechanism is measured, not inferred
+(`isolation/FINDINGS.md`): schannel's ClientHello offers no ML-DSA signature
+scheme, so servers abort at negotiation before any certificate is sent; the
+result replicates against two independent server implementations (OpenSSL,
+bctls). Publish as a measured demonstration of a documented boundary, never as
+a discovery.
 
 **Runtime beats distro.** The principle is documented for ML-KEM key exchange
 (Node bundles its own OpenSSL; Python normally links the system one). Ours is
@@ -104,7 +109,9 @@ interop; PQCCM is self-reported; arXiv 2604.06100 is single-stack performance. N
 cross-stack handshake matrix surfaced in any search.
 
 **schannel's TLS handshake behaviour with an ML-DSA server certificate**, with
-the error code. They tested Windows CryptoAPI, not schannel TLS.
+the error code and the measured negotiation-level mechanism (no ML-DSA in the
+ClientHello, verified against two server implementations plus a decoded wire
+trace). They tested Windows CryptoAPI, not schannel TLS.
 
 **rustls.** 2026/1416 names BoringSSL and rustls as future work. Our rustls column
 fills part of a gap its authors flagged, and rustls turns out to have the best

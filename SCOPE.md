@@ -6,7 +6,11 @@ size tables at repo root (`SIZES.md`); findings in `phase0/FINDINGS.md`
 (same-weight finding, SLH-root hidden wire cost, misleading-error pattern).
 Moved out of pqc-lab into this dedicated repo 2026-07-31 (private until Phase 4).
 All ten v1 client columns populated (80 cells, MATRIX.md).
-Next: Phase 3 transport measurements, then article 3 + Phase 4 publish.
+schannel isolation CLOSED 2026-08-01 (`isolation/FINDINGS.md`): the ML-DSA
+failure replicates against a second server implementation (bctls 1.82) and the
+decoded ClientHello shows no ML-DSA signature scheme offered, so the causal
+claim is publishable. Next: article 3, Phase 3 transport measurements, then
+Phase 4 publish.
 Owner: Danny. Flagship candidate for the "operational evidence layer" strategy;
 feeds article 3 and the public lab repo.
 

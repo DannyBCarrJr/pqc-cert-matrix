@@ -1,0 +1,1 @@
+MethodInvocationException: Exception calling "AuthenticateAsClient" with "1" argument(s): "A call to SSPI failed, see inner exception." <- A call to SSPI failed, see inner exception. <- The message received was unexpected or badly formatted [Win32 0x80090326]

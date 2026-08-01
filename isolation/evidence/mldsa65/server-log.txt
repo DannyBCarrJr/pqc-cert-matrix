@@ -1,0 +1,50 @@
+Aug 01, 2026 5:52:20 PM org.bouncycastle.jsse.provider.PropertyUtils getBooleanSecurityProperty
+INFO: Found boolean security property [keystore.type.compat]: true
+Aug 01, 2026 5:52:20 PM org.bouncycastle.jsse.provider.PropertyUtils getStringSystemProperty
+INFO: Found string system property [java.home]: /opt/java/openjdk
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.PropertyUtils getStringSecurityProperty
+INFO: Found string security property [jdk.tls.disabledAlgorithms]: SSLv3, TLSv1, TLSv1.1, DTLSv1.0, RC4, DES, MD5withRSA, DH keySize < 1024, EC keySize < 224, 3DES_EDE_CBC, anon, NULL, ECDH, TLS_RSA_*, rsa_pkcs1_sha1 usage HandshakeSignature, ecdsa_sha1 usage HandshakeSignature, dsa_sha1 usage HandshakeSignature
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.DisabledAlgorithmConstraints create
+WARNING: Ignoring unsupported entry in 'jdk.tls.disabledAlgorithms': rsa_pkcs1_sha1 usage HandshakeSignature
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.DisabledAlgorithmConstraints create
+WARNING: Ignoring unsupported entry in 'jdk.tls.disabledAlgorithms': ecdsa_sha1 usage HandshakeSignature
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.DisabledAlgorithmConstraints create
+WARNING: Ignoring unsupported entry in 'jdk.tls.disabledAlgorithms': dsa_sha1 usage HandshakeSignature
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.PropertyUtils getStringSecurityProperty
+INFO: Found string security property [jdk.certpath.disabledAlgorithms]: MD2, MD5, SHA1 jdkCA & usage TLSServer, RSA keySize < 1024, DSA keySize < 1024, EC keySize < 224, SHA1 usage SignedJAR & denyAfter 2019-01-01
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.DisabledAlgorithmConstraints create
+WARNING: Ignoring unsupported entry in 'jdk.certpath.disabledAlgorithms': SHA1 jdkCA & usage TLSServer
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.DisabledAlgorithmConstraints create
+WARNING: Ignoring unsupported entry in 'jdk.certpath.disabledAlgorithms': SHA1 usage SignedJAR & denyAfter 2019-01-01
+bctls-server: listening :14434 key=ML-DSA-65 leafSig=ML-DSA-65 chainLen=2
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.ProvTlsServer notifyHandshakeBeginning
+INFO: [server #1 @c94fd30] accepting connection from 172.17.0.1:54612
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.ProvTlsServer notifyHandshakeComplete
+INFO: [server #1 @c94fd30] established connection with 172.17.0.1:54612
+handshake OK peer=172.17.0.1 proto=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.ProvTlsServer notifyConnectionClosed
+INFO: [server #1 @c94fd30] disconnected from 172.17.0.1:54612
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.ProvTlsServer notifyHandshakeBeginning
+INFO: [server #2 @20f12539] accepting connection from 172.20.112.1:52538
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.ProvTlsServer notifyAlertRaised
+INFO: [server #2 @20f12539] raised fatal(2) handshake_failure(40) alert: Failed to read record
+org.bouncycastle.tls.TlsFatalAlert: handshake_failure(40); [server #2 @20f12539] found no selectable cipher suite among the 20 offered: [{0x13,0x02}(TLS_AES_256_GCM_SHA384), {0x13,0x01}(TLS_AES_128_GCM_SHA256), {0xc0,0x2c}(TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384), {0xc0,0x2b}(TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256), {0xc0,0x30}(TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384), {0xc0,0x2f}(TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256), {0xc0,0x24}(TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384), {0xc0,0x23}(TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256), {0xc0,0x28}(TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384), {0xc0,0x27}(TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256), {0xc0,0x0a}(TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA), {0xc0,0x09}(TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA), {0xc0,0x14}(TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA), {0xc0,0x13}(TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA), {0x00,0x9d}(TLS_RSA_WITH_AES_256_GCM_SHA384), {0x00,0x9c}(TLS_RSA_WITH_AES_128_GCM_SHA256), {0x00,0x3d}(TLS_RSA_WITH_AES_256_CBC_SHA256), {0x00,0x3c}(TLS_RSA_WITH_AES_128_CBC_SHA256), {0x00,0x35}(TLS_RSA_WITH_AES_256_CBC_SHA), {0x00,0x2f}(TLS_RSA_WITH_AES_128_CBC_SHA)]
+	at org.bouncycastle.tls.AbstractTlsServer.getSelectedCipherSuite(Unknown Source)
+	at org.bouncycastle.jsse.provider.ProvTlsServer.getSelectedCipherSuite(Unknown Source)
+	at org.bouncycastle.tls.TlsServerProtocol.generate13ServerHello(Unknown Source)
+	at org.bouncycastle.tls.TlsServerProtocol.generateServerHello(Unknown Source)
+	at org.bouncycastle.tls.TlsServerProtocol.handleHandshakeMessage(Unknown Source)
+	at org.bouncycastle.tls.TlsProtocol.processHandshakeQueue(Unknown Source)
+	at org.bouncycastle.tls.TlsProtocol.processRecord(Unknown Source)
+	at org.bouncycastle.tls.RecordStream.readRecord(Unknown Source)
+	at org.bouncycastle.tls.TlsProtocol.safeReadRecord(Unknown Source)
+	at org.bouncycastle.tls.TlsProtocol.blockForHandshake(Unknown Source)
+	at org.bouncycastle.tls.TlsServerProtocol.accept(Unknown Source)
+	at org.bouncycastle.jsse.provider.ProvSSLSocketDirect.startHandshake(Unknown Source)
+	at org.bouncycastle.jsse.provider.ProvSSLSocketDirect.startHandshake(Unknown Source)
+	at Server.serve(Server.java:70)
+	at Server.main(Server.java:62)
+
+handshake FAIL peer=172.20.112.1 TlsFatalAlert: handshake_failure(40); [server #2 @20f12539] found no selectable cipher suite among the 20 offered: [{0x13,0x02}(TLS_AES_256_GCM_SHA384), {0x13,0x01}(TLS_AES_128_GCM_SHA256), {0xc0,0x2c}(TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384), {0xc0,0x2b}(TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256), {0xc0,0x30}(TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384), {0xc0,0x2f}(TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256), {0xc0,0x24}(TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384), {0xc0,0x23}(TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256), {0xc0,0x28}(TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384), {0xc0,0x27}(TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256), {0xc0,0x0a}(TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA), {0xc0,0x09}(TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA), {0xc0,0x14}(TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA), {0xc0,0x13}(TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA), {0x00,0x9d}(TLS_RSA_WITH_AES_256_GCM_SHA384), {0x00,0x9c}(TLS_RSA_WITH_AES_128_GCM_SHA256), {0x00,0x3d}(TLS_RSA_WITH_AES_256_CBC_SHA256), {0x00,0x3c}(TLS_RSA_WITH_AES_128_CBC_SHA256), {0x00,0x35}(TLS_RSA_WITH_AES_256_CBC_SHA), {0x00,0x2f}(TLS_RSA_WITH_AES_128_CBC_SHA)]
+Aug 01, 2026 5:52:21 PM org.bouncycastle.jsse.provider.ProvTlsServer notifyConnectionClosed
+INFO: [server #2 @20f12539] disconnected from 172.20.112.1:52538

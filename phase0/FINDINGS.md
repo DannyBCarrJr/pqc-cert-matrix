@@ -186,10 +186,18 @@ Tested from the Windows side of the machine via PowerShell against the WSL
   offline-validates ML-DSA-44/65/87 chains: `X509Chain.Build` returns true with
   only `UntrustedRoot` (the expected private-root artifact). schannel (the TLS
   stack) cannot handshake any of them: `AuthenticateAsClient` throws SSPI
-  `SEC_E_MESSAGE_ALTERED` (Win32 0x80090326, "message received was unexpected or
-  badly formatted") when the server sends an ML-DSA CertificateVerify. So on the
-  same box, `certutil`-style cert validation says ML-DSA is fine while a TLS
-  client refuses the connection. An inventory tool that checks cert parsing will
+  0x80090326, which is `SEC_E_ILLEGAL_MESSAGE` ("message received was unexpected
+  or badly formatted"). CORRECTED 2026-08-01 by the isolation study
+  (`../isolation/FINDINGS.md`): the first write-up named the constant
+  SEC_E_MESSAGE_ALTERED (wrong; that is 0x8009030F) and blamed a received ML-DSA
+  CertificateVerify (never sent). The measured mechanism: schannel's ClientHello
+  offers no ML-DSA signature scheme at all, so both test servers (OpenSSL 3.5.5
+  and bctls 1.82, independent implementations) abort with alert
+  handshake_failure(40) before any certificate crosses the wire, and schannel
+  reports that alert with a corruption-shaped error. The failure is the
+  client's, at negotiation. The operational consequence stands: on the same
+  box, certutil-style cert validation says ML-DSA is fine while a TLS client
+  refuses the connection, so an inventory tool that checks cert parsing will
   green-light a rollout that then fails at the handshake.
 - **CNG's PQ support is partial and silent about it.** ML-DSA validates;
   SLH-DSA and composite both throw `CryptographicException: Invalid algorithm

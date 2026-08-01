@@ -1,0 +1,3 @@
+root: CN = PQM Matrix mixed Root sig=ecdsa-with-SHA256
+int: CN = PQM Matrix mixed Intermediate sig=ecdsa-with-SHA256
+leaf: CN = matrix.test sig=ML-DSA-65

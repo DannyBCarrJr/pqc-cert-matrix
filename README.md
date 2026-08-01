@@ -28,6 +28,10 @@ labeled Verified, Reported, or Proposed).
   from `results/results.json`. All ten v1 columns are live: OpenSSL 3.0 and 3.5,
   GnuTLS, Go, Java 21, .NET 8, Python, Node, rustls, and Windows schannel,
   plus a Bouncy Castle certificate-path column as the composite control.
+- `isolation/` is the schannel isolation study (2026-08-01): a second,
+  independent TLS server (Bouncy Castle bctls 1.82) plus decoded-wire traces,
+  which pin the schannel ML-DSA failure to the client's ClientHello rather
+  than to one server's negotiation behavior. See `isolation/FINDINGS.md`.
 - `SCOPE.md` is the v1 plan: rows, the ten-stack client fleet, transport
   measurements, phases.
 
@@ -41,8 +45,11 @@ labeled Verified, Reported, or Proposed).
 3. "SLH-DSA for roots" has a hidden wire cost: the root's 7,856-byte signature
    rides on the intermediate, making that chain the most expensive measured.
 4. Windows splits against itself: CNG offline-validates ML-DSA chains while
-   schannel cannot handshake them (SSPI 0x80090326). A certificate inventory
-   check passes; the TLS connection still fails.
+   schannel cannot connect to ML-DSA-authenticated servers, because its
+   ClientHello never offers an ML-DSA signature scheme (isolated against two
+   independent server implementations; schannel surfaces the server's
+   negotiation abort as SSPI 0x80090326, SEC_E_ILLEGAL_MESSAGE). A certificate
+   inventory check passes; the TLS connection still fails.
 5. Your runtime decides PQ readiness, not your distro: Node 22 and Python 3.13
    (bundled OpenSSL 3.5.x) validate ML-DSA chains that the same host's system
    OpenSSL 3.0 and GnuTLS reject.

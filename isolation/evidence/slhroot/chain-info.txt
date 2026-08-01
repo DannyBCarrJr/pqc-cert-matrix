@@ -1,0 +1,3 @@
+root: CN = PQM Matrix slhroot Root sig=SLH-DSA-SHA2-128s
+int: CN = PQM Matrix slhroot Intermediate sig=SLH-DSA-SHA2-128s
+leaf: CN = matrix.test sig=ML-DSA-65

@@ -1,0 +1,100 @@
+Using default temp DH parameters
+ACCEPT
+ERROR
+40F7C14993790000:error:0A000076:SSL routines:tls_choose_sigalg:no suitable signature algorithm:../ssl/t1_lib.c:4651:
+Received TLS Record
+Header:
+  Version = TLS 1.0 (0x301)
+  Content Type = Handshake (22)
+  Length = 429
+    ClientHello, Length=425
+      client_version=0x303 (TLS 1.2)
+      Random:
+        gmt_unix_time=0x64E6007D
+        random_bytes (len=28): 8F97FF7FA336F42D310AE53941C9F152D60C6C6BB9CE93A0C9E94FBC
+      session_id (len=32): 8D8CF00AA0A1111B507799ADCA92BFFB257D1CCE8EDCF59B6BCB9E864DC9DE2F
+      cipher_suites (len=40)
+        {0x13, 0x02} TLS_AES_256_GCM_SHA384
+        {0x13, 0x01} TLS_AES_128_GCM_SHA256
+        {0xC0, 0x2C} TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+        {0xC0, 0x2B} TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+        {0xC0, 0x30} TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        {0xC0, 0x2F} TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        {0xC0, 0x24} TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+        {0xC0, 0x23} TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+        {0xC0, 0x28} TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+        {0xC0, 0x27} TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+        {0xC0, 0x0A} TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+        {0xC0, 0x09} TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+        {0xC0, 0x14} TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+        {0xC0, 0x13} TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+        {0x00, 0x9D} TLS_RSA_WITH_AES_256_GCM_SHA384
+        {0x00, 0x9C} TLS_RSA_WITH_AES_128_GCM_SHA256
+        {0x00, 0x3D} TLS_RSA_WITH_AES_256_CBC_SHA256
+        {0x00, 0x3C} TLS_RSA_WITH_AES_128_CBC_SHA256
+        {0x00, 0x35} TLS_RSA_WITH_AES_256_CBC_SHA
+        {0x00, 0x2F} TLS_RSA_WITH_AES_128_CBC_SHA
+      compression_methods (len=1)
+        No Compression (0x00)
+      extensions, length = 312
+        extension_type=server_name(0), length=16
+          0000 - 00 0e 00 00 0b 6d 61 74-72 69 78 2e 74 65 73   .....matrix.tes
+          000f - 74                                             t
+        extension_type=supported_versions(43), length=5
+          TLS 1.3 (772)
+          TLS 1.2 (771)
+        extension_type=signature_algorithms(13), length=26
+          rsa_pss_rsae_sha256 (0x0804)
+          rsa_pss_rsae_sha384 (0x0805)
+          rsa_pss_rsae_sha512 (0x0806)
+          rsa_pkcs1_sha256 (0x0401)
+          rsa_pkcs1_sha384 (0x0501)
+          rsa_pkcs1_sha1 (0x0201)
+          ecdsa_secp256r1_sha256 (0x0403)
+          ecdsa_secp384r1_sha384 (0x0503)
+          ecdsa_sha1 (0x0203)
+          dsa_sha1 (0x0202)
+          rsa_pkcs1_sha512 (0x0601)
+          ecdsa_secp521r1_sha512 (0x0603)
+        extension_type=session_ticket(35), length=0
+        extension_type=supported_groups(10), length=8
+          ecdh_x25519 (29)
+          secp256r1 (P-256) (23)
+          secp384r1 (P-384) (24)
+        extension_type=ec_point_formats(11), length=2
+          uncompressed (0)
+        extension_type=key_share(51), length=208
+            NamedGroup: ecdh_x25519 (29)
+            key_exchange:  (len=32): 61AEB9C13398A369109FC55B98F8B34810685B2EE46A6A0C9C617798E30C9A39
+            NamedGroup: secp256r1 (P-256) (23)
+            key_exchange:  (len=65): 043DBE5FDDB59107395E7D438BB8A009AB1B09747439FC4C4296943A45D46FDBB0181AA2FB827ED2A5F6B944DBCC49DB1D9753E987055BB344159179351A329E98
+            NamedGroup: secp384r1 (P-384) (24)
+            key_exchange:  (len=97): 044CE612AF0756183DA06F10887AC1FE59D9F51EAF498961DD2DD3E6ED198CEB217A2A72F4F254621AE029202DD7E43DB02E8388F05A3EEAD41306D42F68DFFF81AE4F5532F0E85C300B36DE498DB33C16F5C67EDF0C6A7E5AA818E7C87698AD4F
+        extension_type=post_handshake_auth(49), length=0
+        extension_type=extended_master_secret(23), length=0
+        extension_type=renegotiate(65281), length=1
+            <EMPTY>
+        extension_type=psk_key_exchange_modes(45), length=2
+          psk_dhe_ke (1)
+
+Sent TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = Alert (21)
+  Length = 2
+    Level=fatal(2), description=handshake failure(40)
+
+shutting down SSL
+CONNECTION CLOSED
+   0 items in the session cache
+   0 client connects (SSL_connect())
+   0 client renegotiates (SSL_connect())
+   0 client connects that finished
+   1 server accepts (SSL_accept())
+   0 server renegotiates (SSL_accept())
+   0 server accepts that finished
+   0 session cache hits
+   0 session cache misses
+   0 session cache timeouts
+   0 callback cache hits
+   0 cache full overflows (128 allowed)
