@@ -10,11 +10,13 @@ Status: **all three steps complete.**
    record structure. DONE, `TRANSPORT.md`.
 3. Initial congestion window analysis computed from step 2. DONE, `TRANSPORT.md`.
 
-> **Novelty check owed before any of this is published.** That post-quantum keys
-> and signatures are incompressible is a widely stated intuition, so the
-> contribution here is the measured constant and the mechanism split, not the
-> intuition. Add a section to `PRIOR-ART.md` before this reaches an article, the
-> same way the Phase 2 claims were checked and two of them corrected.
+> **Novelty check DONE 2026-08-01, and it demoted two headlines.** See the
+> Phase 3 section of `PRIOR-ART.md`. Short version: "compression does not help
+> post-quantum certificates" is stated in two IETF drafts and must be cited, never
+> claimed. "Post-quantum chains blow the initial congestion window" belongs to
+> Chou and Cao (arXiv:2604.24869), who also measured time to first byte, which we
+> did not. What survives is the quantification in both cases, and the caveats
+> below are load-bearing.
 
 ## Certificate compression saves a constant, so it helps least where it is needed most
 
@@ -61,12 +63,30 @@ which is pseudorandom by construction and therefore incompressible. That is not 
 weakness of any particular algorithm. Compressing an ML-DSA signature would mean
 finding structure in the output of a function designed to have none.
 
+## Prior art, and a caveat that must travel with the number
+
+The qualitative result is not ours. **draft-ietf-uta-pqc-app-03** states that
+compression's "impact on PQ or PQ/T hybrid certificates is limited due to the
+larger sizes of public keys and signatures", and **draft-ietf-tls-cert-abridge-02**
+says post-quantum certificates "cannot be compressed with existing TLS Certificate
+Compression schemes". Cite them. What is ours is the constant, the split, and the
+composite control.
+
+**The 240-byte constant is a floor for minimal certificates, not a WebPKI
+figure.** cert-abridge reports a median WebPKI chain compressing 4,032 to 3,243
+bytes with zstd, saving 789 bytes, over three times ours. Our corpus has short
+DNs, one SAN, two certificates, no SCTs and no OCSP or CRL URLs, so it carries far
+less compressible structure than a real certificate. State this wherever the
+number appears.
+
 ## Operational reading
 
-Certificate compression is worth enabling, because 240 bytes is free and it
+Certificate compression is worth enabling, because the bytes are free and it
 recovers a quarter of a classical chain. It is not a post-quantum mitigation. Any
-migration plan whose bloat answer is "we will turn on certificate compression"
-is planning to recover 1.5 to 3% of the problem it is describing.
+migration plan whose bloat answer is "we will turn on certificate compression" is
+planning to recover a low single-digit percentage of the problem it is describing,
+and that conclusion holds even at the larger WebPKI saving, because the
+denominator grows faster than the saving does.
 
 The three algorithms are also close to interchangeable here. zstd wins five rows,
 brotli two, and the spread between best and worst on any post-quantum chain is
@@ -89,7 +109,26 @@ Not yet measured: whether each client in the fleet actually advertises
 `compress_certificate`, and which algorithms it offers. That is a Phase 2 style
 cross-stack question with a transport answer, and it belongs in step 2.
 
-## The extra round trip starts at ML-DSA-65
+## The window constrains the flight, not the chain
+
+**Prior art first, because this one is mostly not ours.** Chou and Cao
+(arXiv:2604.24869, 2026-04-27) already measured that post-quantum chains overrun
+the initial congestion window, citing RFC 6928's roughly 14 KB first-RTT cap and
+reporting round-trip spikes around 10 KB and 40 KB of chain, with an SLH-DSA leaf
+raising time to first byte by up to 1.5x. They measured latency. We did not.
+
+Our refinement is the term they leave out. They analyse **certificate chain
+size**; the window actually constrains the **server's flight**, which is the chain
+plus CertificateVerify plus ServerHello, EncryptedExtensions and Finished. For
+mldsa65 that is 11,170 bytes of chain against a 15,739-byte flight, a difference
+of one ML-DSA signature. A threshold stated on chain size understates the flight
+by 2,424 to 4,631 bytes across this corpus, which is enough to put a chain on the
+wrong side of a 14,600-byte window.
+
+Our ML-DSA-44 result below is an independent replication of theirs, not a new
+finding.
+
+## Measured on flight bytes, the line falls at ML-DSA-65
 
 Captured handshakes, decrypted with a key log so every message is attributed.
 Full table in `TRANSPORT.md`. The server's first flight against a 10-segment
@@ -158,10 +197,19 @@ default, `-cert_comp`, and `-no_tx_cert_comp`. All three produced a byte-identic
 11,170-byte uncompressed Certificate on the mldsa65 chain.
 
 So on a stock distribution OpenSSL, with both peers advertising support,
-certificate compression does not engage. **Cause not isolated:** OpenSSL developer
-man pages are not installed on this host, so attributing it to the build, to
-`s_server`, or to a negotiation detail would be a guess. Open item for v2, worth
-retesting against a second server implementation.
+certificate compression does not engage.
+
+**This contradicts OpenSSL's own documentation**, which says no explicit
+configuration is needed: "If a preference order is not specified, then the default
+preference order is sent to the peer and the received peer's preference order will
+be used when compressing a certificate." That default order is brotli, zlib, zstd.
+Documented behaviour and measured behaviour disagree on this build.
+
+**HYPOTHESIS, untested:** this Ubuntu build reports `-DZLIB -DZSTD` and no brotli,
+while the default preference order leads with brotli, so the negotiation may fail
+rather than fall through to an algorithm both peers actually have. Not published
+as a mechanism, and deliberately not called an OpenSSL bug, until it is tested
+against a second build. Open item for v2.
 
 Taken with the step 1 numbers, the practical effect is the same either way: had it
 engaged, it would have saved about 240 bytes of a 15,739-byte flight.

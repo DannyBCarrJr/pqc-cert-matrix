@@ -151,6 +151,89 @@ task-clock ~0.999 of elapsed time) and an infrastructure multiplier around 2,500
 to hold baseline throughput. Confining SLH-DSA to the root, which is what our
 slhroot row does, is their "penalized but plausible" class.
 
+## Phase 3, transport (searched 2026-08-01)
+
+Two Phase 3 headlines were checked. **Both are weaker than they looked**, and one
+of them would have been an outright overclaim. Neither is dead, but both are now
+refinements of published work rather than discoveries.
+
+### Certificate compression: the qualitative claim is PREEMPTED, twice over, by the IETF
+
+- **draft-ietf-uta-pqc-app-03**, *Post-Quantum Cryptography Recommendations for
+  TLS-based Applications* (IETF UTA working group): certificate compression's
+  "impact on PQ or PQ/T hybrid certificates is limited due to the larger sizes of
+  public keys and signatures."
+- **draft-ietf-tls-cert-abridge-02**, *Abridged Compression for WebPKI
+  Certificates*: "most of the size of the certificate is in high entropy fields
+  such as cryptographic keys and signatures", and post-quantum certificates
+  "cannot be compressed with existing TLS Certificate Compression schemes."
+
+That is our finding, stated in two IETF documents. The entire existence of
+cert-abridge, and of Merkle Tree Certificates, is the standards community routing
+around this exact problem. **Never present "compression does not help post-quantum
+certificates" as a discovery.** Cite the drafts.
+
+**What survives, narrowly.** No source found reports the saving as a
+*size-independent constant*, and none decomposes it. Our contribution is
+therefore the quantification, not the conclusion: roughly 240 bytes recovered from
+every chain from 900 to 15,703 bytes, split into roughly 100 bytes inside the
+certificates and roughly 140 across them, with the single self-signed composite
+row saving exactly 0 across certificates as the control for the second term.
+
+**A limitation the prior art exposes, and this must be stated wherever the number
+appears.** cert-abridge reports a WebPKI median chain of 4,032 bytes compressing
+to 3,243 with zstd, a saving of 789 bytes, more than three times our 240. Our
+corpus is minimal by construction: short DNs, one SAN, two certificates, no SCTs,
+no OCSP or CRL URLs. Real WebPKI certificates carry far more compressible
+structure. **Our constant is a floor for minimal certificates, not a WebPKI
+figure**, and publishing it without that caveat would understate compression's
+real-world value and invite a correct rebuttal.
+
+### The extra round trip: PREEMPTED as a concept, survives only as a refinement
+
+**Chou and Cao, arXiv:2604.24869, 2026-04-27**, *Network Impact of Post-Quantum
+Certificate Chain sizes on Time to First Byte in TLS Deployments*. They already
+do the congestion-window analysis: RFC 6928, "the initial congestion window (IW)
+caps first-RTT transmission at 14KB, requiring an extra RTT if exceeded", with
+measured RTT spikes "around 10KB and 40KB" of certificate chain. ML-DSA-44 with
+one intermediate (about 7.9 KB) incurs no extra round trip; an SLH-DSA leaf at
+16.6 KB does, raising time to first byte "by up to 1.5x". **They measured TTFB.
+We deliberately did not measure latency at all.**
+
+So "post-quantum chains blow the initial congestion window" is theirs, and our
+ML-DSA-44-fits result is an independent replication of their result rather than a
+new one.
+
+**What survives.** They analyze the **certificate chain**, and they do not measure
+CertificateVerify separately. The congestion window constrains the **server's
+flight**, which is chain plus CertificateVerify plus ServerHello, EncryptedExtensions
+and Finished. Our per-message attribution measures that difference directly:
+mldsa65's chain is 11,170 bytes but its flight is 15,739, because CertificateVerify
+adds 3,313. A threshold stated on chain size therefore understates the flight by
+roughly one signature, which is 2,424 to 4,631 bytes across our corpus, and can
+put a chain on the wrong side of a 14,600-byte window. That refinement is worth
+publishing. The bare threshold claim is not.
+
+### Still appears unpublished
+
+Per-message byte attribution across a post-quantum corpus (ClientHello,
+Certificate, CertificateVerify, flight total, record structure), from key-log
+decrypted captures. Delgado reports aggregate bytes read; Chou and Cao report
+chain sizes and TTFB. Neither separates CertificateVerify, which is the term that
+matters for the window question.
+
+### Open, not a claim
+
+Certificate compression never engaged in any capture despite both peers
+advertising zlib and zstd. OpenSSL's own documentation says it should: "If a
+preference order is not specified, then the default preference order is sent to
+the peer", that default being brotli, zlib, zstd. So documented behaviour and
+measured behaviour disagree on this build. **HYPOTHESIS, untested:** this Ubuntu
+build carries `-DZLIB -DZSTD` but no brotli, and the default preference order
+leads with brotli, so the negotiation may fail rather than fall through. Do not
+publish the mechanism until it is tested, and do not describe it as an OpenSSL bug
+before checking against a second build.
+
 ## The strongest positioning statement available
 
 **Both papers name this project's axis as their own open work.**
