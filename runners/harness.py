@@ -56,6 +56,32 @@ def bundle(name: str) -> Path:
     return b
 
 
+def redact(text: str) -> str:
+    """Strip the checkout's absolute path out of anything we are about to commit.
+
+    Runners must receive absolute bundle paths because docker mounts need them,
+    and tools echo those paths back: `openssl verify` prints the full path of the
+    certificate it checked. That puts the machine's account name into committed
+    evidence, which this repo publishes. Redacting once here, at the point of
+    collection, covers every runner including ones added later.
+    """
+    return text.replace(str(ROOT), "<repo>")
+
+
+def redact_tree(d: Path) -> None:
+    """Redact every text file a runner wrote into its evidence directory."""
+    for f in d.rglob("*"):
+        if not f.is_file():
+            continue
+        try:
+            original = f.read_text(errors="replace")
+        except OSError:
+            continue  # binary or unreadable; nothing path-shaped to leak
+        cleaned = redact(original)
+        if cleaned != original:
+            f.write_text(cleaned)
+
+
 def wait_port(timeout: float = 5.0) -> bool:
     end = time.time() + timeout
     while time.time() < end:
@@ -97,9 +123,10 @@ def main() -> None:
                 capture_output=True, text=True,
             )
             if r.returncode != 0:
-                failures.append(f"{client}/{name}: rc={r.returncode} {r.stderr.strip()[:200]}")
+                failures.append(f"{client}/{name}: rc={r.returncode} {redact(r.stderr.strip())[:200]}")
                 continue
-            cell = json.loads(r.stdout)
+            redact_tree(ev)
+            cell = json.loads(redact(r.stdout))
             cell["chain"] = name
             cells.append(cell)
             t = cell["tests"]

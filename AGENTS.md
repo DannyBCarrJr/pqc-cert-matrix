@@ -9,9 +9,11 @@ Rules:
   plus captured output in the repo) or an explicit "not constructible / not
   testable" with the reason. No recalled claims, no hand-edited result tables:
   `SIZES.md` and future matrix tables are generated from JSON.
-- **This repo goes PUBLIC at Phase 4.** Write everything as if public: no
-  secrets, no employer names or material, no vendor-account artifacts, no
-  personal-alias references. Private keys are gitignored; generators recreate them.
+- **This repo is PUBLIC.** Write everything accordingly: no secrets, no employer
+  names or material, no vendor-account artifacts, no personal handles or aliases,
+  and no absolute paths from the machine it was built on (the harness redacts the
+  checkout path out of captured evidence; keep it that way). Private keys are
+  gitignored and generators recreate them.
 - Open-source stacks only; no vendor product testing (keeps it reproducible and
   keeps the day-job boundary clean).
 - Writing style: `~/.rocky/steering/writing-style.md` (no em dashes, plain

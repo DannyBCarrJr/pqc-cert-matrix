@@ -107,7 +107,12 @@ def capture_one(chain: str, mode: str, extra: list, ev: Path) -> dict:
              "-servername", "matrix.test", "-CAfile", str(b / "root.crt")],
             input="", capture_output=True, text=True, timeout=30,
         )
-        (ev / "client.txt").write_text(client.stdout + client.stderr)
+        # Same redaction the Phase 2 harness applies: s_client is handed absolute
+        # CAfile paths, and any tool that echoes one puts this machine's account
+        # name into committed evidence. Cheap insurance even where it is silent.
+        (ev / "client.txt").write_text(
+            (client.stdout + client.stderr).replace(str(ROOT), "<repo>")
+        )
         time.sleep(0.8)  # let the tail of the flight land in the capture
     finally:
         if cap:
