@@ -14,7 +14,8 @@ dock() {
     -v "$BUNDLE":/b:ro "$IMG" bash -c "$1"
 }
 
-VER="$(dock 'openssl version' | head -1)"
+VER_ALL="$(dock 'openssl version')"
+VER="${VER_ALL%%$'\n'*}"
 
 set +e
 dock 'openssl x509 -in /b/leaf.crt -noout -text' > "$EV/parse.txt" 2>&1

@@ -101,8 +101,16 @@ the flag; the flag state IS the matrix cell.
 - **Error text quality, ranked worst to least bad** for the same root cause (no
   ML-DSA support): Go handshake `remote error: tls: handshake failure`; GnuTLS
   `certificate is NOT trusted`; Go verify `certificate signed by unknown
-  authority`; OpenSSL `X509_PUBKEY_get0 decode error` (at least it points at the
-  key). None name the algorithm.
+  authority`; Java `CertPathValidatorException: signature check failed`;
+  OpenSSL `X509_PUBKEY_get0 decode error` (at least it points at the key). None
+  name the algorithm. **Java's is the most dangerous of the five**: "signature
+  check failed" is the exact wording for a tampered or corrupt certificate, so
+  an unsupported algorithm looks like an attack in the logs.
+- **Java is the only client that surfaces the algorithm anywhere.** Its parse
+  output prints the raw OID (2.16.840.1.101.3.4.3.18 for ML-DSA-65,
+  2.16.840.1.114027.80.9.1.8 for the BC composite) instead of a name, because
+  JDK 21 has no table entry for it. An operator with the OID can at least search
+  for it; every other client discards the identity entirely.
 
 ## Phase 1 notes
 

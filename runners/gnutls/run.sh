@@ -14,7 +14,8 @@ dock() {
     -v "$BUNDLE":/b:ro "$IMG" bash -c "$1"
 }
 
-VER="$(dock 'gnutls-cli --version' | head -1)"
+VER_ALL="$(dock 'gnutls-cli --version')"
+VER="${VER_ALL%%$'\n'*}"
 
 set +e
 dock 'certtool --certificate-info --infile /b/leaf.crt' > "$EV/parse.txt" 2>&1

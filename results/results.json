@@ -38,6 +38,25 @@
     "chain": "ecdsa"
   },
   {
+    "client": "java-21",
+    "client_version": "openjdk version \"21.0.11\" 2026-04-21 LTS",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=SHA256withECDSA subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "ecdsa"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -51,7 +70,7 @@
       },
       "handshake": {
         "status": "ok",
-        "detail": "DONE"
+        "detail": "---"
       }
     },
     "chain": "ecdsa"
@@ -114,6 +133,25 @@
     "chain": "mldsa44"
   },
   {
+    "client": "java-21",
+    "client_version": "openjdk version \"21.0.11\" 2026-04-21 LTS",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=2.16.840.1.101.3.4.3.17 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "CertPathValidatorException: signature check failed"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "SSLHandshakeException: (handshake_failure) Received fatal alert: handshake_failure"
+      }
+    },
+    "chain": "mldsa44"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -123,11 +161,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "4007AB0A1E730000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4007AB0A1E730000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40E7B5C553720000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40E7B5C553720000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 4057916C0F700000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "--- | 4077A86C57770000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa44"
@@ -190,6 +228,25 @@
     "chain": "mldsa65"
   },
   {
+    "client": "java-21",
+    "client_version": "openjdk version \"21.0.11\" 2026-04-21 LTS",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=2.16.840.1.101.3.4.3.18 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "CertPathValidatorException: signature check failed"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "SSLHandshakeException: (handshake_failure) Received fatal alert: handshake_failure"
+      }
+    },
+    "chain": "mldsa65"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -199,11 +256,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "4027189012750000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4027189012750000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40F77692AE770000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40F77692AE770000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40C76B5D8E700000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "--- | 4097104D017E0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa65"
@@ -241,7 +298,7 @@
       },
       "handshake": {
         "status": "fail",
-        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
+        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
       }
     },
     "chain": "mldsa87"
@@ -266,6 +323,25 @@
     "chain": "mldsa87"
   },
   {
+    "client": "java-21",
+    "client_version": "openjdk version \"21.0.11\" 2026-04-21 LTS",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=2.16.840.1.101.3.4.3.19 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "CertPathValidatorException: signature check failed"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "SSLHandshakeException: (handshake_failure) Received fatal alert: handshake_failure"
+      }
+    },
+    "chain": "mldsa87"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -275,11 +351,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "4007C8E5E6760000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4007C8E5E6760000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40B73C5680720000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40B73C5680720000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 4027CDDCB67E0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "--- | 40672D892D7B0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa87"
@@ -342,6 +418,25 @@
     "chain": "slhroot"
   },
   {
+    "client": "java-21",
+    "client_version": "openjdk version \"21.0.11\" 2026-04-21 LTS",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=2.16.840.1.101.3.4.3.18 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "CertPathValidatorException: signature check failed"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "SSLHandshakeException: (handshake_failure) Received fatal alert: handshake_failure"
+      }
+    },
+    "chain": "slhroot"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -351,11 +446,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40779E5633740000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40779E5633740000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40A7B3B8D7720000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40A7B3B8D7720000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40C783F9CD7C0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "Verify return code: 0 (ok) | ---"
       }
     },
     "chain": "slhroot"
@@ -393,7 +488,7 @@
       },
       "handshake": {
         "status": "fail",
-        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
+        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
       }
     },
     "chain": "mixed"
@@ -418,6 +513,25 @@
     "chain": "mixed"
   },
   {
+    "client": "java-21",
+    "client_version": "openjdk version \"21.0.11\" 2026-04-21 LTS",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=2.16.840.1.101.3.4.3.18 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "CertPathValidatorException: signature check failed"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "SSLHandshakeException: (handshake_failure) Received fatal alert: handshake_failure"
+      }
+    },
+    "chain": "mixed"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -427,11 +541,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40072683617E0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40072683617E0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40F7A780377B0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40F7A780377B0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40A7886956740000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "--- | 40A7D3E1717D0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mixed"
@@ -489,6 +603,25 @@
       "handshake": {
         "status": "ok",
         "detail": "handshake: OK version=304 cipher=1301"
+      }
+    },
+    "chain": "catalyst"
+  },
+  {
+    "client": "java-21",
+    "client_version": "openjdk version \"21.0.11\" 2026-04-21 LTS",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=SHA256withECDSA subject=CN=matrix-hybrid.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
       }
     },
     "chain": "catalyst"
@@ -570,6 +703,25 @@
     "chain": "composite"
   },
   {
+    "client": "java-21",
+    "client_version": "openjdk version \"21.0.11\" 2026-04-21 LTS",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=2.16.840.1.114027.80.9.1.8 subject=CN=PQM Matrix Composite Self-Signed"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "CertPathValidatorException: signature check failed"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "no server for this chain"
+      }
+    },
+    "chain": "composite"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -579,7 +731,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40072C91BF770000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40072C91BF770000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40B7544CA07F0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40B7544CA07F0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "skip",
@@ -598,7 +750,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40C7AB371B7F0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 40C7AB371B7F0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
+        "detail": "40D73F6B06700000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 40D73F6B06700000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
       },
       "handshake": {
         "status": "skip",
