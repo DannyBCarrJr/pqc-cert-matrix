@@ -1,0 +1,3 @@
+flipped one bit at offset 5578 of 5628; certificate still DER-parses
+SignatureException: certificate does not verify with supplied key
+PASS: Bouncy Castle rejects the tampered composite signature.

@@ -1,5 +1,24 @@
 [
   {
+    "client": "bouncycastle",
+    "client_version": "Bouncy Castle 1.82 (JCA provider, JDK 21)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=SHA256WITHECDSA sigAlgOID=1.2.840.10045.4.3.2 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "cert-path column by design; BC JSSE is a separate stack"
+      }
+    },
+    "chain": "ecdsa"
+  },
+  {
     "client": "dotnet-8",
     "client_version": ".NET 8.0.423",
     "tests": {
@@ -190,6 +209,25 @@
     "chain": "ecdsa"
   },
   {
+    "client": "bouncycastle",
+    "client_version": "Bouncy Castle 1.82 (JCA provider, JDK 21)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=ML-DSA-44 sigAlgOID=2.16.840.1.101.3.4.3.17 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "cert-path column by design; BC JSSE is a separate stack"
+      }
+    },
+    "chain": "mldsa44"
+  },
+  {
     "client": "dotnet-8",
     "client_version": ".NET 8.0.423",
     "tests": {
@@ -294,11 +332,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40779A6A5A7E0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40779A6A5A7E0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40F7A967E27E0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40F7A967E27E0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40B7BD911D780000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "Verify return code: 0 (ok) | ---"
       }
     },
     "chain": "mldsa44"
@@ -380,6 +418,25 @@
     "chain": "mldsa44"
   },
   {
+    "client": "bouncycastle",
+    "client_version": "Bouncy Castle 1.82 (JCA provider, JDK 21)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=ML-DSA-65 sigAlgOID=2.16.840.1.101.3.4.3.18 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "cert-path column by design; BC JSSE is a separate stack"
+      }
+    },
+    "chain": "mldsa65"
+  },
+  {
     "client": "dotnet-8",
     "client_version": ".NET 8.0.423",
     "tests": {
@@ -484,11 +541,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40B7C67C98710000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40B7C67C98710000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "4057A294CF7C0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4057A294CF7C0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40178598A9790000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "Verify return code: 0 (ok) | ---"
       }
     },
     "chain": "mldsa65"
@@ -570,6 +627,25 @@
     "chain": "mldsa65"
   },
   {
+    "client": "bouncycastle",
+    "client_version": "Bouncy Castle 1.82 (JCA provider, JDK 21)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=ML-DSA-87 sigAlgOID=2.16.840.1.101.3.4.3.19 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "cert-path column by design; BC JSSE is a separate stack"
+      }
+    },
+    "chain": "mldsa87"
+  },
+  {
     "client": "dotnet-8",
     "client_version": ".NET 8.0.423",
     "tests": {
@@ -598,11 +674,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "Use --verify-profile low to apply the default verification of NORMAL priority string. | Loaded CAs (1 available)"
+        "detail": "Output: Not verified. The certificate is NOT trusted. | Chain verification output: Not verified. The certificate is NOT trusted."
       },
       "handshake": {
         "status": "fail",
-        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
+        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
       }
     },
     "chain": "mldsa87"
@@ -674,11 +750,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "4077A20008710000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4077A20008710000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "4097B5540D7F0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4097B5540D7F0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40F767616C7C0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "Verify return code: 0 (ok) | ---"
       }
     },
     "chain": "mldsa87"
@@ -760,6 +836,25 @@
     "chain": "mldsa87"
   },
   {
+    "client": "bouncycastle",
+    "client_version": "Bouncy Castle 1.82 (JCA provider, JDK 21)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=ML-DSA-65 sigAlgOID=2.16.840.1.101.3.4.3.18 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "cert-path column by design; BC JSSE is a separate stack"
+      }
+    },
+    "chain": "slhroot"
+  },
+  {
     "client": "dotnet-8",
     "client_version": ".NET 8.0.423",
     "tests": {
@@ -792,7 +887,7 @@
       },
       "handshake": {
         "status": "fail",
-        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
+        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
       }
     },
     "chain": "slhroot"
@@ -864,11 +959,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40A7DC55457E0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40A7DC55457E0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40D731B6D77D0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40D731B6D77D0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40E71F730A790000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "Verify return code: 0 (ok) | ---"
       }
     },
     "chain": "slhroot"
@@ -950,6 +1045,25 @@
     "chain": "slhroot"
   },
   {
+    "client": "bouncycastle",
+    "client_version": "Bouncy Castle 1.82 (JCA provider, JDK 21)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=ML-DSA-65 sigAlgOID=2.16.840.1.101.3.4.3.18 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "cert-path column by design; BC JSSE is a separate stack"
+      }
+    },
+    "chain": "mixed"
+  },
+  {
     "client": "dotnet-8",
     "client_version": ".NET 8.0.423",
     "tests": {
@@ -1054,11 +1168,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "4097BC7F587D0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4097BC7F587D0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40B7B1D618700000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40B7B1D618700000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "Verify return code: 0 (ok) | ---"
+        "detail": "--- | 40E7E559577A0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mixed"
@@ -1138,6 +1252,25 @@
       }
     },
     "chain": "mixed"
+  },
+  {
+    "client": "bouncycastle",
+    "client_version": "Bouncy Castle 1.82 (JCA provider, JDK 21)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=SHA256WITHECDSA sigAlgOID=1.2.840.10045.4.3.2 subject=CN=matrix-hybrid.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "cert-path column by design; BC JSSE is a separate stack"
+      }
+    },
+    "chain": "catalyst"
   },
   {
     "client": "dotnet-8",
@@ -1248,7 +1381,7 @@
       },
       "handshake": {
         "status": "ok",
-        "detail": "---"
+        "detail": "DONE"
       }
     },
     "chain": "catalyst"
@@ -1328,6 +1461,25 @@
       }
     },
     "chain": "catalyst"
+  },
+  {
+    "client": "bouncycastle",
+    "client_version": "Bouncy Castle 1.82 (JCA provider, JDK 21)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlg=MLDSA65-ECDSA-P256-SHA512 sigAlgOID=2.16.840.1.114027.80.9.1.8 subject=CN=PQM Matrix Composite Self-Signed"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK (self-signed, direct signature check via BC)"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "cert-path column by design; BC JSSE is a separate stack"
+      }
+    },
+    "chain": "composite"
   },
   {
     "client": "dotnet-8",
@@ -1434,7 +1586,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "4027843A887B0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4027843A887B0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40E7E6AC34730000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40E7E6AC34730000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "skip",
@@ -1453,7 +1605,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40F7AFA224780000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 40F7AFA224780000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
+        "detail": "4037026A7F7B0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 4037026A7F7B0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
       },
       "handshake": {
         "status": "skip",

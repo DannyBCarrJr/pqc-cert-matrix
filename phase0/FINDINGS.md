@@ -97,13 +97,21 @@ the flag; the flag state IS the matrix cell.
 - **Catalyst full-passes everywhere measured** (GnuTLS, OpenSSL 3.0/3.5, Go):
   offline verify AND completed TLS 1.3 handshake. The hybrid compatibility claim
   is now measured, not asserted.
-- **Composite fails across our fleet, but the original wording ("validates
-  nowhere") was wrong.** IACR 2026/1416 shows composite validates and binds
-  structurally within its own OID family; the three families simply do not
-  cross-verify. We minted with Bouncy Castle (draft-07 OIDs) and our fleet
-  contains no verifier from that family (our Java column uses the stock JDK
-  SUN provider). Correct claim: OID-family mismatch, not absence of support.
-  Fix before publishing: add a Bouncy Castle verifier column.
+- **Composite is an OID-family mismatch, not an absence of support. FIXED
+  2026-07-31 by adding the `bouncycastle` column.** The earlier wording
+  ("validates nowhere") was wrong and is retracted. With BC 1.82 as the JCA
+  provider, the same composite certificate parses with a real algorithm name
+  (`MLDSA65-ECDSA-P256-SHA512`, OID 2.16.840.1.114027.80.9.1.8) and verifies.
+  Ten of eleven clients still reject it, because they belong to other OID
+  families or none, which is exactly the cross-family gap IACR 2026/1416
+  reports. Negative control (`composite/negative-control.sh`): flipping one bit
+  in the signature makes BC reject with `SignatureException: certificate does
+  not verify with supplied key`, so the passing cell is a genuine cryptographic
+  check rather than a rubber stamp.
+- **Bouncy Castle is the only client that names the composite algorithm.**
+  Everyone else reports a bare OID or nothing at all, which extends the
+  error-quality pattern: identification quality tracks the family a stack
+  belongs to.
 - **The false-ok:** OpenSSL 3.0 s_client prints `Verify return code: 0 (ok)` on
   a handshake that died at alert 40 before any certificate was exchanged
   (evidence: results/evidence/mldsa65/openssl-3.0/handshake.txt). Health checks

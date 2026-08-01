@@ -66,10 +66,11 @@ our matrix is narrower: we minted with BouncyCastle 1.82 (draft-07 OIDs) and our
 fleet contains **no verifier that knows that OID**, since our Java runner uses the
 stock JDK SUN provider rather than BouncyCastle. The correct claim is that the
 three composite OID families do not cross-verify, which is their finding, and that
-our fleet happened to sit entirely outside the minting family. Fix required:
-either add a BouncyCastle verifier column or restate the composite row as
-"OID-family mismatch, not absence of support." Until then the composite row
-overstates the situation and must not be published as-is.
+our fleet happened to sit entirely outside the minting family. **FIXED 2026-07-31:** added the `bouncycastle` runner column (BC 1.82 as JCA
+provider). Composite now verifies in its own family and fails in the other ten
+columns, which states the cross-family gap accurately. A negative control
+(`composite/negative-control.sh`) proves the passing cell can fail. The composite
+row is now publishable.
 
 ## WEAKENED, state precisely or not at all
 

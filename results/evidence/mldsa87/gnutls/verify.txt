@@ -1,3 +1,6 @@
+Note that no verification profile was selected. In the future the medium profile will be enabled by default.
+Use --verify-profile low to apply the default verification of NORMAL priority string.
+Loaded CAs (1 available)
 	Subject: CN=PQM Matrix mldsa87 Intermediate
 	Issuer: CN=PQM Matrix mldsa87 Root
 	Checked against: CN=PQM Matrix mldsa87 Root
@@ -6,6 +9,3 @@
 
 Chain verification output: Not verified. The certificate is NOT trusted. 
 
-Note that no verification profile was selected. In the future the medium profile will be enabled by default.
-Use --verify-profile low to apply the default verification of NORMAL priority string.
-Loaded CAs (1 available)

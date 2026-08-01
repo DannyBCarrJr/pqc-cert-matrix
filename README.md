@@ -26,7 +26,8 @@ labeled Verified, Reported, or Proposed).
 - `runners/` is the Phase 2 client harness: a runner contract (`CONTRACT.md`),
   per-client Docker runners, and `harness.py`, which generates `MATRIX.md`
   from `results/results.json`. All ten v1 columns are live: OpenSSL 3.0 and 3.5,
-  GnuTLS, Go, Java 21, .NET 8, Python, Node, rustls, and Windows schannel.
+  GnuTLS, Go, Java 21, .NET 8, Python, Node, rustls, and Windows schannel,
+  plus a Bouncy Castle certificate-path column as the composite control.
 - `SCOPE.md` is the v1 plan: rows, the ten-stack client fleet, transport
   measurements, phases.
 
@@ -45,7 +46,9 @@ labeled Verified, Reported, or Proposed).
 5. Your runtime decides PQ readiness, not your distro: Node 22 and Python 3.13
    (bundled OpenSSL 3.5.x) validate ML-DSA chains that the same host's system
    OpenSSL 3.0 and GnuTLS reject.
-6. The catalyst hybrid passes all ten clients; composite passes none of them.
+6. The catalyst hybrid passes every client. Composite verifies only under
+   Bouncy Castle, the family that minted it, and fails the other ten: the
+   composite OID families do not cross-verify.
 7. Clients report unsupported PQ algorithms with trust-store-shaped errors that
    send operators to the wrong layer. Only rustls names the algorithm.
 

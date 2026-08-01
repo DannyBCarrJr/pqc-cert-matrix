@@ -5,19 +5,20 @@ hand-edit. Cell format: parse / offline chain verify / TLS 1.3 handshake.
 &check; ok, &cross; fail, &ndash; skipped. Exact client error text lives in
 `results/results.json` and raw output in `results/evidence/`.
 
-| Chain | dotnet-8 | gnutls | go | java-21 | node | openssl-3.0 | openssl-3.5 | python | rustls | schannel |
-|---|---|---|---|---|---|---|---|---|---|---|
-| ecdsa | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &check; / &check; | &check; / &check; / &check; |
-| mldsa44 | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &cross; / &cross; | &check; / &check; / &cross; |
-| mldsa65 | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &cross; / &cross; | &check; / &check; / &cross; |
-| mldsa87 | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &cross; / &cross; | &check; / &check; / &cross; |
-| slhroot | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &cross; / &cross; | &check; / &cross; / &cross; |
-| mixed | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &cross; / &cross; | &check; / &check; / &cross; |
-| catalyst | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &check; / &check; | &check; / &check; / &check; |
-| composite | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; | &check; / &check; / &ndash; | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; | &check; / &ndash; / &ndash; | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; |
+| Chain | bouncycastle | dotnet-8 | gnutls | go | java-21 | node | openssl-3.0 | openssl-3.5 | python | rustls | schannel |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| ecdsa | &check; / &check; / &ndash; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &check; / &check; | &check; / &check; / &check; |
+| mldsa44 | &check; / &check; / &ndash; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &cross; / &cross; | &check; / &check; / &cross; |
+| mldsa65 | &check; / &check; / &ndash; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &cross; / &cross; | &check; / &check; / &cross; |
+| mldsa87 | &check; / &check; / &ndash; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &cross; / &cross; | &check; / &check; / &cross; |
+| slhroot | &check; / &check; / &ndash; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &cross; / &cross; | &check; / &cross; / &cross; |
+| mixed | &check; / &check; / &ndash; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &cross; / &cross; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &cross; / &cross; | &check; / &check; / &cross; |
+| catalyst | &check; / &check; / &ndash; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &check; / &check; | &check; / &ndash; / &check; | &check; / &check; / &check; | &check; / &check; / &check; |
+| composite | &check; / &check; / &ndash; | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; | &check; / &check; / &ndash; | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; | &check; / &ndash; / &ndash; | &check; / &cross; / &ndash; | &check; / &cross; / &ndash; |
 
 Client versions:
 
+- bouncycastle: Bouncy Castle 1.82 (JCA provider, JDK 21)
 - dotnet-8: .NET 8.0.423
 - gnutls: gnutls-cli 3.8.3
 - go: go version go1.26.0 linux/amd64
