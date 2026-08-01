@@ -1,0 +1,15 @@
+--- chain: mldsa65 ---
+chains/mldsa65/leaf.crt: parsed. sigAlg=0 pubKeyAlg=0
+chains/mldsa65/int.crt: parsed. sigAlg=0 pubKeyAlg=0
+chains/mldsa65/root.crt: parsed. sigAlg=0 pubKeyAlg=0
+verify: FAIL: x509: certificate signed by unknown authority
+--- chain: mixed ---
+chains/mixed/leaf.crt: parsed. sigAlg=0 pubKeyAlg=0
+chains/mixed/int.crt: parsed. sigAlg=ECDSA-SHA256 pubKeyAlg=0
+chains/mixed/root.crt: parsed. sigAlg=ECDSA-SHA256 pubKeyAlg=ECDSA
+verify: FAIL: x509: certificate signed by unknown authority
+--- chain: catalyst ---
+chains/catalyst/leaf.crt: parsed. sigAlg=ECDSA-SHA256 pubKeyAlg=ECDSA
+chains/ecdsa/int.crt: parsed. sigAlg=ECDSA-SHA256 pubKeyAlg=ECDSA
+chains/ecdsa/root.crt: parsed. sigAlg=ECDSA-SHA256 pubKeyAlg=ECDSA
+verify: OK

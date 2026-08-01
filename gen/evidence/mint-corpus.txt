@@ -1,0 +1,152 @@
+OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026)
+
+== chain: ecdsa (root=EC int=EC leaf=EC) ==
+$ openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out chains/ecdsa/root.key
+$ openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out chains/ecdsa/int.key
+$ openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out chains/ecdsa/leaf.key
+$ openssl req -x509 -new -key chains/ecdsa/root.key -out chains/ecdsa/root.crt -subj /CN=PQM Matrix ecdsa Root -days 90 -addext basicConstraints=critical,CA:TRUE -addext keyUsage=critical,keyCertSign,cRLSign
+$ openssl req -new -key chains/ecdsa/int.key -out chains/ecdsa/int.csr -subj /CN=PQM Matrix ecdsa Intermediate
+$ openssl x509 -req -in chains/ecdsa/int.csr -CA chains/ecdsa/root.crt -CAkey chains/ecdsa/root.key -out chains/ecdsa/int.crt -days 60 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=PQM Matrix ecdsa Intermediate
+$ openssl req -new -key chains/ecdsa/leaf.key -out chains/ecdsa/leaf.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/ecdsa/leaf.csr -CA chains/ecdsa/int.crt -CAkey chains/ecdsa/int.key -out chains/ecdsa/leaf.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+-- verify --
+$ openssl verify -CAfile chains/ecdsa/root.crt -untrusted chains/ecdsa/int.crt chains/ecdsa/leaf.crt
+chains/ecdsa/leaf.crt: OK
+
+== chain: mldsa44 (root=ML-DSA-44 int=ML-DSA-44 leaf=ML-DSA-44) ==
+$ openssl genpkey -algorithm ML-DSA-44 -out chains/mldsa44/root.key
+$ openssl genpkey -algorithm ML-DSA-44 -out chains/mldsa44/int.key
+$ openssl genpkey -algorithm ML-DSA-44 -out chains/mldsa44/leaf.key
+$ openssl req -x509 -new -key chains/mldsa44/root.key -out chains/mldsa44/root.crt -subj /CN=PQM Matrix mldsa44 Root -days 90 -addext basicConstraints=critical,CA:TRUE -addext keyUsage=critical,keyCertSign,cRLSign
+$ openssl req -new -key chains/mldsa44/int.key -out chains/mldsa44/int.csr -subj /CN=PQM Matrix mldsa44 Intermediate
+$ openssl x509 -req -in chains/mldsa44/int.csr -CA chains/mldsa44/root.crt -CAkey chains/mldsa44/root.key -out chains/mldsa44/int.crt -days 60 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=PQM Matrix mldsa44 Intermediate
+$ openssl req -new -key chains/mldsa44/leaf.key -out chains/mldsa44/leaf.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/mldsa44/leaf.csr -CA chains/mldsa44/int.crt -CAkey chains/mldsa44/int.key -out chains/mldsa44/leaf.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+-- verify --
+$ openssl verify -CAfile chains/mldsa44/root.crt -untrusted chains/mldsa44/int.crt chains/mldsa44/leaf.crt
+chains/mldsa44/leaf.crt: OK
+
+== chain: mldsa65 (root=ML-DSA-65 int=ML-DSA-65 leaf=ML-DSA-65) ==
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/mldsa65/root.key
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/mldsa65/int.key
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/mldsa65/leaf.key
+$ openssl req -x509 -new -key chains/mldsa65/root.key -out chains/mldsa65/root.crt -subj /CN=PQM Matrix mldsa65 Root -days 90 -addext basicConstraints=critical,CA:TRUE -addext keyUsage=critical,keyCertSign,cRLSign
+$ openssl req -new -key chains/mldsa65/int.key -out chains/mldsa65/int.csr -subj /CN=PQM Matrix mldsa65 Intermediate
+$ openssl x509 -req -in chains/mldsa65/int.csr -CA chains/mldsa65/root.crt -CAkey chains/mldsa65/root.key -out chains/mldsa65/int.crt -days 60 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=PQM Matrix mldsa65 Intermediate
+$ openssl req -new -key chains/mldsa65/leaf.key -out chains/mldsa65/leaf.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/mldsa65/leaf.csr -CA chains/mldsa65/int.crt -CAkey chains/mldsa65/int.key -out chains/mldsa65/leaf.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+-- verify --
+$ openssl verify -CAfile chains/mldsa65/root.crt -untrusted chains/mldsa65/int.crt chains/mldsa65/leaf.crt
+chains/mldsa65/leaf.crt: OK
+
+== chain: mldsa87 (root=ML-DSA-87 int=ML-DSA-87 leaf=ML-DSA-87) ==
+$ openssl genpkey -algorithm ML-DSA-87 -out chains/mldsa87/root.key
+$ openssl genpkey -algorithm ML-DSA-87 -out chains/mldsa87/int.key
+$ openssl genpkey -algorithm ML-DSA-87 -out chains/mldsa87/leaf.key
+$ openssl req -x509 -new -key chains/mldsa87/root.key -out chains/mldsa87/root.crt -subj /CN=PQM Matrix mldsa87 Root -days 90 -addext basicConstraints=critical,CA:TRUE -addext keyUsage=critical,keyCertSign,cRLSign
+$ openssl req -new -key chains/mldsa87/int.key -out chains/mldsa87/int.csr -subj /CN=PQM Matrix mldsa87 Intermediate
+$ openssl x509 -req -in chains/mldsa87/int.csr -CA chains/mldsa87/root.crt -CAkey chains/mldsa87/root.key -out chains/mldsa87/int.crt -days 60 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=PQM Matrix mldsa87 Intermediate
+$ openssl req -new -key chains/mldsa87/leaf.key -out chains/mldsa87/leaf.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/mldsa87/leaf.csr -CA chains/mldsa87/int.crt -CAkey chains/mldsa87/int.key -out chains/mldsa87/leaf.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+-- verify --
+$ openssl verify -CAfile chains/mldsa87/root.crt -untrusted chains/mldsa87/int.crt chains/mldsa87/leaf.crt
+chains/mldsa87/leaf.crt: OK
+
+== chain: slhroot (root=SLH-DSA-SHA2-128s int=ML-DSA-65 leaf=ML-DSA-65) ==
+$ openssl genpkey -algorithm SLH-DSA-SHA2-128s -out chains/slhroot/root.key
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/slhroot/int.key
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/slhroot/leaf.key
+$ openssl req -x509 -new -key chains/slhroot/root.key -out chains/slhroot/root.crt -subj /CN=PQM Matrix slhroot Root -days 90 -addext basicConstraints=critical,CA:TRUE -addext keyUsage=critical,keyCertSign,cRLSign
+$ openssl req -new -key chains/slhroot/int.key -out chains/slhroot/int.csr -subj /CN=PQM Matrix slhroot Intermediate
+$ openssl x509 -req -in chains/slhroot/int.csr -CA chains/slhroot/root.crt -CAkey chains/slhroot/root.key -out chains/slhroot/int.crt -days 60 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=PQM Matrix slhroot Intermediate
+$ openssl req -new -key chains/slhroot/leaf.key -out chains/slhroot/leaf.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/slhroot/leaf.csr -CA chains/slhroot/int.crt -CAkey chains/slhroot/int.key -out chains/slhroot/leaf.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+-- verify --
+$ openssl verify -CAfile chains/slhroot/root.crt -untrusted chains/slhroot/int.crt chains/slhroot/leaf.crt
+chains/slhroot/leaf.crt: OK
+
+== chain: mixed (root=EC int=ML-DSA-65 leaf=ML-DSA-65) ==
+$ openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out chains/mixed/root.key
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/mixed/int.key
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/mixed/leaf.key
+$ openssl req -x509 -new -key chains/mixed/root.key -out chains/mixed/root.crt -subj /CN=PQM Matrix mixed Root -days 90 -addext basicConstraints=critical,CA:TRUE -addext keyUsage=critical,keyCertSign,cRLSign
+$ openssl req -new -key chains/mixed/int.key -out chains/mixed/int.csr -subj /CN=PQM Matrix mixed Intermediate
+$ openssl x509 -req -in chains/mixed/int.csr -CA chains/mixed/root.crt -CAkey chains/mixed/root.key -out chains/mixed/int.crt -days 60 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=PQM Matrix mixed Intermediate
+$ openssl req -new -key chains/mixed/leaf.key -out chains/mixed/leaf.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/mixed/leaf.csr -CA chains/mixed/int.crt -CAkey chains/mixed/int.key -out chains/mixed/leaf.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+-- verify --
+$ openssl verify -CAfile chains/mixed/root.crt -untrusted chains/mixed/int.crt chains/mixed/leaf.crt
+chains/mixed/leaf.crt: OK
+
+== SAN ladder: ecdsa leaf with 10 SANs ==
+$ openssl req -new -key chains/ecdsa/leaf.key -out chains/ecdsa/leaf-san10.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/ecdsa/leaf-san10.csr -CA chains/ecdsa/int.crt -CAkey chains/ecdsa/int.key -out chains/ecdsa/leaf-san10.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+$ openssl verify -CAfile chains/ecdsa/root.crt -untrusted chains/ecdsa/int.crt chains/ecdsa/leaf-san10.crt
+chains/ecdsa/leaf-san10.crt: OK
+
+== SAN ladder: ecdsa leaf with 50 SANs ==
+$ openssl req -new -key chains/ecdsa/leaf.key -out chains/ecdsa/leaf-san50.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/ecdsa/leaf-san50.csr -CA chains/ecdsa/int.crt -CAkey chains/ecdsa/int.key -out chains/ecdsa/leaf-san50.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+$ openssl verify -CAfile chains/ecdsa/root.crt -untrusted chains/ecdsa/int.crt chains/ecdsa/leaf-san50.crt
+chains/ecdsa/leaf-san50.crt: OK
+
+== SAN ladder: ecdsa leaf with 150 SANs ==
+$ openssl req -new -key chains/ecdsa/leaf.key -out chains/ecdsa/leaf-san150.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/ecdsa/leaf-san150.csr -CA chains/ecdsa/int.crt -CAkey chains/ecdsa/int.key -out chains/ecdsa/leaf-san150.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+$ openssl verify -CAfile chains/ecdsa/root.crt -untrusted chains/ecdsa/int.crt chains/ecdsa/leaf-san150.crt
+chains/ecdsa/leaf-san150.crt: OK
+
+== SAN ladder: mldsa65 leaf with 10 SANs ==
+$ openssl req -new -key chains/mldsa65/leaf.key -out chains/mldsa65/leaf-san10.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/mldsa65/leaf-san10.csr -CA chains/mldsa65/int.crt -CAkey chains/mldsa65/int.key -out chains/mldsa65/leaf-san10.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+$ openssl verify -CAfile chains/mldsa65/root.crt -untrusted chains/mldsa65/int.crt chains/mldsa65/leaf-san10.crt
+chains/mldsa65/leaf-san10.crt: OK
+
+== SAN ladder: mldsa65 leaf with 50 SANs ==
+$ openssl req -new -key chains/mldsa65/leaf.key -out chains/mldsa65/leaf-san50.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/mldsa65/leaf-san50.csr -CA chains/mldsa65/int.crt -CAkey chains/mldsa65/int.key -out chains/mldsa65/leaf-san50.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+$ openssl verify -CAfile chains/mldsa65/root.crt -untrusted chains/mldsa65/int.crt chains/mldsa65/leaf-san50.crt
+chains/mldsa65/leaf-san50.crt: OK
+
+== SAN ladder: mldsa65 leaf with 150 SANs ==
+$ openssl req -new -key chains/mldsa65/leaf.key -out chains/mldsa65/leaf-san150.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/mldsa65/leaf-san150.csr -CA chains/mldsa65/int.crt -CAkey chains/mldsa65/int.key -out chains/mldsa65/leaf-san150.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+$ openssl verify -CAfile chains/mldsa65/root.crt -untrusted chains/mldsa65/int.crt chains/mldsa65/leaf-san150.crt
+chains/mldsa65/leaf-san150.crt: OK
+

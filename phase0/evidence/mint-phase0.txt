@@ -1,0 +1,65 @@
+OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026)
+
+== chain: ecdsa (root=EC int=EC leaf=EC) ==
+$ openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out chains/ecdsa/root.key
+$ openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out chains/ecdsa/int.key
+$ openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out chains/ecdsa/leaf.key
+$ openssl req -x509 -new -key chains/ecdsa/root.key -out chains/ecdsa/root.crt -subj /CN=PQM Matrix ecdsa Root -days 90 -addext basicConstraints=critical,CA:TRUE -addext keyUsage=critical,keyCertSign,cRLSign
+$ openssl req -new -key chains/ecdsa/int.key -out chains/ecdsa/int.csr -subj /CN=PQM Matrix ecdsa Intermediate
+$ openssl x509 -req -in chains/ecdsa/int.csr -CA chains/ecdsa/root.crt -CAkey chains/ecdsa/root.key -out chains/ecdsa/int.crt -days 60 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=PQM Matrix ecdsa Intermediate
+$ openssl req -new -key chains/ecdsa/leaf.key -out chains/ecdsa/leaf.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/ecdsa/leaf.csr -CA chains/ecdsa/int.crt -CAkey chains/ecdsa/int.key -out chains/ecdsa/leaf.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+-- verify --
+$ openssl verify -CAfile chains/ecdsa/root.crt -untrusted chains/ecdsa/int.crt chains/ecdsa/leaf.crt
+chains/ecdsa/leaf.crt: OK
+-- DER sizes (bytes) --
+ecdsa/root: 392
+ecdsa/int: 437
+ecdsa/leaf: 464
+
+== chain: mldsa65 (root=ML-DSA-65 int=ML-DSA-65 leaf=ML-DSA-65) ==
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/mldsa65/root.key
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/mldsa65/int.key
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/mldsa65/leaf.key
+$ openssl req -x509 -new -key chains/mldsa65/root.key -out chains/mldsa65/root.crt -subj /CN=PQM Matrix mldsa65 Root -days 90 -addext basicConstraints=critical,CA:TRUE -addext keyUsage=critical,keyCertSign,cRLSign
+$ openssl req -new -key chains/mldsa65/int.key -out chains/mldsa65/int.csr -subj /CN=PQM Matrix mldsa65 Intermediate
+$ openssl x509 -req -in chains/mldsa65/int.csr -CA chains/mldsa65/root.crt -CAkey chains/mldsa65/root.key -out chains/mldsa65/int.crt -days 60 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=PQM Matrix mldsa65 Intermediate
+$ openssl req -new -key chains/mldsa65/leaf.key -out chains/mldsa65/leaf.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/mldsa65/leaf.csr -CA chains/mldsa65/int.crt -CAkey chains/mldsa65/int.key -out chains/mldsa65/leaf.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+-- verify --
+$ openssl verify -CAfile chains/mldsa65/root.crt -untrusted chains/mldsa65/int.crt chains/mldsa65/leaf.crt
+chains/mldsa65/leaf.crt: OK
+-- DER sizes (bytes) --
+mldsa65/root: 5521
+mldsa65/int: 5565
+mldsa65/leaf: 5591
+
+== chain: mixed (root=EC int=ML-DSA-65 leaf=ML-DSA-65) ==
+$ openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out chains/mixed/root.key
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/mixed/int.key
+$ openssl genpkey -algorithm ML-DSA-65 -out chains/mixed/leaf.key
+$ openssl req -x509 -new -key chains/mixed/root.key -out chains/mixed/root.crt -subj /CN=PQM Matrix mixed Root -days 90 -addext basicConstraints=critical,CA:TRUE -addext keyUsage=critical,keyCertSign,cRLSign
+$ openssl req -new -key chains/mixed/int.key -out chains/mixed/int.csr -subj /CN=PQM Matrix mixed Intermediate
+$ openssl x509 -req -in chains/mixed/int.csr -CA chains/mixed/root.crt -CAkey chains/mixed/root.key -out chains/mixed/int.crt -days 60 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=PQM Matrix mixed Intermediate
+$ openssl req -new -key chains/mixed/leaf.key -out chains/mixed/leaf.csr -subj /CN=matrix.test
+$ openssl x509 -req -in chains/mixed/leaf.csr -CA chains/mixed/int.crt -CAkey chains/mixed/int.key -out chains/mixed/leaf.crt -days 30 -extfile /dev/fd/63
+Certificate request self-signature ok
+subject=CN=matrix.test
+-- verify --
+$ openssl verify -CAfile chains/mixed/root.crt -untrusted chains/mixed/int.crt chains/mixed/leaf.crt
+chains/mixed/leaf.crt: OK
+-- DER sizes (bytes) --
+mixed/root: 392
+mixed/int: 2318
+mixed/leaf: 5589
+

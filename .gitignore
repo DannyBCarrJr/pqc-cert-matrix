@@ -1,0 +1,9 @@
+# Private keys never commit; generators recreate the corpus
+*.key
+*_priv.pem
+
+# Bouncy Castle jars (downloaded by composite tooling) and build junk
+composite/lib/
+*.class
+__pycache__/
+*.pyc

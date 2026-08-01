@@ -1,0 +1,202 @@
+[
+  {
+    "chain": "ecdsa",
+    "file": "gen/chains/ecdsa/int.crt",
+    "total": 436,
+    "spki": 91,
+    "signature": 71,
+    "other": 274
+  },
+  {
+    "chain": "ecdsa",
+    "file": "gen/chains/ecdsa/leaf-san10.crt",
+    "total": 631,
+    "spki": 91,
+    "signature": 71,
+    "other": 469
+  },
+  {
+    "chain": "ecdsa",
+    "file": "gen/chains/ecdsa/leaf-san150.crt",
+    "total": 3344,
+    "spki": 91,
+    "signature": 71,
+    "other": 3182
+  },
+  {
+    "chain": "ecdsa",
+    "file": "gen/chains/ecdsa/leaf-san50.crt",
+    "total": 1393,
+    "spki": 91,
+    "signature": 70,
+    "other": 1232
+  },
+  {
+    "chain": "ecdsa",
+    "file": "gen/chains/ecdsa/leaf.crt",
+    "total": 464,
+    "spki": 91,
+    "signature": 71,
+    "other": 302
+  },
+  {
+    "chain": "ecdsa",
+    "file": "gen/chains/ecdsa/root.crt",
+    "total": 391,
+    "spki": 91,
+    "signature": 70,
+    "other": 230
+  },
+  {
+    "chain": "mixed",
+    "file": "gen/chains/mixed/int.crt",
+    "total": 2319,
+    "spki": 1974,
+    "signature": 71,
+    "other": 274
+  },
+  {
+    "chain": "mixed",
+    "file": "gen/chains/mixed/leaf.crt",
+    "total": 5589,
+    "spki": 1974,
+    "signature": 3309,
+    "other": 306
+  },
+  {
+    "chain": "mixed",
+    "file": "gen/chains/mixed/root.crt",
+    "total": 392,
+    "spki": 91,
+    "signature": 71,
+    "other": 230
+  },
+  {
+    "chain": "mldsa44",
+    "file": "gen/chains/mldsa44/int.crt",
+    "total": 4036,
+    "spki": 1334,
+    "signature": 2420,
+    "other": 282
+  },
+  {
+    "chain": "mldsa44",
+    "file": "gen/chains/mldsa44/leaf.crt",
+    "total": 4062,
+    "spki": 1334,
+    "signature": 2420,
+    "other": 308
+  },
+  {
+    "chain": "mldsa44",
+    "file": "gen/chains/mldsa44/root.crt",
+    "total": 3992,
+    "spki": 1334,
+    "signature": 2420,
+    "other": 238
+  },
+  {
+    "chain": "mldsa65",
+    "file": "gen/chains/mldsa65/int.crt",
+    "total": 5565,
+    "spki": 1974,
+    "signature": 3309,
+    "other": 282
+  },
+  {
+    "chain": "mldsa65",
+    "file": "gen/chains/mldsa65/leaf-san10.crt",
+    "total": 5758,
+    "spki": 1974,
+    "signature": 3309,
+    "other": 475
+  },
+  {
+    "chain": "mldsa65",
+    "file": "gen/chains/mldsa65/leaf-san150.crt",
+    "total": 8471,
+    "spki": 1974,
+    "signature": 3309,
+    "other": 3188
+  },
+  {
+    "chain": "mldsa65",
+    "file": "gen/chains/mldsa65/leaf-san50.crt",
+    "total": 6521,
+    "spki": 1974,
+    "signature": 3309,
+    "other": 1238
+  },
+  {
+    "chain": "mldsa65",
+    "file": "gen/chains/mldsa65/leaf.crt",
+    "total": 5591,
+    "spki": 1974,
+    "signature": 3309,
+    "other": 308
+  },
+  {
+    "chain": "mldsa65",
+    "file": "gen/chains/mldsa65/root.crt",
+    "total": 5521,
+    "spki": 1974,
+    "signature": 3309,
+    "other": 238
+  },
+  {
+    "chain": "mldsa87",
+    "file": "gen/chains/mldsa87/int.crt",
+    "total": 7523,
+    "spki": 2614,
+    "signature": 4627,
+    "other": 282
+  },
+  {
+    "chain": "mldsa87",
+    "file": "gen/chains/mldsa87/leaf.crt",
+    "total": 7549,
+    "spki": 2614,
+    "signature": 4627,
+    "other": 308
+  },
+  {
+    "chain": "mldsa87",
+    "file": "gen/chains/mldsa87/root.crt",
+    "total": 7479,
+    "spki": 2614,
+    "signature": 4627,
+    "other": 238
+  },
+  {
+    "chain": "slhroot",
+    "file": "gen/chains/slhroot/int.crt",
+    "total": 10112,
+    "spki": 1974,
+    "signature": 7856,
+    "other": 282
+  },
+  {
+    "chain": "slhroot",
+    "file": "gen/chains/slhroot/leaf.crt",
+    "total": 5591,
+    "spki": 1974,
+    "signature": 3309,
+    "other": 308
+  },
+  {
+    "chain": "slhroot",
+    "file": "gen/chains/slhroot/root.crt",
+    "total": 8144,
+    "spki": 50,
+    "signature": 7856,
+    "other": 238
+  },
+  {
+    "chain": "catalyst",
+    "file": "phase0/chains/catalyst/leaf.crt",
+    "total": 5736,
+    "spki": 91,
+    "signature": 71,
+    "other": 5574
+  }
+]
