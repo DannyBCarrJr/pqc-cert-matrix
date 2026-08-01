@@ -1,11 +1,12 @@
 # Hybrid certificate compatibility matrix, v1 scope
 
-Drafted 2026-07-31. Status: **PHASES 0 AND 1 COMPLETE (2026-07-31, one evening)**.
+Drafted 2026-07-31. Status: **PHASES 0, 1, AND 2 COMPLETE (2026-07-31, one evening)**.
 All five rows CONSTRUCTED including composite (BC 1.82, draft-07 OIDs). Corpus +
 size tables at repo root (`SIZES.md`); findings in `phase0/FINDINGS.md`
 (same-weight finding, SLH-root hidden wire cost, misleading-error pattern).
 Moved out of pqc-lab into this dedicated repo 2026-07-31 (private until Phase 4).
-Next: Phase 2 client matrix (Docker fleet + schannel).
+All ten v1 client columns populated (80 cells, MATRIX.md).
+Next: Phase 3 transport measurements, then article 3 + Phase 4 publish.
 Owner: Danny. Flagship candidate for the "operational evidence layer" strategy;
 feeds article 3 and the public lab repo.
 

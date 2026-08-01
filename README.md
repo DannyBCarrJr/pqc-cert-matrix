@@ -1,7 +1,7 @@
 # PQC certificate compatibility matrix
 
-**Status: private work in progress. Phases 0 and 1 complete (2026-07-31). Goes
-public with the v1 client matrix.**
+**Status: private work in progress. Phases 0, 1, and 2 complete (2026-07-31):
+all ten v1 client columns are populated (80 cells). Goes public at Phase 4.**
 
 When a post-quantum or hybrid certificate chain hits real client software, what
 actually happens? Vendors announce hybrid PQC certificates with zero published
@@ -25,11 +25,12 @@ labeled Verified, Reported, or Proposed).
   (draft-ietf-lamps-pq-composite-sigs) via Bouncy Castle 1.82.
 - `runners/` is the Phase 2 client harness: a runner contract (`CONTRACT.md`),
   per-client Docker runners, and `harness.py`, which generates `MATRIX.md`
-  from `results/results.json`. First two columns (OpenSSL 3.0, GnuTLS) are live.
+  from `results/results.json`. All ten v1 columns are live: OpenSSL 3.0 and 3.5,
+  GnuTLS, Go, Java 21, .NET 8, Python, Node, rustls, and Windows schannel.
 - `SCOPE.md` is the v1 plan: rows, the ten-stack client fleet, transport
   measurements, phases.
 
-## Findings so far (details and evidence in phase0/FINDINGS.md)
+## Headline findings (details and evidence in phase0/FINDINGS.md)
 
 1. A leaf certificate's post-quantum surcharge is constant: +5,127 bytes
    (ML-DSA-65 vs ECDSA P-256) across a 1-to-150 SAN ladder.
@@ -38,8 +39,15 @@ labeled Verified, Reported, or Proposed).
    size choice.
 3. "SLH-DSA for roots" has a hidden wire cost: the root's 7,856-byte signature
    rides on the intermediate, making that chain the most expensive measured.
-4. Go and OpenSSL both report unsupported PQ algorithms with trust-store-shaped
-   errors, sending operators to debug the wrong layer.
+4. Windows splits against itself: CNG offline-validates ML-DSA chains while
+   schannel cannot handshake them (SSPI 0x80090326). A certificate inventory
+   check passes; the TLS connection still fails.
+5. Your runtime decides PQ readiness, not your distro: Node 22 and Python 3.13
+   (bundled OpenSSL 3.5.x) validate ML-DSA chains that the same host's system
+   OpenSSL 3.0 and GnuTLS reject.
+6. The catalyst hybrid passes all ten clients; composite passes none of them.
+7. Clients report unsupported PQ algorithms with trust-store-shaped errors that
+   send operators to the wrong layer. Only rustls names the algorithm.
 
 ## Reproduce
 
