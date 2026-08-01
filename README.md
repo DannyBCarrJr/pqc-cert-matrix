@@ -23,6 +23,9 @@ labeled Verified, Reported, or Proposed).
   signature).
 - `composite/` mints a composite signature certificate
   (draft-ietf-lamps-pq-composite-sigs) via Bouncy Castle 1.82.
+- `runners/` is the Phase 2 client harness: a runner contract (`CONTRACT.md`),
+  per-client Docker runners, and `harness.py`, which generates `MATRIX.md`
+  from `results/results.json`. First two columns (OpenSSL 3.0, GnuTLS) are live.
 - `SCOPE.md` is the v1 plan: rows, the ten-stack client fleet, transport
   measurements, phases.
 

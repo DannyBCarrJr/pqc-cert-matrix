@@ -1,0 +1,11 @@
+Note that no verification profile was selected. In the future the medium profile will be enabled by default.
+Use --verify-profile low to apply the default verification of NORMAL priority string.
+Loaded CAs (1 available)
+	Subject: CN=PQM Matrix mldsa44 Intermediate
+	Issuer: CN=PQM Matrix mldsa44 Root
+	Checked against: CN=PQM Matrix mldsa44 Root
+	Signature algorithm: 2.16.840.1.101.3.4.3.17
+	Output: Not verified. The certificate is NOT trusted. 
+
+Chain verification output: Not verified. The certificate is NOT trusted. 
+

@@ -1,0 +1,306 @@
+[
+  {
+    "client": "gnutls",
+    "client_version": "gnutls-cli 3.8.3",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "-----END CERTIFICATE-----"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "Chain verification output: Verified. The certificate is trusted."
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "- Peer has closed the GnuTLS connection"
+      }
+    },
+    "chain": "ecdsa"
+  },
+  {
+    "client": "openssl-3.0",
+    "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "af:79:2a:f6:ef:36:55:e6:eb:4c:c8:9f:ab:3c:f6:cc:c5"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "/b/leaf.crt: OK"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "---"
+      }
+    },
+    "chain": "ecdsa"
+  },
+  {
+    "client": "gnutls",
+    "client_version": "gnutls-cli 3.8.3",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "-----END CERTIFICATE-----"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "Output: Not verified. The certificate is NOT trusted. | Chain verification output: Not verified. The certificate is NOT trusted."
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
+      }
+    },
+    "chain": "mldsa44"
+  },
+  {
+    "client": "openssl-3.0",
+    "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "00:00:00:00:0a:17:27:3c"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "40F75F14AA7A0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40F75F14AA7A0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "--- | 4017DC34287A0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+      }
+    },
+    "chain": "mldsa44"
+  },
+  {
+    "client": "gnutls",
+    "client_version": "gnutls-cli 3.8.3",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "-----END CERTIFICATE-----"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "Output: Not verified. The certificate is NOT trusted. | Chain verification output: Not verified. The certificate is NOT trusted."
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
+      }
+    },
+    "chain": "mldsa65"
+  },
+  {
+    "client": "openssl-3.0",
+    "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "00:00:00:00:00:00:00:00:00:07:0b:11:1d:25:27"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "40E7C5D9D0700000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40E7C5D9D0700000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "Verify return code: 0 (ok) | ---"
+      }
+    },
+    "chain": "mldsa65"
+  },
+  {
+    "client": "gnutls",
+    "client_version": "gnutls-cli 3.8.3",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "-----END CERTIFICATE-----"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "Output: Not verified. The certificate is NOT trusted. | Chain verification output: Not verified. The certificate is NOT trusted."
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
+      }
+    },
+    "chain": "mldsa87"
+  },
+  {
+    "client": "openssl-3.0",
+    "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "39"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "4067F5A357780000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4067F5A357780000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "Verify return code: 0 (ok) | ---"
+      }
+    },
+    "chain": "mldsa87"
+  },
+  {
+    "client": "gnutls",
+    "client_version": "gnutls-cli 3.8.3",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "-----END CERTIFICATE-----"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "Output: Not verified. The certificate is NOT trusted. | Chain verification output: Not verified. The certificate is NOT trusted."
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
+      }
+    },
+    "chain": "slhroot"
+  },
+  {
+    "client": "openssl-3.0",
+    "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "00:00:00:00:00:00:00:00:00:06:0d:12:18:1b:1e"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "408792F585750000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 408792F585750000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "Verify return code: 0 (ok) | ---"
+      }
+    },
+    "chain": "slhroot"
+  },
+  {
+    "client": "gnutls",
+    "client_version": "gnutls-cli 3.8.3",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "-----END CERTIFICATE-----"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "Output: Not verified. The certificate is NOT trusted. | Chain verification output: Not verified. The certificate is NOT trusted."
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
+      }
+    },
+    "chain": "mixed"
+  },
+  {
+    "client": "openssl-3.0",
+    "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "00:00:00:00:00:00:00:00:00:05:0b:14:1b:1f:25"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "4057B9DB90700000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4057B9DB90700000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "--- | 40D79CC1327D0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+      }
+    },
+    "chain": "mixed"
+  },
+  {
+    "client": "gnutls",
+    "client_version": "gnutls-cli 3.8.3",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "-----END CERTIFICATE-----"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "Chain verification output: Verified. The certificate is trusted."
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "- Peer has closed the GnuTLS connection"
+      }
+    },
+    "chain": "catalyst"
+  },
+  {
+    "client": "openssl-3.0",
+    "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "68:17:b2:32:e1:d8:97:aa:a6:f3:05:83:7a:91:c8:ef:88"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "/b/leaf.crt: OK"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "---"
+      }
+    },
+    "chain": "catalyst"
+  },
+  {
+    "client": "gnutls",
+    "client_version": "gnutls-cli 3.8.3",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "-----END CERTIFICATE-----"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "Output: Not verified. The certificate is NOT trusted. | Chain verification output: Not verified. The certificate is NOT trusted."
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "no server for this chain"
+      }
+    },
+    "chain": "composite"
+  },
+  {
+    "client": "openssl-3.0",
+    "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "e7:47:58:fb:e7:74:b2:31:79"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "40375747267C0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40375747267C0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "no server for this chain"
+      }
+    },
+    "chain": "composite"
+  }
+]

@@ -1,0 +1,12 @@
+Note that no verification profile was selected. In the future the medium profile will be enabled by default.
+Use --verify-profile low to apply the default verification of NORMAL priority string.
+|<1>| There was a non-CA certificate in the trusted list: CN=PQM Matrix Composite Self-Signed.
+Loaded CAs (1 available)
+	Subject: CN=PQM Matrix Composite Self-Signed
+	Issuer: CN=PQM Matrix Composite Self-Signed
+	Checked against: CN=PQM Matrix Composite Self-Signed
+	Signature algorithm: 2.16.840.1.114027.80.9.1.8
+	Output: Not verified. The certificate is NOT trusted. 
+
+Chain verification output: Not verified. The certificate is NOT trusted. 
+

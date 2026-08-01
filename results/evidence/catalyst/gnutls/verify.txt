@@ -1,0 +1,17 @@
+Note that no verification profile was selected. In the future the medium profile will be enabled by default.
+Use --verify-profile low to apply the default verification of NORMAL priority string.
+Loaded CAs (1 available)
+	Subject: CN=PQM Matrix ecdsa Intermediate
+	Issuer: CN=PQM Matrix ecdsa Root
+	Checked against: CN=PQM Matrix ecdsa Root
+	Signature algorithm: ECDSA-SHA256
+	Output: Verified. The certificate is trusted. 
+
+	Subject: CN=matrix-hybrid.test
+	Issuer: CN=PQM Matrix ecdsa Intermediate
+	Checked against: CN=PQM Matrix ecdsa Intermediate
+	Signature algorithm: ECDSA-SHA256
+	Output: Verified. The certificate is trusted. 
+
+Chain verification output: Verified. The certificate is trusted. 
+

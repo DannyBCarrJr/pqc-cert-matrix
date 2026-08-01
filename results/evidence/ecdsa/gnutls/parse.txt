@@ -1,0 +1,60 @@
+X.509 Certificate Information:
+	Version: 3
+	Serial Number (hex): 7a641662cc727a07c9c8088ca2c636283b81fcee
+	Issuer: CN=PQM Matrix ecdsa Intermediate
+	Validity:
+		Not Before: Fri Jul 31 23:59:14 UTC 2026
+		Not After: Sun Aug 30 23:59:14 UTC 2026
+	Subject: CN=matrix.test
+	Subject Public Key Algorithm: EC/ECDSA
+	Algorithm Security Level: High (256 bits)
+		Curve:	SECP256R1
+		X:
+			00:90:31:70:fc:8d:34:24:f5:78:52:e4:0b:29:3d:b5
+			60:f6:86:e3:85:45:34:46:98:cc:24:39:9f:97:ea:8e
+			6b
+		Y:
+			6d:00:f3:2a:5e:54:15:51:b7:e2:d1:b3:ba:72:60:12
+			75:49:5a:59:9f:9c:72:2d:f9:4f:d6:0f:24:6a:e5:76
+	Extensions:
+		Basic Constraints (not critical):
+			Certificate Authority (CA): FALSE
+		Key Usage (critical):
+			Digital signature.
+		Key Purpose (not critical):
+			TLS WWW Server.
+		Subject Alternative Name (not critical):
+			DNSname: matrix.test
+		Subject Key Identifier (not critical):
+			fd8afdcbaa401bdf97eea11de6776e33f5417705
+		Authority Key Identifier (not critical):
+			573c8417d745a3daee24abd5b1e2b61282f55634
+	Signature Algorithm: ECDSA-SHA256
+	Signature:
+		30:45:02:20:24:96:b0:4e:cc:0f:c8:78:8d:93:9c:41
+		4c:bd:e2:0b:43:9c:fb:5e:cb:e5:73:c3:ec:f4:a1:4f
+		37:b1:07:11:02:21:00:c4:67:be:18:d8:8c:25:83:1f
+		f1:7a:b3:e8:4d:b7:af:79:2a:f6:ef:36:55:e6:eb:4c
+		c8:9f:ab:3c:f6:cc:c5
+Other Information:
+	Fingerprint:
+		sha1:ed5f26ffcd2ea4b9aada059416f18fe84addd210
+		sha256:6b1a9cdbad93f67f44dd7ae2fc6de2a850299c285a1dd8900fd72547b039b8d8
+	Public Key ID:
+		sha1:a1764ddcc1c04eaf5f1dd5e1c39140e9c418ac74
+		sha256:4201a8fc07ee91702621ba9d77f5217141ddf1eed3e53dd5fb34bbca75c331ef
+	Public Key PIN:
+		pin-sha256:QgGo/AfukXAmIbqdd/UhcUHd8e7T5T3V+zS7ynXDMe8=
+
+-----BEGIN CERTIFICATE-----
+MIIBzDCCAXKgAwIBAgIUemQWYsxyegfJyAiMosY2KDuB/O4wCgYIKoZIzj0EAwIw
+KDEmMCQGA1UEAwwdUFFNIE1hdHJpeCBlY2RzYSBJbnRlcm1lZGlhdGUwHhcNMjYw
+NzMxMjM1OTE0WhcNMjYwODMwMjM1OTE0WjAWMRQwEgYDVQQDDAttYXRyaXgudGVz
+dDBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJAxcPyNNCT1eFLkCyk9tWD2huOF
+RTRGmMwkOZ+X6o5rbQDzKl5UFVG34tGzunJgEnVJWlmfnHIt+U/WDyRq5XajgYsw
+gYgwCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCB4AwEwYDVR0lBAwwCgYIKwYBBQUH
+AwEwFgYDVR0RBA8wDYILbWF0cml4LnRlc3QwHQYDVR0OBBYEFP2K/cuqQBvfl+6h
+HeZ3bjP1QXcFMB8GA1UdIwQYMBaAFFc8hBfXRaPa7iSr1bHithKC9VY0MAoGCCqG
+SM49BAMCA0gAMEUCICSWsE7MD8h4jZOcQUy94gtDnPtey+Vzw+z0oU83sQcRAiEA
+xGe+GNiMJYMf8Xqz6E23r3kq9u82VebrTMifqzz2zMU=
+-----END CERTIFICATE-----

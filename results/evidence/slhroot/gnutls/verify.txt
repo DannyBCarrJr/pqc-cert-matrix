@@ -1,0 +1,11 @@
+Note that no verification profile was selected. In the future the medium profile will be enabled by default.
+Use --verify-profile low to apply the default verification of NORMAL priority string.
+Loaded CAs (1 available)
+	Subject: CN=PQM Matrix slhroot Intermediate
+	Issuer: CN=PQM Matrix slhroot Root
+	Checked against: CN=PQM Matrix slhroot Root
+	Signature algorithm: 2.16.840.1.101.3.4.3.20
+	Output: Not verified. The certificate is NOT trusted. 
+
+Chain verification output: Not verified. The certificate is NOT trusted. 
+

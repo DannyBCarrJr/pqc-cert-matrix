@@ -1,0 +1,24 @@
+Processed 1 CA certificate(s).
+Resolving 'matrix.test:14433'...
+Connecting to '127.0.0.1:14433'...
+- Certificate type: X.509
+- Got a certificate list of 2 certificates.
+- Certificate[0] info:
+ - subject `CN=matrix.test', issuer `CN=PQM Matrix ecdsa Intermediate', serial 0x7a641662cc727a07c9c8088ca2c636283b81fcee, EC/ECDSA key 256 bits, signed using ECDSA-SHA256, activated `2026-07-31 23:59:14 UTC', expires `2026-08-30 23:59:14 UTC', pin-sha256="QgGo/AfukXAmIbqdd/UhcUHd8e7T5T3V+zS7ynXDMe8="
+	Public Key ID:
+		sha1:a1764ddcc1c04eaf5f1dd5e1c39140e9c418ac74
+		sha256:4201a8fc07ee91702621ba9d77f5217141ddf1eed3e53dd5fb34bbca75c331ef
+	Public Key PIN:
+		pin-sha256:QgGo/AfukXAmIbqdd/UhcUHd8e7T5T3V+zS7ynXDMe8=
+
+- Certificate[1] info:
+ - subject `CN=PQM Matrix ecdsa Intermediate', issuer `CN=PQM Matrix ecdsa Root', serial 0x4f660c294d5be5580a94282261aa20bf05f27773, EC/ECDSA key 256 bits, signed using ECDSA-SHA256, activated `2026-07-31 23:59:14 UTC', expires `2026-09-29 23:59:14 UTC', pin-sha256="JucCnStCYjmYuQKx7IFZOdon3enNwhhVodR9e0Kt6Fc="
+- Status: The certificate is trusted. 
+- Description: (TLS1.3-X.509)-(ECDHE-SECP256R1)-(ECDSA-SECP256R1-SHA256)-(AES-256-GCM)
+- Session ID: C6:B5:11:E8:61:61:17:44:05:FF:6F:F2:B8:38:64:A3:8D:73:AD:78:A7:12:D3:7C:3F:FC:11:14:C3:A3:4B:FA
+- Options:
+- Handshake was completed
+
+- Simple Client Mode:
+
+- Peer has closed the GnuTLS connection

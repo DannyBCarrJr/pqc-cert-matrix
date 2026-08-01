@@ -1,0 +1,24 @@
+Processed 1 CA certificate(s).
+Resolving 'matrix-hybrid.test:14433'...
+Connecting to '127.0.0.1:14433'...
+- Certificate type: X.509
+- Got a certificate list of 2 certificates.
+- Certificate[0] info:
+ - subject `CN=matrix-hybrid.test', issuer `CN=PQM Matrix ecdsa Intermediate', serial 0x504d4d30, EC/ECDSA key 256 bits, signed using ECDSA-SHA256, activated `2026-07-31 00:00:00 UTC', expires `2026-08-30 00:00:00 UTC', pin-sha256="khLZ2rpxP2sRWthBTjpLJ478jHcORyFWCqibXGGFdvk="
+	Public Key ID:
+		sha1:ebabb746f927f26c0319111ca43bfe7c07fd1a08
+		sha256:9212d9daba713f6b115ad8414e3a4b278efc8c770e4721560aa89b5c618576f9
+	Public Key PIN:
+		pin-sha256:khLZ2rpxP2sRWthBTjpLJ478jHcORyFWCqibXGGFdvk=
+
+- Certificate[1] info:
+ - subject `CN=PQM Matrix ecdsa Intermediate', issuer `CN=PQM Matrix ecdsa Root', serial 0x0f6bf40f77811d7b0cd83f42831c474639d809eb, EC/ECDSA key 256 bits, signed using ECDSA-SHA256, activated `2026-07-31 23:46:36 UTC', expires `2026-09-29 23:46:36 UTC', pin-sha256="+xMK2POGX7Z+H6AF+Kk55BgCAA/IM3FCpARCWH6GByY="
+- Status: The certificate is trusted. 
+- Description: (TLS1.3-X.509)-(ECDHE-SECP256R1)-(ECDSA-SECP256R1-SHA256)-(AES-256-GCM)
+- Session ID: 1B:EC:13:BA:FC:AA:3F:3A:67:4C:E7:00:A4:62:92:1E:78:3A:FF:63:C0:40:58:FB:65:62:6F:31:AA:BB:20:E4
+- Options:
+- Handshake was completed
+
+- Simple Client Mode:
+
+- Peer has closed the GnuTLS connection
