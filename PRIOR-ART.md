@@ -120,11 +120,41 @@ different from how stacks *report a failure* on a pure ML-DSA chain. Java's
 makes it report "verify OK" on a composite certificate whose algorithms it cannot
 identify.
 
-## UNVERIFIED
+## RESOLVED: SLH-DSA root wire cost is substantially covered
 
-**SLH-DSA root wire cost** (the root's signature rides on the transmitted
-intermediate, making slhroot the most expensive chain we measured at 15,703 wire
-bytes). 2026/1416 measures single certificates and models handshake bytes but does
-not appear to isolate root placement. arXiv 2604.06100 covers signature placement
-and has a section on placement and operational cost; its PDF did not extract, so
-overlap remains unknown. Read it before claiming.
+arXiv 2604.06100 (Jose Luis Delgado, Universitat Oberta de Catalunya, v3
+2026-05-19), *Signature Placement in Post-Quantum TLS Certificate Hierarchies*,
+read in full 2026-07-31. Its Campaign C measures exactly our slhroot family
+(SLH root, ML intermediate, ML leaf) and reports the transport difference
+directly: depth 2 reads 39,962 bytes, depth 3 reads 28,947, an 11,015-byte drop,
+because at depth 3 the observed chain is intermediate plus leaf and the heavy SLH
+root certificate leaves the transmitted set entirely.
+
+Our observation is the same phenomenon and their data supports the mechanism we
+described (the SLH signature persists on the transmitted intermediate: their
+depth-3 slhroot reads 28,947 bytes against a 16,008-byte all-ML baseline). Cite
+them; do not claim it. Their treatment is also far deeper than ours, adding
+latency, capacity, and cost-per-handshake analysis we did not attempt.
+
+Their headline result is worth citing prominently in article 3 regardless: putting
+SLH-DSA in the **leaf** produces a ~1.4 second handshake, roughly 1,700x baseline
+latency, with the handshake becoming almost entirely server-bound (server
+task-clock ~0.999 of elapsed time) and an infrastructure multiplier around 2,500x
+to hold baseline throughput. Confining SLH-DSA to the root, which is what our
+slhroot row does, is their "penalized but plausible" class.
+
+## The strongest positioning statement available
+
+**Both papers name this project's axis as their own open work.**
+
+- IACR 2026/1416: "BoringSSL and rustls remain future work."
+- arXiv 2604.06100, section 10.2 and 11.3: the study runs on a single stack
+  (OpenSSL 3 plus oqsprovider) and states that "repeating the same
+  hierarchy-sensitive analysis across other TLS libraries and post-quantum
+  integrations would strengthen confidence in the generality of the structural
+  findings."
+
+Two independent 2026 papers, one security-focused and one performance-focused,
+both stop at the same boundary: one implementation stack, or certificate-path
+verification without live cross-stack handshakes. That boundary is exactly what
+this repo crosses. Article 3 should say so plainly and cite both.
