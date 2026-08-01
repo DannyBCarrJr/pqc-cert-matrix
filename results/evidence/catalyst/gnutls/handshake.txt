@@ -4,18 +4,18 @@ Connecting to '127.0.0.1:14433'...
 - Certificate type: X.509
 - Got a certificate list of 2 certificates.
 - Certificate[0] info:
- - subject `CN=matrix-hybrid.test', issuer `CN=PQM Matrix ecdsa Intermediate', serial 0x504d4d30, EC/ECDSA key 256 bits, signed using ECDSA-SHA256, activated `2026-07-31 00:00:00 UTC', expires `2026-08-30 00:00:00 UTC', pin-sha256="khLZ2rpxP2sRWthBTjpLJ478jHcORyFWCqibXGGFdvk="
+ - subject `CN=matrix-hybrid.test', issuer `CN=PQM Matrix ecdsa Intermediate', serial 0x504d4d30, EC/ECDSA key 256 bits, signed using ECDSA-SHA256, activated `2026-07-31 00:00:00 UTC', expires `2026-08-30 00:00:00 UTC', pin-sha256="W6kVrMRct1coM89VoxfeY37s4hZrC7J93Kpt+8MMHhc="
 	Public Key ID:
-		sha1:ebabb746f927f26c0319111ca43bfe7c07fd1a08
-		sha256:9212d9daba713f6b115ad8414e3a4b278efc8c770e4721560aa89b5c618576f9
+		sha1:f2a668b94aa392f27ac0b8b10e7a85d37fd1169e
+		sha256:5ba915acc45cb7572833cf55a317de637eece2166b0bb27ddcaa6dfbc30c1e17
 	Public Key PIN:
-		pin-sha256:khLZ2rpxP2sRWthBTjpLJ478jHcORyFWCqibXGGFdvk=
+		pin-sha256:W6kVrMRct1coM89VoxfeY37s4hZrC7J93Kpt+8MMHhc=
 
 - Certificate[1] info:
  - subject `CN=PQM Matrix ecdsa Intermediate', issuer `CN=PQM Matrix ecdsa Root', serial 0x0f6bf40f77811d7b0cd83f42831c474639d809eb, EC/ECDSA key 256 bits, signed using ECDSA-SHA256, activated `2026-07-31 23:46:36 UTC', expires `2026-09-29 23:46:36 UTC', pin-sha256="+xMK2POGX7Z+H6AF+Kk55BgCAA/IM3FCpARCWH6GByY="
 - Status: The certificate is trusted. 
 - Description: (TLS1.3-X.509)-(ECDHE-SECP256R1)-(ECDSA-SECP256R1-SHA256)-(AES-256-GCM)
-- Session ID: 9F:AA:27:58:0F:25:A0:C9:7E:CA:E2:98:A1:75:24:D9:21:A8:35:8D:0C:89:BA:39:AF:A5:42:96:DE:CF:C5:A9
+- Session ID: 30:D5:AE:E3:83:63:03:80:6A:54:E7:AD:29:5F:0C:66:31:C2:30:15:75:D5:42:EB:18:7F:56:00:89:D9:F0:F7
 - Options:
 - Handshake was completed
 

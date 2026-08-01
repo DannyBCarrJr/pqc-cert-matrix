@@ -106,6 +106,26 @@ the flag; the flag state IS the matrix cell.
   name the algorithm. **Java's is the most dangerous of the five**: "signature
   check failed" is the exact wording for a tampered or corrupt certificate, so
   an unsupported algorithm looks like an attack in the logs.
+- **The runtime you deploy on matters more than the OS you deploy to.** Node 22
+  (bundled OpenSSL 3.5.7) and Python 3.13 (linked 3.5.6) validate and complete
+  handshakes on every ML-DSA chain, while Ubuntu 24.04's system OpenSSL 3.0 and
+  GnuTLS fail all of them on the same host. An app's PQ readiness is a property
+  of its runtime's crypto, not of the distro.
+- **Python's stdlib has no offline chain-verification API at all** (skip, not
+  fail). Code that needs to validate a chain outside a TLS connection reaches
+  for a third-party library, which moves the PQ question to that dependency.
+- **Strict mode is a real hybrid tripwire.** Python 3.13's default context sets
+  `VERIFY_X509_STRICT`, which enforces RFC 5280 hygiene. The first catalyst cert
+  built here (pyca, no SKI/AKI, because OpenSSL adds them automatically and pyca
+  does not) failed Python's handshake with `Missing Authority Key Identifier`
+  while passing all six other clients. Fixed by adding SKI/AKI in
+  `catalyst_build.py` so the row isolates alt-extension handling; recorded
+  because tooling that hand-builds hybrid certs can trip exactly this way, and
+  the error names an extension rather than the real hygiene gap.
+- **Node's `X509Certificate.verify` is a signature check, not path validation.**
+  It returns true for ML-DSA chains via bundled OpenSSL 3.5, but it does not
+  apply constraints, validity, or policy. The matrix marks it ok with this
+  caveat; treat Node's verify column as weaker evidence than PKIX columns.
 - **Java is the only client that surfaces the algorithm anywhere.** Its parse
   output prints the raw OID (2.16.840.1.101.3.4.3.18 for ML-DSA-65,
   2.16.840.1.114027.80.9.1.8 for the BC composite) instead of a name, because

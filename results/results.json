@@ -57,6 +57,25 @@
     "chain": "ecdsa"
   },
   {
+    "client": "node",
+    "client_version": "Node v22.23.2 (OpenSSL 3.5.7)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK (manual signature chain)"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "ecdsa"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -90,6 +109,25 @@
       "handshake": {
         "status": "ok",
         "detail": "DONE"
+      }
+    },
+    "chain": "ecdsa"
+  },
+  {
+    "client": "python",
+    "client_version": "Python 3.13.14 (OpenSSL 3.5.6 7 Apr 2026)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: ((('commonName', 'matrix.test'),),)"
+      },
+      "verify": {
+        "status": "skip",
+        "detail": "stdlib has no offline chain-verification API"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
       }
     },
     "chain": "ecdsa"
@@ -152,6 +190,25 @@
     "chain": "mldsa44"
   },
   {
+    "client": "node",
+    "client_version": "Node v22.23.2 (OpenSSL 3.5.7)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK (manual signature chain)"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "mldsa44"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -161,11 +218,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40E7B5C553720000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40E7B5C553720000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40E797BA0E7A0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40E797BA0E7A0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 4077A86C57770000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "--- | 40C7DA2E47790000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa44"
@@ -185,6 +242,25 @@
       "handshake": {
         "status": "ok",
         "detail": "DONE"
+      }
+    },
+    "chain": "mldsa44"
+  },
+  {
+    "client": "python",
+    "client_version": "Python 3.13.14 (OpenSSL 3.5.6 7 Apr 2026)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: ((('commonName', 'matrix.test'),),)"
+      },
+      "verify": {
+        "status": "skip",
+        "detail": "stdlib has no offline chain-verification API"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
       }
     },
     "chain": "mldsa44"
@@ -247,6 +323,25 @@
     "chain": "mldsa65"
   },
   {
+    "client": "node",
+    "client_version": "Node v22.23.2 (OpenSSL 3.5.7)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK (manual signature chain)"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "mldsa65"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -256,11 +351,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40F77692AE770000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40F77692AE770000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "4087CA1D9F710000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4087CA1D9F710000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 4097104D017E0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "Verify return code: 0 (ok) | ---"
       }
     },
     "chain": "mldsa65"
@@ -285,6 +380,25 @@
     "chain": "mldsa65"
   },
   {
+    "client": "python",
+    "client_version": "Python 3.13.14 (OpenSSL 3.5.6 7 Apr 2026)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: ((('commonName', 'matrix.test'),),)"
+      },
+      "verify": {
+        "status": "skip",
+        "detail": "stdlib has no offline chain-verification API"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "mldsa65"
+  },
+  {
     "client": "gnutls",
     "client_version": "gnutls-cli 3.8.3",
     "tests": {
@@ -298,7 +412,7 @@
       },
       "handshake": {
         "status": "fail",
-        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
+        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
       }
     },
     "chain": "mldsa87"
@@ -342,6 +456,25 @@
     "chain": "mldsa87"
   },
   {
+    "client": "node",
+    "client_version": "Node v22.23.2 (OpenSSL 3.5.7)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK (manual signature chain)"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "mldsa87"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -351,11 +484,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40B73C5680720000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40B73C5680720000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "409759B834740000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 409759B834740000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40672D892D7B0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "--- | 4027788BA47C0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa87"
@@ -375,6 +508,25 @@
       "handshake": {
         "status": "ok",
         "detail": "DONE"
+      }
+    },
+    "chain": "mldsa87"
+  },
+  {
+    "client": "python",
+    "client_version": "Python 3.13.14 (OpenSSL 3.5.6 7 Apr 2026)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: ((('commonName', 'matrix.test'),),)"
+      },
+      "verify": {
+        "status": "skip",
+        "detail": "stdlib has no offline chain-verification API"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
       }
     },
     "chain": "mldsa87"
@@ -437,6 +589,25 @@
     "chain": "slhroot"
   },
   {
+    "client": "node",
+    "client_version": "Node v22.23.2 (OpenSSL 3.5.7)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK (manual signature chain)"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "slhroot"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -446,7 +617,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40A7B3B8D7720000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40A7B3B8D7720000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40D72F761E7F0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40D72F761E7F0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
@@ -475,6 +646,25 @@
     "chain": "slhroot"
   },
   {
+    "client": "python",
+    "client_version": "Python 3.13.14 (OpenSSL 3.5.6 7 Apr 2026)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: ((('commonName', 'matrix.test'),),)"
+      },
+      "verify": {
+        "status": "skip",
+        "detail": "stdlib has no offline chain-verification API"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "slhroot"
+  },
+  {
     "client": "gnutls",
     "client_version": "gnutls-cli 3.8.3",
     "tests": {
@@ -532,6 +722,25 @@
     "chain": "mixed"
   },
   {
+    "client": "node",
+    "client_version": "Node v22.23.2 (OpenSSL 3.5.7)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK (manual signature chain)"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "mixed"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -541,11 +750,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40F7A780377B0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40F7A780377B0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40376B0C397B0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40376B0C397B0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40A7D3E1717D0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "--- | 40071B739A720000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mixed"
@@ -565,6 +774,25 @@
       "handshake": {
         "status": "ok",
         "detail": "DONE"
+      }
+    },
+    "chain": "mixed"
+  },
+  {
+    "client": "python",
+    "client_version": "Python 3.13.14 (OpenSSL 3.5.6 7 Apr 2026)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: ((('commonName', 'matrix.test'),),)"
+      },
+      "verify": {
+        "status": "skip",
+        "detail": "stdlib has no offline chain-verification API"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
       }
     },
     "chain": "mixed"
@@ -627,12 +855,31 @@
     "chain": "catalyst"
   },
   {
+    "client": "node",
+    "client_version": "Node v22.23.2 (OpenSSL 3.5.7)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: subject=CN=matrix-hybrid.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK (manual signature chain)"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "catalyst"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
       "parse": {
         "status": "ok",
-        "detail": "68:17:b2:32:e1:d8:97:aa:a6:f3:05:83:7a:91:c8:ef:88"
+        "detail": "a4:38:37:b7:33:f2:28:0f:b8:6e:a1:73:2f:3a:71:cf:e7:6e"
       },
       "verify": {
         "status": "ok",
@@ -651,7 +898,7 @@
     "tests": {
       "parse": {
         "status": "ok",
-        "detail": "68:17:b2:32:e1:d8:97:aa:a6:f3:05:83:7a:91:c8:ef:88"
+        "detail": "a4:38:37:b7:33:f2:28:0f:b8:6e:a1:73:2f:3a:71:cf:e7:6e"
       },
       "verify": {
         "status": "ok",
@@ -660,6 +907,25 @@
       "handshake": {
         "status": "ok",
         "detail": "DONE"
+      }
+    },
+    "chain": "catalyst"
+  },
+  {
+    "client": "python",
+    "client_version": "Python 3.13.14 (OpenSSL 3.5.6 7 Apr 2026)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: ((('commonName', 'matrix-hybrid.test'),),)"
+      },
+      "verify": {
+        "status": "skip",
+        "detail": "stdlib has no offline chain-verification API"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
       }
     },
     "chain": "catalyst"
@@ -722,6 +988,25 @@
     "chain": "composite"
   },
   {
+    "client": "node",
+    "client_version": "Node v22.23.2 (OpenSSL 3.5.7)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: subject=CN=PQM Matrix Composite Self-Signed"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "Error: error:03000072:digital envelope routines::decode error"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "no server for this chain"
+      }
+    },
+    "chain": "composite"
+  },
+  {
     "client": "openssl-3.0",
     "client_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
     "tests": {
@@ -731,7 +1016,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40B7544CA07F0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40B7544CA07F0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40C70E0F93700000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40C70E0F93700000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "skip",
@@ -750,7 +1035,26 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40D73F6B06700000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 40D73F6B06700000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
+        "detail": "40576228F6710000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 40576228F6710000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "no server for this chain"
+      }
+    },
+    "chain": "composite"
+  },
+  {
+    "client": "python",
+    "client_version": "Python 3.13.14 (OpenSSL 3.5.6 7 Apr 2026)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: ((('commonName', 'PQM Matrix Composite Self-Signed'),),)"
+      },
+      "verify": {
+        "status": "skip",
+        "detail": "stdlib has no offline chain-verification API"
       },
       "handshake": {
         "status": "skip",

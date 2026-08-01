@@ -1,9 +1,9 @@
-$ openssl genpkey -algorithm ML-DSA-65 -out <redacted-home>/Workspace/10-projects/pqc-lab/matrix/phase0/chains/catalyst/alt-mldsa65.key
-$ openssl pkey -in <redacted-home>/Workspace/10-projects/pqc-lab/matrix/phase0/chains/catalyst/alt-mldsa65.key -pubout -outform DER
-$ openssl pkeyutl -sign -inkey <redacted-home>/Workspace/10-projects/pqc-lab/matrix/phase0/chains/catalyst/alt-mldsa65.key -rawin -in <redacted-home>/Workspace/10-projects/pqc-lab/matrix/phase0/chains/catalyst/tbs-for-altsig.der -out <redacted-home>/Workspace/10-projects/pqc-lab/matrix/phase0/chains/catalyst/altsig.bin
+$ openssl genpkey -algorithm ML-DSA-65 -out <repo>/phase0/chains/catalyst/alt-mldsa65.key
+$ openssl pkey -in <repo>/phase0/chains/catalyst/alt-mldsa65.key -pubout -outform DER
+$ openssl pkeyutl -sign -inkey <repo>/phase0/chains/catalyst/alt-mldsa65.key -rawin -in <repo>/phase0/chains/catalyst/tbs-for-altsig.der -out <repo>/phase0/chains/catalyst/altsig.bin
 ML-DSA-65 alt signature: 3309 bytes
-catalyst leaf DER size: 5736 bytes
-$ openssl pkey -in <redacted-home>/Workspace/10-projects/pqc-lab/matrix/phase0/chains/catalyst/alt-mldsa65.key -pubout
-$ openssl pkeyutl -verify -pubin -inkey <redacted-home>/Workspace/10-projects/pqc-lab/matrix/phase0/chains/catalyst/alt-mldsa65.pub.pem -rawin -in <redacted-home>/Workspace/10-projects/pqc-lab/matrix/phase0/chains/catalyst/tbs-for-altsig.der -sigfile <redacted-home>/Workspace/10-projects/pqc-lab/matrix/phase0/chains/catalyst/altsig.bin
+catalyst leaf DER size: 5801 bytes
+$ openssl pkey -in <repo>/phase0/chains/catalyst/alt-mldsa65.key -pubout
+$ openssl pkeyutl -verify -pubin -inkey <repo>/phase0/chains/catalyst/alt-mldsa65.pub.pem -rawin -in <repo>/phase0/chains/catalyst/tbs-for-altsig.der -sigfile <repo>/phase0/chains/catalyst/altsig.bin
 alt signature verifies over TBS-without-altSignatureValue: OK
-<redacted-home>/Workspace/10-projects/pqc-lab/matrix/phase0/chains/catalyst/leaf.crt: OK
+<repo>/phase0/chains/catalyst/leaf.crt: OK

@@ -51,6 +51,20 @@ def der_len(n: int) -> bytes:
     return bytes([0x80 | len(b)]) + b
 
 
+def issuer_aki(ca_cert) -> x509.AuthorityKeyIdentifier:
+    """AKI from the issuer's SKI when it has one, else derived from its key.
+
+    RFC 5280 wants AKI on end-entity certs, and Python 3.13's default context
+    enables VERIFY_X509_STRICT, which rejects chains without it. Omitting these
+    made the catalyst row fail for a reason unrelated to the alt extensions.
+    """
+    try:
+        ski = ca_cert.extensions.get_extension_for_class(x509.SubjectKeyIdentifier)
+        return x509.AuthorityKeyIdentifier.from_issuer_subject_key_identifier(ski.value)
+    except x509.ExtensionNotFound:
+        return x509.AuthorityKeyIdentifier.from_issuer_public_key(ca_cert.public_key())
+
+
 def build(extra_ext: x509.UnrecognizedExtension | None, leaf_key, ca_cert, sapki: bytes):
     b = (
         x509.CertificateBuilder()
@@ -64,6 +78,8 @@ def build(extra_ext: x509.UnrecognizedExtension | None, leaf_key, ca_cert, sapki
         .add_extension(x509.KeyUsage(True, False, False, False, False, False, False, False, False), critical=True)
         .add_extension(x509.ExtendedKeyUsage([x509.ExtendedKeyUsageOID.SERVER_AUTH]), critical=False)
         .add_extension(x509.SubjectAlternativeName([x509.DNSName("matrix-hybrid.test")]), critical=False)
+        .add_extension(x509.SubjectKeyIdentifier.from_public_key(leaf_key.public_key()), critical=False)
+        .add_extension(issuer_aki(ca_cert), critical=False)
         .add_extension(x509.UnrecognizedExtension(OID_SAPKI, sapki), critical=False)
         .add_extension(x509.UnrecognizedExtension(OID_ALT_ALG, ALT_ALG_DER), critical=False)
     )
