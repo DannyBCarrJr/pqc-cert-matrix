@@ -1,0 +1,534 @@
+[
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 914,
+      "CertificateVerify": 75,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 2245,
+    "server_records": [
+      1210,
+      1,
+      23,
+      935,
+      96,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 1210,
+    "server_tcp_bytes": 2898,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "ecdsa",
+    "mode": "compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 914,
+      "CertificateVerify": 74,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 2244,
+    "server_records": [
+      1210,
+      1,
+      23,
+      935,
+      95,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 1210,
+    "server_tcp_bytes": 2897,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "ecdsa",
+    "mode": "no-compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 8112,
+      "CertificateVerify": 2424,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 11792,
+    "server_records": [
+      1210,
+      1,
+      23,
+      8133,
+      2445,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 8133,
+    "server_tcp_bytes": 12445,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "mldsa44",
+    "mode": "compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 8112,
+      "CertificateVerify": 2424,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 11792,
+    "server_records": [
+      1210,
+      1,
+      23,
+      8133,
+      2445,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 8133,
+    "server_tcp_bytes": 12445,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "mldsa44",
+    "mode": "no-compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 11170,
+      "CertificateVerify": 3313,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 15739,
+    "server_records": [
+      1210,
+      1,
+      23,
+      11191,
+      3334,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 11191,
+    "server_tcp_bytes": 16392,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "mldsa65",
+    "mode": "compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 11170,
+      "CertificateVerify": 3313,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 15739,
+    "server_records": [
+      1210,
+      1,
+      23,
+      11191,
+      3334,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 11191,
+    "server_tcp_bytes": 16392,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "mldsa65",
+    "mode": "no-compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 15086,
+      "CertificateVerify": 4631,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 20973,
+    "server_records": [
+      1210,
+      1,
+      23,
+      15107,
+      4652,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 15107,
+    "server_tcp_bytes": 21626,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "mldsa87",
+    "mode": "compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 15086,
+      "CertificateVerify": 4631,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 20973,
+    "server_records": [
+      1210,
+      1,
+      23,
+      15107,
+      4652,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 15107,
+    "server_tcp_bytes": 21626,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "mldsa87",
+    "mode": "no-compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 15717,
+      "CertificateVerify": 3313,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 20286,
+    "server_records": [
+      1210,
+      1,
+      23,
+      15738,
+      3334,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 15738,
+    "server_tcp_bytes": 20939,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "slhroot",
+    "mode": "compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 15717,
+      "CertificateVerify": 3313,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 20286,
+    "server_records": [
+      1210,
+      1,
+      23,
+      15738,
+      3334,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 15738,
+    "server_tcp_bytes": 20939,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "slhroot",
+    "mode": "no-compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 7922,
+      "CertificateVerify": 3313,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 12491,
+    "server_records": [
+      1210,
+      1,
+      23,
+      7943,
+      3334,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 7943,
+    "server_tcp_bytes": 13144,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "mixed",
+    "mode": "compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 7922,
+      "CertificateVerify": 3313,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 12491,
+    "server_records": [
+      1210,
+      1,
+      23,
+      7943,
+      3334,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 7943,
+    "server_tcp_bytes": 13144,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "mixed",
+    "mode": "no-compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 6252,
+      "CertificateVerify": 75,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 7583,
+    "server_records": [
+      1210,
+      1,
+      23,
+      6273,
+      96,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 6273,
+    "server_tcp_bytes": 8236,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "catalyst",
+    "mode": "compression"
+  },
+  {
+    "server_messages": {
+      "ServerHello": 1206,
+      "EncryptedExtensions": 2,
+      "Certificate": 6252,
+      "CertificateVerify": 76,
+      "Finished": 48,
+      "NewSessionTicket": 458
+    },
+    "client_messages": {
+      "ClientHello": 1500,
+      "Finished": 48
+    },
+    "server_flight_handshake_bytes": 7584,
+    "server_records": [
+      1210,
+      1,
+      23,
+      6273,
+      97,
+      69,
+      250,
+      250,
+      19
+    ],
+    "client_records": [
+      1504,
+      1,
+      69,
+      19
+    ],
+    "largest_server_record": 6273,
+    "server_tcp_bytes": 8237,
+    "client_tcp_bytes": 1613,
+    "compressed": false,
+    "chain": "catalyst",
+    "mode": "no-compression"
+  }
+]
