@@ -22,7 +22,15 @@ attributing every handshake message, congestion window analysis. Headline: the
 extra round trip starts at ML-DSA-65. Two open items recorded rather than
 guessed: why certificate compression never engages on stock OpenSSL, and a
 prior-art check owed on the compression constant.
-Next: Phase 4 publish (flip repo public, add the repo link into article 3).
+**Phase 4 DONE 2026-08-01.** Repo is PUBLIC at
+github.com/DannyBCarrJr/pqc-cert-matrix, MIT. Before the flip, a pre-publication
+audit found the checkout path (`/home/<alias>`) baked into 25 places across 11
+evidence files AND into git history. Fixed at the source (the harness now redacts
+the checkout path at collection, so future runs cannot reintroduce it), scrubbed
+from all history with git-filter-repo, then the remote was deleted and recreated
+so no pre-rewrite SHA survives. Verified with the same positive control used in
+July: five old SHAs 404, current HEAD resolves. Article 3 now links the repo.
+Remaining Phase 4 item: cross-links from the whitepaper and the public lab repo.
 Owner: Danny. Flagship candidate for the "operational evidence layer" strategy;
 feeds article 3 and the public lab repo.
 
