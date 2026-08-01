@@ -1,0 +1,1 @@
+AuthenticationException: Authentication failed, see inner exception. <- SSL Handshake failed with OpenSSL error - SSL_ERROR_SSL. <- error:0A000410:SSL routines::sslv3 alert handshake failure

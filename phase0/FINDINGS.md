@@ -132,6 +132,28 @@ the flag; the flag state IS the matrix cell.
   JDK 21 has no table entry for it. An operator with the OID can at least search
   for it; every other client discards the identity entirely.
 
+## .NET 8 and rustls (the last two columns)
+
+- **Same runtime family, opposite answers, because the platform differs.** .NET 8
+  on Linux fails ML-DSA offline validation with an OpenSSL error
+  (`unable to get certs public key`, from the distro's OpenSSL 3.0), while the
+  .NET Framework path on Windows validated the same chain through CNG. .NET's
+  crypto is a thin shim over whatever the platform provides, so "does .NET
+  support ML-DSA" has no single answer: it depends on the OS underneath.
+- **rustls writes the only error worth reading.** Its verify failure names the
+  rejected algorithm by OID *and* enumerates every algorithm it does support:
+  `UnsupportedSignatureAlgorithmContext { signature_algorithm_id: [.. 2.16.840.1.101.3.4.3.18 ..], supported_algorithms: [...] }`.
+  Every other client in this matrix says some variant of "not trusted" or
+  "handshake failure". This is what a good PQ-era error looks like, and it should
+  be the reference other stacks are measured against.
+- **Stock rustls has no ML-DSA today.** With default features (what `cargo add
+  rustls` yields), rustls 0.23.43 on aws-lc-rs rejects all ML-DSA chains. The
+  `aws-lc-rs-unstable` feature is the documented path for ML-DSA signing; this
+  column deliberately measures the default, and the unstable-flag variant is a
+  v2 cell.
+- Both clients pass the catalyst row (parse, verify, handshake), which now holds
+  across all ten columns without exception.
+
 ## schannel / Windows CNG (build 26200, Windows 11 25H2) — the headline column
 
 Tested from the Windows side of the machine via PowerShell against the WSL

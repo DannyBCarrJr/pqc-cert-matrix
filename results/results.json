@@ -1,5 +1,24 @@
 [
   {
+    "client": "dotnet-8",
+    "client_version": ".NET 8.0.423",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=1.2.840.10045.4.3.2 oid=1.2.840.10045.2.1 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "build=True chainStatus=[]"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK Tls13 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "ecdsa"
+  },
+  {
     "client": "gnutls",
     "client_version": "gnutls-cli 3.8.3",
     "tests": {
@@ -133,6 +152,25 @@
     "chain": "ecdsa"
   },
   {
+    "client": "rustls",
+    "client_version": "rustls 0.23.43 (aws-lc-rs, default features)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: 464 bytes DER, webpki accepted"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1_3"
+      }
+    },
+    "chain": "ecdsa"
+  },
+  {
     "client": "schannel",
     "client_version": "Windows schannel 25H2 build 26200",
     "tests": {
@@ -150,6 +188,25 @@
       }
     },
     "chain": "ecdsa"
+  },
+  {
+    "client": "dotnet-8",
+    "client_version": ".NET 8.0.423",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.101.3.4.3.17 oid=2.16.840.1.101.3.4.3.17 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "OpenSslCryptographicException: error:0580006C:x509 certificate routines::unable to get certs public key"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "AuthenticationException: Authentication failed, see inner exception. <- SSL Handshake failed with OpenSSL error - SSL_ERROR_SSL. <- error:0A000410:SSL routines::sslv3 alert handshake failure"
+      }
+    },
+    "chain": "mldsa44"
   },
   {
     "client": "gnutls",
@@ -237,11 +294,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "4067F2E8D07C0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4067F2E8D07C0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40779A6A5A7E0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40779A6A5A7E0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40572E35307B0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "--- | 40B7BD911D780000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa44"
@@ -285,6 +342,25 @@
     "chain": "mldsa44"
   },
   {
+    "client": "rustls",
+    "client_version": "rustls 0.23.43 (aws-lc-rs, default features)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: 4062 bytes DER, webpki accepted"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "verify: UnsupportedSignatureAlgorithmContext(UnsupportedSignatureAlgorithmContext { signature_algorithm_id: [6, 9, 96, 134, 72, 1, 101, 3, 4, 3, 17], supported_algorithms: [0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06032b657"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "handshake: received fatal alert: HandshakeFailure"
+      }
+    },
+    "chain": "mldsa44"
+  },
+  {
     "client": "schannel",
     "client_version": "Windows schannel 25H2 build 26200",
     "tests": {
@@ -304,6 +380,25 @@
     "chain": "mldsa44"
   },
   {
+    "client": "dotnet-8",
+    "client_version": ".NET 8.0.423",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.101.3.4.3.18 oid=2.16.840.1.101.3.4.3.18 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "OpenSslCryptographicException: error:0580006C:x509 certificate routines::unable to get certs public key"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "AuthenticationException: Authentication failed, see inner exception. <- SSL Handshake failed with OpenSSL error - SSL_ERROR_SSL. <- error:0A000410:SSL routines::sslv3 alert handshake failure"
+      }
+    },
+    "chain": "mldsa65"
+  },
+  {
     "client": "gnutls",
     "client_version": "gnutls-cli 3.8.3",
     "tests": {
@@ -317,7 +412,7 @@
       },
       "handshake": {
         "status": "fail",
-        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
+        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
       }
     },
     "chain": "mldsa65"
@@ -389,11 +484,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40E7A306E37D0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40E7A306E37D0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40B7C67C98710000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40B7C67C98710000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 4027604D2F750000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "--- | 40178598A9790000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa65"
@@ -437,6 +532,25 @@
     "chain": "mldsa65"
   },
   {
+    "client": "rustls",
+    "client_version": "rustls 0.23.43 (aws-lc-rs, default features)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: 5591 bytes DER, webpki accepted"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "verify: UnsupportedSignatureAlgorithmContext(UnsupportedSignatureAlgorithmContext { signature_algorithm_id: [6, 9, 96, 134, 72, 1, 101, 3, 4, 3, 18], supported_algorithms: [0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06032b657"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "handshake: received fatal alert: HandshakeFailure"
+      }
+    },
+    "chain": "mldsa65"
+  },
+  {
     "client": "schannel",
     "client_version": "Windows schannel 25H2 build 26200",
     "tests": {
@@ -456,6 +570,25 @@
     "chain": "mldsa65"
   },
   {
+    "client": "dotnet-8",
+    "client_version": ".NET 8.0.423",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.101.3.4.3.19 oid=2.16.840.1.101.3.4.3.19 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "OpenSslCryptographicException: error:0580006C:x509 certificate routines::unable to get certs public key"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "AuthenticationException: Authentication failed, see inner exception. <- SSL Handshake failed with OpenSSL error - SSL_ERROR_SSL. <- error:0A000410:SSL routines::sslv3 alert handshake failure"
+      }
+    },
+    "chain": "mldsa87"
+  },
+  {
     "client": "gnutls",
     "client_version": "gnutls-cli 3.8.3",
     "tests": {
@@ -465,7 +598,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "Output: Not verified. The certificate is NOT trusted. | Chain verification output: Not verified. The certificate is NOT trusted."
+        "detail": "Use --verify-profile low to apply the default verification of NORMAL priority string. | Loaded CAs (1 available)"
       },
       "handshake": {
         "status": "fail",
@@ -541,11 +674,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "4057CCB47A740000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4057CCB47A740000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "4077A20008710000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4077A20008710000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "Verify return code: 0 (ok) | ---"
+        "detail": "--- | 40F767616C7C0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa87"
@@ -589,6 +722,25 @@
     "chain": "mldsa87"
   },
   {
+    "client": "rustls",
+    "client_version": "rustls 0.23.43 (aws-lc-rs, default features)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: 7549 bytes DER, webpki accepted"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "verify: UnsupportedSignatureAlgorithmContext(UnsupportedSignatureAlgorithmContext { signature_algorithm_id: [6, 9, 96, 134, 72, 1, 101, 3, 4, 3, 19], supported_algorithms: [0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06032b657"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "handshake: received fatal alert: HandshakeFailure"
+      }
+    },
+    "chain": "mldsa87"
+  },
+  {
     "client": "schannel",
     "client_version": "Windows schannel 25H2 build 26200",
     "tests": {
@@ -606,6 +758,25 @@
       }
     },
     "chain": "mldsa87"
+  },
+  {
+    "client": "dotnet-8",
+    "client_version": ".NET 8.0.423",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.101.3.4.3.18 oid=2.16.840.1.101.3.4.3.18 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "OpenSslCryptographicException: error:0580006C:x509 certificate routines::unable to get certs public key"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "AuthenticationException: Authentication failed, see inner exception. <- SSL Handshake failed with OpenSSL error - SSL_ERROR_SSL. <- error:0A000410:SSL routines::sslv3 alert handshake failure"
+      }
+    },
+    "chain": "slhroot"
   },
   {
     "client": "gnutls",
@@ -693,11 +864,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40B77EDAA6780000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40B77EDAA6780000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40A7DC55457E0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40A7DC55457E0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "Verify return code: 0 (ok) | ---"
+        "detail": "--- | 40E71F730A790000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "slhroot"
@@ -741,6 +912,25 @@
     "chain": "slhroot"
   },
   {
+    "client": "rustls",
+    "client_version": "rustls 0.23.43 (aws-lc-rs, default features)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: 5591 bytes DER, webpki accepted"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "verify: UnsupportedSignatureAlgorithmContext(UnsupportedSignatureAlgorithmContext { signature_algorithm_id: [6, 9, 96, 134, 72, 1, 101, 3, 4, 3, 20], supported_algorithms: [0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06032b657"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "handshake: received fatal alert: HandshakeFailure"
+      }
+    },
+    "chain": "slhroot"
+  },
+  {
     "client": "schannel",
     "client_version": "Windows schannel 25H2 build 26200",
     "tests": {
@@ -760,6 +950,25 @@
     "chain": "slhroot"
   },
   {
+    "client": "dotnet-8",
+    "client_version": ".NET 8.0.423",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.101.3.4.3.18 oid=2.16.840.1.101.3.4.3.18 subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "OpenSslCryptographicException: error:0580006C:x509 certificate routines::unable to get certs public key"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "AuthenticationException: Authentication failed, see inner exception. <- SSL Handshake failed with OpenSSL error - SSL_ERROR_SSL. <- error:0A000410:SSL routines::sslv3 alert handshake failure"
+      }
+    },
+    "chain": "mixed"
+  },
+  {
     "client": "gnutls",
     "client_version": "gnutls-cli 3.8.3",
     "tests": {
@@ -773,7 +982,7 @@
       },
       "handshake": {
         "status": "fail",
-        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
+        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
       }
     },
     "chain": "mixed"
@@ -845,7 +1054,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40E77537F27D0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40E77537F27D0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "4097BC7F587D0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4097BC7F587D0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
@@ -893,6 +1102,25 @@
     "chain": "mixed"
   },
   {
+    "client": "rustls",
+    "client_version": "rustls 0.23.43 (aws-lc-rs, default features)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: 5589 bytes DER, webpki accepted"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "verify: UnsupportedSignatureAlgorithmContext(UnsupportedSignatureAlgorithmContext { signature_algorithm_id: [6, 9, 96, 134, 72, 1, 101, 3, 4, 3, 18], supported_algorithms: [0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06032b657"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "handshake: received fatal alert: HandshakeFailure"
+      }
+    },
+    "chain": "mixed"
+  },
+  {
     "client": "schannel",
     "client_version": "Windows schannel 25H2 build 26200",
     "tests": {
@@ -910,6 +1138,25 @@
       }
     },
     "chain": "mixed"
+  },
+  {
+    "client": "dotnet-8",
+    "client_version": ".NET 8.0.423",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=1.2.840.10045.4.3.2 oid=1.2.840.10045.2.1 subject=CN=matrix-hybrid.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "build=True chainStatus=[]"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK Tls13 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "catalyst"
   },
   {
     "client": "gnutls",
@@ -1045,6 +1292,25 @@
     "chain": "catalyst"
   },
   {
+    "client": "rustls",
+    "client_version": "rustls 0.23.43 (aws-lc-rs, default features)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: 5801 bytes DER, webpki accepted"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "verify: OK"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK TLSv1_3"
+      }
+    },
+    "chain": "catalyst"
+  },
+  {
     "client": "schannel",
     "client_version": "Windows schannel 25H2 build 26200",
     "tests": {
@@ -1062,6 +1328,25 @@
       }
     },
     "chain": "catalyst"
+  },
+  {
+    "client": "dotnet-8",
+    "client_version": ".NET 8.0.423",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.114027.80.9.1.8 oid=2.16.840.1.114027.80.9.1.8 subject=CN=PQM Matrix Composite Self-Signed"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "OpenSslCryptographicException: error:0580006C:x509 certificate routines::unable to get certs public key"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "no server for this chain"
+      }
+    },
+    "chain": "composite"
   },
   {
     "client": "gnutls",
@@ -1149,7 +1434,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40C727D9EB7C0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40C727D9EB7C0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "4027843A887B0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4027843A887B0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "skip",
@@ -1168,7 +1453,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "4017E5BEDC720000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 4017E5BEDC720000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
+        "detail": "40F7AFA224780000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 40F7AFA224780000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
       },
       "handshake": {
         "status": "skip",
@@ -1188,6 +1473,25 @@
       "verify": {
         "status": "skip",
         "detail": "stdlib has no offline chain-verification API"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "no server for this chain"
+      }
+    },
+    "chain": "composite"
+  },
+  {
+    "client": "rustls",
+    "client_version": "rustls 0.23.43 (aws-lc-rs, default features)",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: 5628 bytes DER, webpki accepted"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "verify: UnsupportedSignatureAlgorithmContext(UnsupportedSignatureAlgorithmContext { signature_algorithm_id: [6, 11, 96, 134, 72, 1, 134, 250, 107, 80, 9, 1, 8], supported_algorithms: [0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, 0x06082a8648ce3d040302, 0x06082a8648ce3d040303, 0x06082a8648ce3d040304, "
       },
       "handshake": {
         "status": "skip",

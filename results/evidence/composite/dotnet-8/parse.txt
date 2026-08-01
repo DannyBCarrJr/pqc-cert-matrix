@@ -1,0 +1,1 @@
+parsed: sigAlgOid=2.16.840.1.114027.80.9.1.8 oid=2.16.840.1.114027.80.9.1.8 subject=CN=PQM Matrix Composite Self-Signed
