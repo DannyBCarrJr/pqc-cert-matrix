@@ -80,12 +80,15 @@ the flag; the flag state IS the matrix cell.
   underneath). Both errors point operators at trust stores when the cause is
   algorithm support.
 
-> **Novelty check done 2026-07-31: see `../PRIOR-ART.md` before claiming any of
-> this publicly.** The same-weight size result and the "classical verifiers
-> ignore catalyst extensions" result are PREEMPTED by IACR ePrint 2026/1416.
-> The Windows split is WEAKENED: schannel's PQ scope is ML-KEM only per
-> Microsoft, so it is a measured demonstration, not a discovery. The SLH-root
-> wire cost is UNVERIFIED against arXiv 2604.06100.
+> **Novelty check done 2026-07-31: read `../PRIOR-ART.md` before claiming any
+> of this publicly.** IACR ePrint 2026/1416 (Lee et al., 2026-07-16) preempts
+> the same-weight size result and the "classical verifiers ignore catalyst
+> extensions" result (nine verifiers, Windows CryptoAPI included), and shows
+> the far more important thing we did not test: those verifiers accept a
+> **forged or stripped** ML-DSA half, so catalyst's compatibility is a
+> security liability rather than a win. The Windows split is WEAKENED to a
+> measured demonstration of a documented scope boundary. The composite row
+> below is CORRECTED. The SLH-root wire cost stays UNVERIFIED.
 
 ## Phase 2 early findings (first four client columns, 2026-07-31)
 
@@ -94,8 +97,13 @@ the flag; the flag state IS the matrix cell.
 - **Catalyst full-passes everywhere measured** (GnuTLS, OpenSSL 3.0/3.5, Go):
   offline verify AND completed TLS 1.3 handshake. The hybrid compatibility claim
   is now measured, not asserted.
-- **Composite validates nowhere**, including OpenSSL 3.5. Mintable (Bouncy
-  Castle) but not consumable by any TLS stack tested so far.
+- **Composite fails across our fleet, but the original wording ("validates
+  nowhere") was wrong.** IACR 2026/1416 shows composite validates and binds
+  structurally within its own OID family; the three families simply do not
+  cross-verify. We minted with Bouncy Castle (draft-07 OIDs) and our fleet
+  contains no verifier from that family (our Java column uses the stock JDK
+  SUN provider). Correct claim: OID-family mismatch, not absence of support.
+  Fix before publishing: add a Bouncy Castle verifier column.
 - **The false-ok:** OpenSSL 3.0 s_client prints `Verify return code: 0 (ok)` on
   a handshake that died at alert 40 before any certificate was exchanged
   (evidence: results/evidence/mldsa65/openssl-3.0/handshake.txt). Health checks
