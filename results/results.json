@@ -133,6 +133,25 @@
     "chain": "ecdsa"
   },
   {
+    "client": "schannel",
+    "client_version": "Windows schannel 25H2 build 26200",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=1.2.840.10045.4.3.2 pubkey=accessible subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "build=True chainStatus=[UntrustedRoot]"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK proto=Tls13 cipher=Aes256 sslPolicyErrors=RemoteCertificateChainErrors"
+      }
+    },
+    "chain": "ecdsa"
+  },
+  {
     "client": "gnutls",
     "client_version": "gnutls-cli 3.8.3",
     "tests": {
@@ -218,11 +237,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40E797BA0E7A0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40E797BA0E7A0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "4067F2E8D07C0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4067F2E8D07C0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40C7DA2E47790000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "--- | 40572E35307B0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa44"
@@ -266,6 +285,25 @@
     "chain": "mldsa44"
   },
   {
+    "client": "schannel",
+    "client_version": "Windows schannel 25H2 build 26200",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.101.3.4.3.17 pubkey=accessible subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "build=True chainStatus=[UntrustedRoot]"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "MethodInvocationException: Exception calling \"AuthenticateAsClient\" with \"1\" argument(s): \"A call to SSPI failed, see inner exception.\" <- A call to SSPI failed, see inner exception. <- The message received was unexpected or badly formatted [Win32 0x80090326]"
+      }
+    },
+    "chain": "mldsa44"
+  },
+  {
     "client": "gnutls",
     "client_version": "gnutls-cli 3.8.3",
     "tests": {
@@ -279,7 +317,7 @@
       },
       "handshake": {
         "status": "fail",
-        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
+        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
       }
     },
     "chain": "mldsa65"
@@ -351,11 +389,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "4087CA1D9F710000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4087CA1D9F710000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40E7A306E37D0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40E7A306E37D0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "Verify return code: 0 (ok) | ---"
+        "detail": "--- | 4027604D2F750000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
       }
     },
     "chain": "mldsa65"
@@ -399,6 +437,25 @@
     "chain": "mldsa65"
   },
   {
+    "client": "schannel",
+    "client_version": "Windows schannel 25H2 build 26200",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.101.3.4.3.18 pubkey=accessible subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "build=True chainStatus=[UntrustedRoot]"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "MethodInvocationException: Exception calling \"AuthenticateAsClient\" with \"1\" argument(s): \"A call to SSPI failed, see inner exception.\" <- A call to SSPI failed, see inner exception. <- The message received was unexpected or badly formatted [Win32 0x80090326]"
+      }
+    },
+    "chain": "mldsa65"
+  },
+  {
     "client": "gnutls",
     "client_version": "gnutls-cli 3.8.3",
     "tests": {
@@ -412,7 +469,7 @@
       },
       "handshake": {
         "status": "fail",
-        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
+        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
       }
     },
     "chain": "mldsa87"
@@ -484,11 +541,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "409759B834740000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 409759B834740000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "4057CCB47A740000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 4057CCB47A740000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 4027788BA47C0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "Verify return code: 0 (ok) | ---"
       }
     },
     "chain": "mldsa87"
@@ -527,6 +584,25 @@
       "handshake": {
         "status": "ok",
         "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "mldsa87"
+  },
+  {
+    "client": "schannel",
+    "client_version": "Windows schannel 25H2 build 26200",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.101.3.4.3.19 pubkey=accessible subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "build=True chainStatus=[UntrustedRoot]"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "MethodInvocationException: Exception calling \"AuthenticateAsClient\" with \"1\" argument(s): \"A call to SSPI failed, see inner exception.\" <- A call to SSPI failed, see inner exception. <- The message received was unexpected or badly formatted [Win32 0x80090326]"
       }
     },
     "chain": "mldsa87"
@@ -617,7 +693,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40D72F761E7F0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40D72F761E7F0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40B77EDAA6780000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40B77EDAA6780000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
@@ -665,6 +741,25 @@
     "chain": "slhroot"
   },
   {
+    "client": "schannel",
+    "client_version": "Windows schannel 25H2 build 26200",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.101.3.4.3.18 pubkey=accessible subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "MethodInvocationException: Exception calling \"Build\" with \"1\" argument(s): \"Invalid algorithm specified. <- Invalid algorithm specified."
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "MethodInvocationException: Exception calling \"AuthenticateAsClient\" with \"1\" argument(s): \"A call to SSPI failed, see inner exception.\" <- A call to SSPI failed, see inner exception. <- The message received was unexpected or badly formatted [Win32 0x80090326]"
+      }
+    },
+    "chain": "slhroot"
+  },
+  {
     "client": "gnutls",
     "client_version": "gnutls-cli 3.8.3",
     "tests": {
@@ -678,7 +773,7 @@
       },
       "handshake": {
         "status": "fail",
-        "detail": "Connecting to '127.0.0.1:14433'... | *** Received alert [40]: Handshake failed"
+        "detail": "*** Received alert [40]: Handshake failed | *** Fatal error: A TLS fatal alert has been received."
       }
     },
     "chain": "mixed"
@@ -750,11 +845,11 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40376B0C397B0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40376B0C397B0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40E77537F27D0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40E77537F27D0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "fail",
-        "detail": "--- | 40071B739A720000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:../ssl/record/rec_layer_s3.c:1599:SSL alert number 40"
+        "detail": "Verify return code: 0 (ok) | ---"
       }
     },
     "chain": "mixed"
@@ -793,6 +888,25 @@
       "handshake": {
         "status": "ok",
         "detail": "handshake: OK TLSv1.3 TLS_AES_256_GCM_SHA384"
+      }
+    },
+    "chain": "mixed"
+  },
+  {
+    "client": "schannel",
+    "client_version": "Windows schannel 25H2 build 26200",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.101.3.4.3.18 pubkey=accessible subject=CN=matrix.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "build=True chainStatus=[UntrustedRoot]"
+      },
+      "handshake": {
+        "status": "fail",
+        "detail": "MethodInvocationException: Exception calling \"AuthenticateAsClient\" with \"1\" argument(s): \"A call to SSPI failed, see inner exception.\" <- A call to SSPI failed, see inner exception. <- The message received was unexpected or badly formatted [Win32 0x80090326]"
       }
     },
     "chain": "mixed"
@@ -931,6 +1045,25 @@
     "chain": "catalyst"
   },
   {
+    "client": "schannel",
+    "client_version": "Windows schannel 25H2 build 26200",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=1.2.840.10045.4.3.2 pubkey=accessible subject=CN=matrix-hybrid.test"
+      },
+      "verify": {
+        "status": "ok",
+        "detail": "build=True chainStatus=[UntrustedRoot]"
+      },
+      "handshake": {
+        "status": "ok",
+        "detail": "handshake: OK proto=Tls13 cipher=Aes256 sslPolicyErrors=RemoteCertificateChainErrors"
+      }
+    },
+    "chain": "catalyst"
+  },
+  {
     "client": "gnutls",
     "client_version": "gnutls-cli 3.8.3",
     "tests": {
@@ -1016,7 +1149,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40C70E0F93700000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40C70E0F93700000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
+        "detail": "40C727D9EB7C0000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:458: | 40C727D9EB7C0000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:98:"
       },
       "handshake": {
         "status": "skip",
@@ -1035,7 +1168,7 @@
       },
       "verify": {
         "status": "fail",
-        "detail": "40576228F6710000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 40576228F6710000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
+        "detail": "4017E5BEDC720000:error:03000072:digital envelope routines:X509_PUBKEY_get0:decode error:../crypto/x509/x_pubkey.c:466: | 4017E5BEDC720000:error:0580006C:x509 certificate routines:X509_self_signed:unable to get certs public key:../crypto/x509/x509_vfy.c:101:"
       },
       "handshake": {
         "status": "skip",
@@ -1055,6 +1188,25 @@
       "verify": {
         "status": "skip",
         "detail": "stdlib has no offline chain-verification API"
+      },
+      "handshake": {
+        "status": "skip",
+        "detail": "no server for this chain"
+      }
+    },
+    "chain": "composite"
+  },
+  {
+    "client": "schannel",
+    "client_version": "Windows schannel 25H2 build 26200",
+    "tests": {
+      "parse": {
+        "status": "ok",
+        "detail": "parsed: sigAlgOid=2.16.840.1.114027.80.9.1.8 pubkey=accessible subject=CN=PQM Matrix Composite Self-Signed"
+      },
+      "verify": {
+        "status": "fail",
+        "detail": "CryptographicException: Invalid algorithm specified (CNG X509Chain.Build; captured via -Command, swallowed by -File host)"
       },
       "handshake": {
         "status": "skip",

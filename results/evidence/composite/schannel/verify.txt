@@ -1,0 +1,1 @@
+CryptographicException: Invalid algorithm specified (CNG X509Chain.Build; captured via -Command, swallowed by -File host)

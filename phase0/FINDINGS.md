@@ -132,6 +132,38 @@ the flag; the flag state IS the matrix cell.
   JDK 21 has no table entry for it. An operator with the OID can at least search
   for it; every other client discards the identity entirely.
 
+## schannel / Windows CNG (build 26200, Windows 11 25H2) — the headline column
+
+Tested from the Windows side of the machine via PowerShell against the WSL
+`openssl s_server`. Nobody publishes this; every cell here is new.
+
+- **The two halves of Windows crypto disagree.** CNG (the certificate stack)
+  offline-validates ML-DSA-44/65/87 chains: `X509Chain.Build` returns true with
+  only `UntrustedRoot` (the expected private-root artifact). schannel (the TLS
+  stack) cannot handshake any of them: `AuthenticateAsClient` throws SSPI
+  `SEC_E_MESSAGE_ALTERED` (Win32 0x80090326, "message received was unexpected or
+  badly formatted") when the server sends an ML-DSA CertificateVerify. So on the
+  same box, `certutil`-style cert validation says ML-DSA is fine while a TLS
+  client refuses the connection. An inventory tool that checks cert parsing will
+  green-light a rollout that then fails at the handshake.
+- **CNG's PQ support is partial and silent about it.** ML-DSA validates;
+  SLH-DSA and composite both throw `CryptographicException: Invalid algorithm
+  specified` from the same `Build` call. "PQC support" on Windows is per-algorithm,
+  not a single switch.
+- **Catalyst is the only PQ-bearing chain that fully works on schannel.** It
+  completes a real TLS 1.3 handshake (proto=Tls13, AES-256) because schannel sees
+  an ordinary ECDSA cert and ignores the ML-DSA alt-extensions. On a TLS stack
+  that cannot do post-quantum authentication yet, the classical-carrier hybrid is
+  the only design that connects today. That is the strongest operational argument
+  for catalyst-style certs, and it is measured, not asserted.
+- **Registry lies:** `ProductName` still reads "Windows 10 Pro" on this Windows 11
+  build; the runner reports `DisplayVersion` + `CurrentBuild` (25H2 / 26200)
+  instead. Noted so the evidence is not misleading.
+- **Tooling honesty note:** for the self-signed composite cert, PowerShell's
+  `-File` host exits 0 with no output even though `Build` throws (confirmed via an
+  inline `-Command` run). The runner backfills the confirmed error rather than
+  record a blank cell; see `runners/schannel/run.sh`.
+
 ## Phase 1 notes
 
 - Add SLH-DSA root variant to the corpus generator (cheap now, matches the
