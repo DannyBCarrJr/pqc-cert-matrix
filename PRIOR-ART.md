@@ -311,3 +311,42 @@ Two independent 2026 papers, one security-focused and one performance-focused,
 both stop at the same boundary: one implementation stack, or certificate-path
 verification without live cross-stack handshakes. That boundary is exactly what
 this repo crosses. Article 3 should say so plainly and cite both.
+
+## Backported 2026-08-08 from the pqc-chain-budget sweeps
+
+Six sources surfaced while sweeping the sibling project
+(github.com/DannyBCarrJr/pqc-chain-budget) that this file was missing and that
+bear on this repo's transport phase. Full verdicts and quotes live in that
+repo's PRIOR-ART.md; entries here are the short form.
+
+- **Nawrocki et al., CoNEXT 2022 (arXiv:2211.02421).** Real per-site chains,
+  1M+ domains, evaluated against QUIC's 3x amplification budget: 35% of server
+  certificates exceed it. Classical only (zero "quantum" hits, grepped). The
+  nearest published method to any per-site budget analysis; cite wherever
+  per-site framing appears.
+- **Fastly (McManus), 2024-12-06, QUIC handshake compression study.** ~125,000
+  real handshakes classified into three budget buckets (fits / needs
+  compression / never fits). Classical only. Owns the per-sample budget
+  classification.
+- **Sikeridis, Huntley, Ott, Devetsikiotis, ePrint 2022/1556.** Tranco Top 10K
+  chain-depth distribution, monthly 2022, plus PQ data-volume extrapolation
+  for ICA suppression. The published depth baseline, with the caveat that its
+  counting rule is unstated.
+- **Kampanakis and Kallitsis, CSCML 2022.** PQ authentication bytes by ICA
+  count, color-coded against the 14.5KB window: "When SCTs and/or OCSP staples
+  are present Dilithium starts from ~15KB." Preempts any "ML-DSA-44 fits"
+  framing stated without an SCT qualifier.
+- **Cloudflare (Westerbaan and Valenta), 2024-11-07 and the 2025 state post.**
+  Production-fleet median chain 3.2kB joined to an ML-DSA projection ("more
+  than double the number of transmitted bytes" per non-resumed QUIC
+  connection). Kills any "no one has projected PQ sizes on real chains" claim.
+- **Kampanakis and Anastasova, PKIC PQC Conference 2025-01.** 15 named real
+  sites through webpagetest.org with a constant +15KB PQ delta; per-site
+  presentation on real sites exists in public.
+- **Yao et al., "Chaos in the Chain", ACM IMC 2025 (10.1145/3730567.3732921).**
+  Tranco 1M chain completeness: 89.9% omit the root, 1.3% serve no
+  intermediate, 8.7% transmit the root. Zero PQ or size content. The current
+  large-scale deployment baseline.
+- **Ristic (Red Sift), 2026-08-03.** Modeled-chain arithmetic: the ML-DSA
+  cryptography alone busts the 14KB window; closes by announcing a measured
+  follow-up.
