@@ -189,7 +189,8 @@ wire because nothing signs with it.
 
 ## Certificate compression is advertised and never delivered here
 
-Measured, and not explained. In every capture the OpenSSL 3.5.5 client advertises
+Measured, and explained since 2026-08-10: it is the servers, see below. In every
+capture the OpenSSL 3.5.5 client advertises
 `compress_certificate` (extension 27) offering **zlib (1) and zstd (3)**, and the
 same build reports `-DZLIB -DZSTD`. The server nonetheless never sends a
 CompressedCertificate (handshake type 25). Three server postures were tried:
@@ -197,22 +198,43 @@ default, `-cert_comp`, and `-no_tx_cert_comp`. All three produced a byte-identic
 11,170-byte uncompressed Certificate on the mldsa65 chain.
 
 So on a stock distribution OpenSSL, with both peers advertising support,
-certificate compression does not engage.
+certificate compression does not engage **against these lab servers**. That
+qualifier was added 2026-08-10, when the cause turned out to be the servers.
 
-**This contradicts OpenSSL's own documentation**, which says no explicit
-configuration is needed: "If a preference order is not specified, then the default
-preference order is sent to the peer and the received peer's preference order will
-be used when compressing a certificate." That default order is brotli, zlib, zstd.
-Documented behaviour and measured behaviour disagree on this build.
+**RESOLVED 2026-08-10. The earlier hypothesis was wrong and is retracted.** It
+guessed that this Ubuntu build sends OpenSSL's documented default preference order,
+which leads with a brotli the build does not have, so negotiation fails rather than
+falling through. The client sends no such order. Its ClientHello carries exactly the
+two algorithms it was built with:
 
-**HYPOTHESIS, untested:** this Ubuntu build reports `-DZLIB -DZSTD` and no brotli,
-while the default preference order leads with brotli, so the negotiation may fail
-rather than fall through to an algorithm both peers actually have. Not published
-as a mechanism, and deliberately not called an OpenSSL bug, until it is tested
-against a second build. Open item for v2.
+```
+extension_type=compress_certificate(27), length=5
+  zlib (1)
+  zstd (3)
+```
 
-Taken with the step 1 numbers, the practical effect is the same either way: had it
-engaged, it would have saved about 240 bytes of a 15,739-byte flight.
+Negotiation also succeeds whenever the peer supports it. Measured the same day
+against the live web, this same client build received a real CompressedCertificate
+from 3 of the 842 TLS 1.3 servers in the `pqc-chain-budget` subsample, all three
+zstd, all three reproducing three days after the original capture:
+
+```
+CompressedCertificate, Length=2227
+  Compression type=zstd (0x0003)
+  Uncompressed length=3009
+  Compressed length=2219, Ratio=1.356016:1
+```
+
+So the uniform zero here is a **server-side** finding: these lab servers do not do
+certificate compression. The client was never the obstacle, and this is not an
+OpenSSL bug. Do not cite 3 of 842 as a web-wide rate; see `pqc-chain-budget` for
+why that subsample understates prevalence.
+
+One client-relative caveat survives. The offer is zlib and zstd, never brotli, so a
+brotli-only server still reads as a non-engagement from this build.
+
+Taken with the step 1 numbers, the practical effect on the lab chains is unchanged:
+had it engaged, it would have saved about 240 bytes of a 15,739-byte flight.
 
 ## Reproduce
 

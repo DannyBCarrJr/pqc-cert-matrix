@@ -295,17 +295,22 @@ decrypted captures. Delgado reports aggregate bytes read; Chou and Cao report
 chain sizes and TTFB. Neither separates CertificateVerify, which is the term that
 matters for the window question.
 
-### Open, not a claim
+### Closed 2026-08-10, was "open, not a claim"
 
-Certificate compression never engaged in any capture despite both peers
-advertising zlib and zstd. OpenSSL's own documentation says it should: "If a
-preference order is not specified, then the default preference order is sent to
-the peer", that default being brotli, zlib, zstd. So documented behaviour and
-measured behaviour disagree on this build. **HYPOTHESIS, untested:** this Ubuntu
-build carries `-DZLIB -DZSTD` but no brotli, and the default preference order
-leads with brotli, so the negotiation may fail rather than fall through. Do not
-publish the mechanism until it is tested, and do not describe it as an OpenSSL bug
-before checking against a second build.
+Certificate compression never engaged in any **lab** capture despite both peers
+advertising zlib and zstd. The hypothesis recorded here, that this Ubuntu build
+sends a default preference order led by a brotli it does not carry so negotiation
+fails rather than falling through, is **retracted as wrong**. Verified: the client
+advertises exactly `zlib (1)` and `zstd (3)`, no order beyond that, and it does
+receive a real zstd CompressedCertificate from 3 of the 842 TLS 1.3 servers in the
+`pqc-chain-budget` subsample. The lab zero is a server-side property of those lab
+servers, not a client defect and not an OpenSSL bug.
+
+Nothing here becomes a novelty claim. Certificate compression on the live web is
+already measured at far greater scale by cert-abridge, and the retraction is a
+correction to our own record rather than a finding about anyone else's. The one
+caveat still worth stating anywhere this is cited: the client offers zlib and zstd
+only, so a brotli-only server reads as a non-engagement from this build.
 
 ## The strongest positioning statement available
 
