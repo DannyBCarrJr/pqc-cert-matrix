@@ -25,7 +25,8 @@ them. That file is the most important one in the repo.
 
 - `gen/` mints the chain corpus with stock OpenSSL 3.5.5: ECDSA control, pure
   ML-DSA-44/65/87, an SLH-DSA-SHA2-128s root variant, a mixed chain (classical
-  root over ML-DSA), and SAN ladders. `gen/sizes.py` generates `SIZES.md`.
+  root over ML-DSA, a shape named by Paul et al., AsiaCCS 2022,
+  doi:10.1145/3488932.3497755), and SAN ladders. `gen/sizes.py` generates `SIZES.md`.
 - `phase0/` feasibility work and the catalyst-style hybrid construction (a
   classical certificate carrying ML-DSA material in the ITU-T X.509 s9.8
   alternative-signature extensions, with a correct alt signature).

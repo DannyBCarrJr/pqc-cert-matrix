@@ -366,3 +366,31 @@ repo's PRIOR-ART.md; entries here are the short form.
 - **Ristic (Red Sift), 2026-08-03.** Modeled-chain arithmetic: the ML-DSA
   cryptography alone busts the 14KB window; closes by announcing a measured
   follow-up.
+
+## Backported 2026-08-10 from the pqc-chain-selection re-sweep
+
+One source, and it is a naming correction rather than a threat to any claim
+here. Surfaced by a structured Crossref bibliographic query in the sibling
+project (github.com/DannyBCarrJr/pqc-chain-selection), which four earlier web
+and arXiv sweeps had missed. **Method note worth carrying: a Crossref query
+indexes every publisher with a DOI, including ACM, and should lead future
+sweeps in this repo ahead of web search.**
+
+- **Paul, S., Kuzovkova, Y., Lahr, N., and Niederhagen, R. "Mixed Certificate
+  Chains for the Transition to Post-Quantum Authentication in TLS 1.3."
+  AsiaCCS 2022, pages 727 to 740. DOI 10.1145/3488932.3497755, also IACR
+  ePrint 2021/1447.** They defined "mixed certificate chains" as using
+  different signature algorithms within one certificate chain, and measured
+  handshake time, communication size, code size, and peak memory with custom
+  client and server programs on embedded targets. Their finding is that
+  hash-based schemes at the root CA level only still give feasible connection
+  establishment times.
+
+  **This repo mints a chain it calls `mixed` (classical root over ML-DSA) and
+  did not cite them.** That shape is an instance of their concept, inverted:
+  they put the slow conservative algorithm at the root, this corpus puts the
+  classical one there. Cite them wherever the term appears. They do not
+  preempt anything measured here, because this repo measures client
+  verification behavior across eleven stacks and they measured handshake cost
+  on their own programs. Stamp: Reported, abstract and the authors' 2023 PKI
+  Consortium deck read, ACM full text not obtained.
