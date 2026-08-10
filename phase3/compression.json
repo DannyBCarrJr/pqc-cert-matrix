@@ -1,176 +1,240 @@
-[
-  {
-    "chain": "ecdsa",
-    "certs": 2,
-    "cert_sizes": [
-      464,
-      436
-    ],
-    "raw": 900,
-    "zlib": 675,
-    "brotli": 658,
-    "zstd": 672,
-    "best_algo": "brotli",
-    "best": 658,
-    "saved": 242,
-    "saved_pct": 26.9,
-    "saved_per_cert": [
-      51,
-      51
-    ],
-    "saved_within_certs": 102,
-    "saved_across_certs": 140
-  },
-  {
-    "chain": "mldsa44",
-    "certs": 2,
-    "cert_sizes": [
-      4062,
-      4036
-    ],
-    "raw": 8098,
-    "zlib": 7903,
-    "brotli": 7861,
-    "zstd": 7850,
-    "best_algo": "zstd",
-    "best": 7850,
-    "saved": 248,
-    "saved_pct": 3.1,
-    "saved_per_cert": [
-      52,
-      50
-    ],
-    "saved_within_certs": 102,
-    "saved_across_certs": 146
-  },
-  {
-    "chain": "mldsa65",
-    "certs": 2,
-    "cert_sizes": [
-      5591,
-      5565
-    ],
-    "raw": 11156,
-    "zlib": 10963,
-    "brotli": 10922,
-    "zstd": 10912,
-    "best_algo": "zstd",
-    "best": 10912,
-    "saved": 244,
-    "saved_pct": 2.2,
-    "saved_per_cert": [
-      46,
-      49
-    ],
-    "saved_within_certs": 95,
-    "saved_across_certs": 149
-  },
-  {
-    "chain": "mldsa87",
-    "certs": 2,
-    "cert_sizes": [
-      7549,
-      7523
-    ],
-    "raw": 15072,
-    "zlib": 14881,
-    "brotli": 14835,
-    "zstd": 14836,
-    "best_algo": "brotli",
-    "best": 14835,
-    "saved": 237,
-    "saved_pct": 1.6,
-    "saved_per_cert": [
-      49,
-      49
-    ],
-    "saved_within_certs": 98,
-    "saved_across_certs": 139
-  },
-  {
-    "chain": "slhroot",
-    "certs": 2,
-    "cert_sizes": [
-      5591,
-      10112
-    ],
-    "raw": 15703,
-    "zlib": 15521,
-    "brotli": 15473,
-    "zstd": 15472,
-    "best_algo": "zstd",
-    "best": 15472,
-    "saved": 231,
-    "saved_pct": 1.5,
-    "saved_per_cert": [
-      56,
-      35
-    ],
-    "saved_within_certs": 91,
-    "saved_across_certs": 140
-  },
-  {
-    "chain": "mixed",
-    "certs": 2,
-    "cert_sizes": [
-      5589,
-      2319
-    ],
-    "raw": 7908,
-    "zlib": 7749,
-    "brotli": 7704,
-    "zstd": 7703,
-    "best_algo": "zstd",
-    "best": 7703,
-    "saved": 205,
-    "saved_pct": 2.6,
-    "saved_per_cert": [
-      48,
-      25
-    ],
-    "saved_within_certs": 73,
-    "saved_across_certs": 132
-  },
-  {
-    "chain": "catalyst",
-    "certs": 2,
-    "cert_sizes": [
-      5801,
-      437
-    ],
-    "raw": 6238,
-    "zlib": 6039,
-    "brotli": 6000,
-    "zstd": 5986,
-    "best_algo": "zstd",
-    "best": 5986,
-    "saved": 252,
-    "saved_pct": 4.0,
-    "saved_per_cert": [
-      76,
-      50
-    ],
-    "saved_within_certs": 126,
-    "saved_across_certs": 126
-  },
-  {
-    "chain": "composite",
-    "certs": 1,
-    "cert_sizes": [
-      5628
-    ],
-    "raw": 5628,
-    "zlib": 5589,
-    "brotli": 5560,
-    "zstd": 5547,
-    "best_algo": "zstd",
-    "best": 5547,
-    "saved": 81,
-    "saved_pct": 1.4,
-    "saved_per_cert": [
-      81
-    ],
-    "saved_within_certs": 81,
-    "saved_across_certs": 0
-  }
-]
+{
+  "chains": [
+    {
+      "chain": "ecdsa",
+      "certs": 2,
+      "cert_sizes": [
+        464,
+        436
+      ],
+      "raw": 900,
+      "zlib": 675,
+      "brotli": 658,
+      "zstd": 672,
+      "best_algo": "brotli",
+      "best": 658,
+      "saved": 242,
+      "saved_pct": 26.9,
+      "saved_per_cert": [
+        51,
+        51
+      ],
+      "saved_within_certs": 102,
+      "saved_across_certs": 140
+    },
+    {
+      "chain": "mldsa44",
+      "certs": 2,
+      "cert_sizes": [
+        4062,
+        4036
+      ],
+      "raw": 8098,
+      "zlib": 7903,
+      "brotli": 7861,
+      "zstd": 7850,
+      "best_algo": "zstd",
+      "best": 7850,
+      "saved": 248,
+      "saved_pct": 3.1,
+      "saved_per_cert": [
+        52,
+        50
+      ],
+      "saved_within_certs": 102,
+      "saved_across_certs": 146
+    },
+    {
+      "chain": "mldsa65",
+      "certs": 2,
+      "cert_sizes": [
+        5591,
+        5565
+      ],
+      "raw": 11156,
+      "zlib": 10963,
+      "brotli": 10922,
+      "zstd": 10912,
+      "best_algo": "zstd",
+      "best": 10912,
+      "saved": 244,
+      "saved_pct": 2.2,
+      "saved_per_cert": [
+        46,
+        49
+      ],
+      "saved_within_certs": 95,
+      "saved_across_certs": 149
+    },
+    {
+      "chain": "mldsa87",
+      "certs": 2,
+      "cert_sizes": [
+        7549,
+        7523
+      ],
+      "raw": 15072,
+      "zlib": 14881,
+      "brotli": 14835,
+      "zstd": 14836,
+      "best_algo": "brotli",
+      "best": 14835,
+      "saved": 237,
+      "saved_pct": 1.6,
+      "saved_per_cert": [
+        49,
+        49
+      ],
+      "saved_within_certs": 98,
+      "saved_across_certs": 139
+    },
+    {
+      "chain": "slhroot",
+      "certs": 2,
+      "cert_sizes": [
+        5591,
+        10112
+      ],
+      "raw": 15703,
+      "zlib": 15521,
+      "brotli": 15473,
+      "zstd": 15472,
+      "best_algo": "zstd",
+      "best": 15472,
+      "saved": 231,
+      "saved_pct": 1.5,
+      "saved_per_cert": [
+        56,
+        35
+      ],
+      "saved_within_certs": 91,
+      "saved_across_certs": 140
+    },
+    {
+      "chain": "mixed",
+      "certs": 2,
+      "cert_sizes": [
+        5589,
+        2319
+      ],
+      "raw": 7908,
+      "zlib": 7749,
+      "brotli": 7704,
+      "zstd": 7703,
+      "best_algo": "zstd",
+      "best": 7703,
+      "saved": 205,
+      "saved_pct": 2.6,
+      "saved_per_cert": [
+        48,
+        25
+      ],
+      "saved_within_certs": 73,
+      "saved_across_certs": 132
+    },
+    {
+      "chain": "catalyst",
+      "certs": 2,
+      "cert_sizes": [
+        5801,
+        437
+      ],
+      "raw": 6238,
+      "zlib": 6039,
+      "brotli": 6000,
+      "zstd": 5986,
+      "best_algo": "zstd",
+      "best": 5986,
+      "saved": 252,
+      "saved_pct": 4.0,
+      "saved_per_cert": [
+        76,
+        50
+      ],
+      "saved_within_certs": 126,
+      "saved_across_certs": 126
+    },
+    {
+      "chain": "composite",
+      "certs": 1,
+      "cert_sizes": [
+        5628
+      ],
+      "raw": 5628,
+      "zlib": 5589,
+      "brotli": 5560,
+      "zstd": 5547,
+      "best_algo": "zstd",
+      "best": 5547,
+      "saved": 81,
+      "saved_pct": 1.4,
+      "saved_per_cert": [
+        81
+      ],
+      "saved_within_certs": 81,
+      "saved_across_certs": 0
+    }
+  ],
+  "fields": [
+    {
+      "chain": "mldsa44",
+      "field": "signature",
+      "raw": 2420,
+      "zlib": 2431,
+      "brotli": 2424,
+      "zstd": 2430,
+      "best": 2424,
+      "delta": 4
+    },
+    {
+      "chain": "mldsa44",
+      "field": "spki",
+      "raw": 1334,
+      "zlib": 1345,
+      "brotli": 1338,
+      "zstd": 1344,
+      "best": 1338,
+      "delta": 4
+    },
+    {
+      "chain": "mldsa65",
+      "field": "signature",
+      "raw": 3309,
+      "zlib": 3320,
+      "brotli": 3313,
+      "zstd": 3319,
+      "best": 3313,
+      "delta": 4
+    },
+    {
+      "chain": "mldsa65",
+      "field": "spki",
+      "raw": 1974,
+      "zlib": 1985,
+      "brotli": 1978,
+      "zstd": 1984,
+      "best": 1978,
+      "delta": 4
+    },
+    {
+      "chain": "mldsa87",
+      "field": "signature",
+      "raw": 4627,
+      "zlib": 4638,
+      "brotli": 4631,
+      "zstd": 4637,
+      "best": 4631,
+      "delta": 4
+    },
+    {
+      "chain": "mldsa87",
+      "field": "spki",
+      "raw": 2614,
+      "zlib": 2625,
+      "brotli": 2618,
+      "zstd": 2624,
+      "best": 2618,
+      "delta": 4
+    }
+  ]
+}

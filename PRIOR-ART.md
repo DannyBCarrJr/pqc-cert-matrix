@@ -189,6 +189,17 @@ structure. **Our constant is a floor for minimal certificates, not a WebPKI
 figure**, and publishing it without that caveat would understate compression's
 real-world value and invite a correct rebuttal.
 
+**That limitation is now closed, 2026-08-09, and the floor was low by a factor of
+four.** `pqc-chain-budget/src/compress_chains.py` ran the same decomposition over
+the 8,152 real chains that repo captured: median saving 985 bytes (28.6%), or 942
+bytes with zstd alone against cert-abridge's 789. The decomposition also inverts
+in scale, 515 bytes within certificates and 442 across them, against 100 and 140
+here. Real certificates carry SANs, SCTs, and CRL URLs, and all of it compresses.
+**Cite the 985-byte WebPKI figure, not the 240-byte lab constant, whenever the
+subject is the real web.** The 240 remains correct for these minimal lab chains
+and is what makes the size-independence visible, since it holds from 900 to
+15,703 bytes of chain. Both numbers are real; they answer different questions.
+
 ### The extra round trip: PREEMPTED as a concept, survives only as a refinement
 
 **Chou and Cao, arXiv:2604.24869, 2026-04-27**, *Network Impact of Post-Quantum

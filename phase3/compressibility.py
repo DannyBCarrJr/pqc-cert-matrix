@@ -90,6 +90,40 @@ def decompose(certs: list) -> dict:
     }
 
 
+def measure_fields() -> list:
+    """Compress the ML-DSA signature and public key on their own.
+
+    The chain tables above show the saving does not scale with signature size.
+    This isolates why: it compresses the post-quantum fields themselves, with no
+    X.509 structure around them to find redundancy in. Every RFC 8879 algorithm
+    returns MORE bytes than it was given, because the compressor's own framing is
+    the only thing it can add to incompressible input.
+
+    Needs `cryptography` for the field extraction (pip install cryptography).
+    """
+    from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
+    from cryptography import x509
+
+    rows = []
+    for name in ("mldsa44", "mldsa65", "mldsa87"):
+        chain_pem = BUNDLES / name / "chain.pem"
+        if not chain_pem.exists():
+            continue
+        leaf = x509.load_der_x509_certificate(
+            base64.b64decode(PEM_RE.findall(chain_pem.read_bytes())[0]))
+        fields = {
+            "signature": leaf.signature,
+            "spki": leaf.public_key().public_bytes(Encoding.DER,
+                                                   PublicFormat.SubjectPublicKeyInfo),
+        }
+        for field, blob in fields.items():
+            comp = compress_all(blob)
+            rows.append({"chain": name, "field": field, "raw": len(blob),
+                         **comp, "best": min(comp.values()),
+                         "delta": min(comp.values()) - len(blob)})
+    return rows
+
+
 def main() -> None:
     rows = []
     for name in CHAINS:
@@ -114,15 +148,20 @@ def main() -> None:
             **decompose(certs),
         })
 
-    OUT_JSON.write_text(json.dumps(rows, indent=2) + "\n")
-    write_md(rows)
+    fields = measure_fields()
+    OUT_JSON.write_text(json.dumps({"chains": rows, "fields": fields}, indent=2) + "\n")
+    write_md(rows, fields)
     for r in rows:
         print(f"{r['chain']:10s} raw={r['raw']:6d} best={r['best']:6d} "
               f"({r['best_algo']}) saved={r['saved']:6d} ({r['saved_pct']}%)")
+    print()
+    for f in fields:
+        print(f"{f['chain']:10s} {f['field']:9s} raw={f['raw']:5d} "
+              f"best={f['best']:5d} delta={f['delta']:+d}")
     print(f"\n{len(rows)} chains -> phase3/compression.json, phase3/COMPRESSION.md")
 
 
-def write_md(rows: list) -> None:
+def write_md(rows: list, fields: list) -> None:
     md = [
         "# Certificate compression against post-quantum chains",
         "",
@@ -159,9 +198,27 @@ def write_md(rows: list) -> None:
             f"| {r['chain']} | {sizes} | {r['saved_within_certs']} ({per}) | "
             f"{r['saved_across_certs']} | {r['saved']:,} |"
         )
+    md += [
+        "",
+        "## The post-quantum fields on their own",
+        "",
+        "The tables above show the saving does not scale with signature size.",
+        "Here is why, with the X.509 structure stripped away: the ML-DSA",
+        "signature and public key compressed by themselves. Every algorithm",
+        "returns more bytes than it was given. Compressor framing is the only",
+        "thing there is to add to input that has no redundancy in it.",
+        "",
+        "| Chain | Field | Raw bytes | zlib | brotli | zstd | Best |",
+        "|---|---|---|---|---|---|---|",
+    ]
+    for f in fields:
+        md.append(
+            f"| {f['chain']} | {f['field']} | {f['raw']:,} | {f['zlib']:,} | "
+            f"{f['brotli']:,} | {f['zstd']:,} | {f['delta']:+d} |"
+        )
     md += ["", "Reproduce:", "",
            "```", "python3 -m venv phase3/.venv",
-           "phase3/.venv/bin/pip install brotli zstandard",
+           "phase3/.venv/bin/pip install brotli zstandard cryptography",
            "phase3/.venv/bin/python phase3/compressibility.py", "```"]
     OUT_MD.write_text("\n".join(md) + "\n")
 

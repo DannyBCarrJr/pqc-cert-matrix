@@ -34,10 +34,27 @@ intermediate). Neither term scales with key or signature size.
 | catalyst | 5,801 + 437 | 126 (76 + 50) | 126 | 252 |
 | composite | 5,628 | 81 (81) | 0 | 81 |
 
+## The post-quantum fields on their own
+
+The tables above show the saving does not scale with signature size.
+Here is why, with the X.509 structure stripped away: the ML-DSA
+signature and public key compressed by themselves. Every algorithm
+returns more bytes than it was given. Compressor framing is the only
+thing there is to add to input that has no redundancy in it.
+
+| Chain | Field | Raw bytes | zlib | brotli | zstd | Best |
+|---|---|---|---|---|---|---|
+| mldsa44 | signature | 2,420 | 2,431 | 2,424 | 2,430 | +4 |
+| mldsa44 | spki | 1,334 | 1,345 | 1,338 | 1,344 | +4 |
+| mldsa65 | signature | 3,309 | 3,320 | 3,313 | 3,319 | +4 |
+| mldsa65 | spki | 1,974 | 1,985 | 1,978 | 1,984 | +4 |
+| mldsa87 | signature | 4,627 | 4,638 | 4,631 | 4,637 | +4 |
+| mldsa87 | spki | 2,614 | 2,625 | 2,618 | 2,624 | +4 |
+
 Reproduce:
 
 ```
 python3 -m venv phase3/.venv
-phase3/.venv/bin/pip install brotli zstandard
+phase3/.venv/bin/pip install brotli zstandard cryptography
 phase3/.venv/bin/python phase3/compressibility.py
 ```
