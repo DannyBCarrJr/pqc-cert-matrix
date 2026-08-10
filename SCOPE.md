@@ -33,6 +33,13 @@ July: five old SHAs 404, current HEAD resolves. Article 3 now links the repo.
 Remaining Phase 4 item: cross-links from the whitepaper and the public lab repo.
 Owner: Danny. Flagship candidate for the "operational evidence layer" strategy;
 feeds article 3 and the public lab repo.
+**Compression addendum 2026-08-09** (`phase3/compressibility.py`): the ML-DSA
+signature and SPKI now get compressed on their own, and every RFC 8879 algorithm
+returns them 4 bytes larger. That is the assumption behind article 7, "The same
+985 bytes" (carrdigital.dev/writing/the-same-985-bytes/), whose corpus half lives
+in pqc-chain-budget. It also closed the caveat in `PRIOR-ART.md`: the 240-byte
+constant here is a floor for these minimal lab chains and was low by 4x against
+985 bytes on 8,152 real ones. Cite 985 for the real web, 240 only for the lab.
 
 ## The question v1 answers
 
