@@ -361,6 +361,65 @@ found returns a false pass.
 Reported, from a vendor page on one date. Vendor pages change without notice, so
 re-read it immediately before any article cites it, and record the date read.
 
+### Why the parse-based path is structural rather than lazy. Added 2026-08-12.
+
+This is the strongest available framing for the headline, and it is stronger than
+"tools take a shortcut", because it explains why they have no choice.
+
+**In TLS 1.3 the certificate is not on the wire in the clear.** RFC 8446 section
+4.4, quoted from the RFC text rather than recalled:
+
+> TLS generally uses a common set of messages for authentication, key
+> confirmation, and handshake integrity: Certificate, CertificateVerify, and
+> Finished. ... These messages are encrypted under keys derived from the
+> [sender]_handshake_traffic_secret.
+
+Figure 1 of the same RFC writes the message as `{Certificate*}`, and its legend
+defines `{}` as "messages protected using keys derived from a
+[sender]_handshake_traffic_secret."
+
+**The consequence for every inventory tool.** ClientHello and ServerHello are
+plaintext, so a passive on-path observer can read `supported_groups`, the
+negotiated `key_share`, the cipher suite, and the client's advertised
+`signature_algorithms` and `signature_algorithms_cert`. It cannot read the
+Certificate message. So passive traffic inspection can establish which key
+exchange was negotiated and cannot establish which certificate chain was served.
+
+That is why PQC readiness tooling converges on the same two methods, and it is not
+carelessness:
+
+- **Key exchange, measured live**, because it is visible without acting as a
+  client. This is what Wiz's PQC Tester does, per the entry above.
+- **Certificates, by parsing** files, configuration, and inventories, because that
+  is the only remaining source when the wire will not show you.
+
+Which leaves the actual behavior, what a stack does with a chain at handshake
+time, reachable **only by completing a handshake as a client**. That is this
+repo's method across 88 cells, and this is the argument for why the method is
+necessary rather than merely unusual.
+
+**Independent corroboration that the encryption holds in practice**, and not only
+on paper: Luke Valenta (Cloudflare), `slides-125-plants-mtc-experiment-early-results-01.pdf`,
+IETF 125, 2026-03-14, reporting on MTC served to 1000 Cloudflare-proxied domains
+with Chrome as client on 50% of Chrome Beta 146+: "Middlebox interference thus far
+is a non-factor (TLS 1.3 encrypts server cert)." A production deployment changing
+certificate format entirely and drawing no middlebox reaction is measured evidence
+that on-path devices are not reading these certificates.
+
+**Stamps.** The RFC 8446 quotations are Reported, from the RFC text fetched and
+grepped on 2026-08-12. The Cloudflare quotation is Reported, from the slide deck
+downloaded from ietf.org/proceedings and read the same day. The claim that only an
+active handshake reveals served-chain behavior is Verified here, across the 88
+cells. The inference joining them, that parse-based inventory is forced rather than
+chosen, is **Proposed**: it is an argument from the mechanism, and no tool vendor
+has been asked to confirm it is their reason.
+
+Cross-reference: the same mechanism sharpens `pqc-chain-selection`. A passive
+observer sees the client's `signature_algorithms_cert` in the plaintext
+ClientHello but cannot see which chain the server returned, so it cannot determine
+whether the constraint was honored. The request is visible and the response is
+not.
+
 ## Backported 2026-08-08 from the pqc-chain-budget sweeps
 
 Six sources surfaced while sweeping the sibling project
