@@ -328,6 +328,39 @@ both stop at the same boundary: one implementation stack, or certificate-path
 verification without live cross-stack handshakes. That boundary is exactly what
 this repo crosses. Article 3 should say so plainly and cite both.
 
+**A current, named example of the inventory class this project's headline is
+about. Added 2026-08-12.**
+
+The headline here is that parsing never fails, so a parse-based inventory returns
+a false pass. Until now that class was described generically. Wiz's PQC readiness
+offering is a live instance of it, per its own product page read 2026-08-12: it
+inventories by scanning code and container images for "libraries and primitives",
+by reading Infrastructure as Code templates and host configuration, by inspecting
+cloud services such as "AWS KMS, load balancers, and API gateways", and by
+certificate and SSH key inspection covering "their respective algorithms and key
+lengths". The page states no limitations.
+
+**Two constraints on using this, both mandatory.**
+
+First, name the method, never the product's competence. The defensible claim is
+that configuration and certificate parsing cannot observe what a stack does at
+handshake time, which is this repo's measured result across 88 cells. Writing that
+a named vendor "has a 100% false-pass rate" asserts something about their product
+that this repo has not measured, and it invites a rebuttal that costs more than the
+sentence is worth. `AGENTS.md` already bans novelty superlatives here; treat vendor
+accusations the same way.
+
+Second, they do ship a live check, and omitting that would be unfair framing. Wiz
+offers a separate PQC Tester described as scanning "your domain ... to see if your
+server supports PQC key exchanges". That is a real handshake, so the honest
+statement is narrower and still holds: the live check covers **key exchange**, and
+the certificate path is covered by parsing. Key exchange is the half that already
+works and gets measured everywhere; the certificate half is the one this project
+found returns a false pass.
+
+Reported, from a vendor page on one date. Vendor pages change without notice, so
+re-read it immediately before any article cites it, and record the date read.
+
 ## Backported 2026-08-08 from the pqc-chain-budget sweeps
 
 Six sources surfaced while sweeping the sibling project
