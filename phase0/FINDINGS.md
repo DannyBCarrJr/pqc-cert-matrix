@@ -177,7 +177,7 @@ the flag; the flag state IS the matrix cell.
 - Both clients pass the catalyst row (parse, verify, handshake), which now holds
   across all ten columns without exception.
 
-## schannel / Windows CNG (build 26200, Windows 11 25H2) — the headline column
+## schannel / Windows CNG (build 26200, Windows 11 25H2). The headline column
 
 Tested from the Windows side of the machine via PowerShell against the WSL
 `openssl s_server`. Nobody publishes this; every cell here is new.

@@ -5,11 +5,14 @@
 
 Measured client behavior for post-quantum and hybrid X.509 certificate chains.
 
-When a post-quantum or hybrid certificate chain hits real client software, what
-actually happens? Vendors announce hybrid PQC certificates with no published
-measurements. This project answers with evidence: **8 chain shapes across 11
-client stacks, 88 cells**, every one a script plus captured output, rerunnable by
-any reader on stock tooling.
+Post-quantum certificates break validation, not parsers. All 88 cells here parse,
+so a parse-based certificate inventory returns a pass on chains that will fail the
+handshake. If you are planning a migration on the strength of an inventory scan,
+that is a 100% false-pass rate on exactly the chains you care about.
+
+Vendors were announcing hybrid PQC certificates without publishing measurements.
+This is **8 chain shapes across 11 client stacks, 88 cells**, every one a script
+plus captured output, rerunnable on stock tooling.
 
 Written up for a general audience at
 [Hybrid certificates, weighed](https://carrdigital.dev/writing/hybrid-certificates-weighed/).
