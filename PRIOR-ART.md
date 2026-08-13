@@ -26,6 +26,30 @@ those families do not cross-verify. Their conclusion is that Catalyst's
 compatibility advantage is not a security equivalence, and pricing enforcement in
 removes Catalyst from the top rank.
 
+**Re-verified in full 2026-08-12.** PDF fetched from eprint.iacr.org and grepped,
+not summarized. Title, all six authors, Hansung University, the nine-verifier list
+(OpenSSL, Go, Botan, GnuTLS, mbedTLS, NSS, Windows CryptoAPI, and "Java's SUN and
+BouncyCastle paths"), CVE-2026-5393, the BouncyCastle split verdict, the wolfSSL
+cannot-require finding, and "three verifiers across three OID families reject
+corruption of either half" all confirmed verbatim. Every claim in the paragraph
+above survives.
+
+**Two details worth adding, because both strengthen the joint thesis.**
+
+First, they ran the control that proves the accept is structural rather than nine
+separate oversights: "the same content marked critical is rejected at parse
+(Go/Botan: 'unhandled critical extension'), so the criticality bit alone flips
+accept to reject". That is the same discipline this repo uses, a negative control
+on a passing cell, and it means the finding cannot be dismissed as a set of
+implementation bugs awaiting patches. It is the X.509 processing rule doing exactly
+what it is specified to do.
+
+Second, the nine accepts are not nine instances of one mechanism. Most verifiers
+"parse the extension and ignore it, while mbedTLS reaches the same accept by not
+supporting alt-signatures at all". Same verdict, different reason. Worth stating
+when citing the count, because "nine verifiers accept" invites a reader to assume a
+single shared cause.
+
 **Why this matters here.** Our matrix measured that Catalyst passes everything.
 Their paper measured *why* that is dangerous. Read together, the honest thesis is
 sharper than either alone: **the one hybrid design that works on every stack is
