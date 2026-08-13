@@ -340,12 +340,37 @@ only, so a brotli-only server reads as a non-engagement from this build.
 
 **Both papers name this project's axis as their own open work.**
 
-- IACR 2026/1416: "BoringSSL and rustls remain future work."
-- arXiv 2604.06100, section 10.2 and 11.3: the study runs on a single stack
-  (OpenSSL 3 plus oqsprovider) and states that "repeating the same
+**Both quotes re-verified against the source PDFs on 2026-08-12, fetched and
+grepped. Both are verbatim and both section references are right.**
+
+- **IACR 2026/1416:** "(BoringSSL and rustls remain future work)". It is a
+  parenthetical inside the sentence "None of the 15 stacks we tested provides a
+  working default ... way to require the binding", and the same scope appears again
+  in their future-work list: "extending the tamper-tested matrix to further
+  high-traffic stacks (BoringSSL, rustls)". Quoting it as a bare sentence is fair,
+  but know it is a parenthetical if a reviewer asks.
+- **arXiv 2604.06100**, "Signature Placement in Post-Quantum TLS Certificate
+  Hierarchies: An Experimental Study of ML-DSA and SLH-DSA in TLS 1.3
+  Authentication", José Luis Delgado Jiménez. Section **10.2 is titled "Single
+  implementation stack"** and reads "The study is conducted on a specific
+  implementation stack, namely OpenSSL 3 together with oqsprovider and liboqs."
+  Section **11.3 is titled "What remains open"** and contains, verbatim: "the
+  present study uses a single implementation stack. Repeating the same
   hierarchy-sensitive analysis across other TLS libraries and post-quantum
   integrations would strengthen confidence in the generality of the structural
   findings."
+
+**Reconcile the stack counts before publishing anything that quotes them, because
+this is where a reviewer's arithmetic will go.** 2026/1416 describes "one 162-cell
+matrix over 15 stacks", and decomposes it in its own words: "nine are alt-blind
+(§4.3), seven are surveyed for require-mode (Table 1), and three independent
+verifiers confirm Composite". It then warns they are "overlapping subsets, not a
+partition".
+
+So the nine and the three cited in this file are both the paper's own figures and
+both correct. Do not add them, do not describe the paper as testing nine stacks
+when its headline count is 15, and if the 15 comes up, the honest sentence is that
+nine is the alt-blind subset this project's Catalyst result speaks to.
 
 Two independent 2026 papers, one security-focused and one performance-focused,
 both stop at the same boundary: one implementation stack, or certificate-path
