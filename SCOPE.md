@@ -148,6 +148,6 @@ claims. A reader with Docker and OpenSSL 3.5 can rerun any cell in under an hour
 - All work on this machine, personal lab only; no employer material, tooling, or
   vendor-relationship knowledge. Public specs and open tooling exclusively.
 - No vendor product testing in v1 (no AppViewX/Sectigo/etc. accounts): the matrix
-  tests open-source stacks, which keeps it reproducible and keeps the day-job
-  boundary clean.
+  tests open-source stacks, so every cell stays reproducible by a stranger with no
+  accounts.
 - Writing style rules apply to everything published.
